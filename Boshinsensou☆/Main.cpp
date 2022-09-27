@@ -1,13 +1,12 @@
 #include "System.h"
-#include "Shop.h"
 
 void Initialize()
 {
-	system("mode con cols=100 lines=60");
-	Shop();
+	system("mode con cols=100 lines=50");
 }
 
 int main()
 {
 	Initialize();
+	Shop();
 }

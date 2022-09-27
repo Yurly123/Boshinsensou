@@ -1,22 +1,12 @@
 #include "system.h"
 
-void Print(string Text)
-{
-	cout << Text;
-}
-
-void PrintL(string Text)
-{
-	Print(Text + "\n");
-}
-
 void PrintLine()
 {
 	for (int i = 0; i < 99; ++i)
 	{
-		Print("¦¡");
+		printf("¦¡");
 	}
-	Print("\n");
+	printf("\n");
 }
 
 int GetInput(vector<int> InputList)

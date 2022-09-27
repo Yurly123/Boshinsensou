@@ -1,5 +1,5 @@
 #pragma once
 
-#include "system.h"
+#include "System.h"
 
 void Shop();

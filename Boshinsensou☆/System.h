@@ -8,8 +8,11 @@
 #include <vector>
 
 using namespace std;
+class Charactor;
 
-void Print(string);
-void PrintL(string);
+#include "Charactor.h"
+#include "Shop.h"
+#include "Train.h"
+
 void PrintLine();
 int GetInput(vector<int>);
