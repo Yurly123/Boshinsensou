@@ -2,7 +2,7 @@
 
 void Shop()
 {
-	Charactor CurrentChara = Charactor("YMN", 4, 110);
+	Charactor CurrentChara = Charactor("UDK", 1, 100);
 	while (true)
 	{
 		PrintLine();
