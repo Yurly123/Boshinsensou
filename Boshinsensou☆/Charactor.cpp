@@ -58,7 +58,7 @@ string GetCharaDescription(Charactor Chara)
 	return Description;
 }
 
-vector<Charactor> GetCharaList()
+vector<Charactor> GetAllChara()
 {
 	ifstream FileStream("Charactors.csv");
 	vector<Charactor> CharaList;
@@ -81,5 +81,6 @@ vector<Charactor> GetCharaList()
 		CharaList.push_back(Charactor(name, IsAlt, id, hp));
 	}
 	FileStream.close();
+
 	return CharaList;
 }

@@ -49,5 +49,13 @@
     <None Include="Charactors.csv">
       <Filter>리소스 파일</Filter>
     </None>
+    <None Include="Talent.csv">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
   </ItemGroup>
 </Project>

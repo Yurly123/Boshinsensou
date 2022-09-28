@@ -2,7 +2,7 @@
 
 void Shop()
 {
-	Charactor CurrentChara = GetCharaList().front();
+	Charactor CurrentChara = GetAllChara().front();
 	while (true)
 	{
 		cout << endl << "현재 캐릭터 : " << CurrentChara.name.Text << endl;
@@ -29,12 +29,12 @@ void Shop()
 
 Charactor ChangeCharactor(Charactor CurrentChara)
 {
-	while (1)
+	while (true)
 	{
 		PrintLine();
 		cout << endl;
 		vector<int> IDList;
-		vector<Charactor> CharaList = GetCharaList();
+		vector<Charactor> CharaList = GetAllChara();
 
 		for (Charactor Chara : CharaList)
 		{

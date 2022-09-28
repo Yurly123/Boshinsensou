@@ -22,4 +22,4 @@ public:
 
 void ShowCharaInfo(Charactor);
 string GetCharaDescription(Charactor);
-vector<Charactor> GetCharaList();
+vector<Charactor> GetAllChara();
