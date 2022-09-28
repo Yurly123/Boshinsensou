@@ -1,24 +1,23 @@
 #pragma once
 
 #include "System.h"
+#include <fstream>
+#include <sstream>
 
 class Charactor
 {
 public:
-	string Name;
+	Name name;
 	int ID;
 	int HP;
 
-	Charactor(string Name, int ID, int HP)
+	Charactor(string name, int IsAlt, int ID, int HP)
 	{
-		this->Name = Name;
+		this->name = Name(name, IsAlt);
 		this->ID = ID;
 		this->HP = HP;
 	}
-	Charactor()
-	{
-		Charactor("", 0, 0);
-	}
+	Charactor() : Charactor("", false, 0, 0) { }
 };
 
 void ShowCharaInfo(Charactor);

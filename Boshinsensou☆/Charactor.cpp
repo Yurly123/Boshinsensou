@@ -3,7 +3,7 @@
 void ShowCharaInfo(Charactor Chara)
 {
 	PrintLine();
-	cout << endl << "   -" << Chara.ID << "-\t" << Chara.Name << endl;
+	cout << endl << "   -" << Chara.ID << "-\t" << Chara.name.Text << endl;
 	cout << "   Ã¼·Â : " << Chara.HP << endl;
 	cout << endl << endl << GetCharaDescription(Chara) << endl;
 	PrintLine();
@@ -60,10 +60,26 @@ string GetCharaDescription(Charactor Chara)
 
 vector<Charactor> GetCharaList()
 {
+	ifstream FileStream("Charactors.csv");
 	vector<Charactor> CharaList;
-	CharaList.push_back(Charactor("UDK", 1, 100));
-	CharaList.push_back(Charactor("RU", 2, 100));
-	CharaList.push_back(Charactor("HNS", 3, 100));
-	CharaList.push_back(Charactor("YMN", 4, 100));
+	while (!FileStream.eof())
+	{
+		string Buffer;
+
+		getline(FileStream, Buffer, ',');
+		int id = stoi(Buffer);
+
+		getline(FileStream, Buffer, ',');
+		string name = Buffer;
+
+		getline(FileStream, Buffer, ',');
+		bool IsAlt = Buffer == "true";
+
+		getline(FileStream, Buffer, ',');
+		int hp = stoi(Buffer);
+
+		CharaList.push_back(Charactor(name, IsAlt, id, hp));
+	}
+	FileStream.close();
 	return CharaList;
 }

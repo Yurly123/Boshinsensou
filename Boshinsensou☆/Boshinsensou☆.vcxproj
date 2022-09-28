@@ -139,6 +139,9 @@
     <ClInclude Include="System.h" />
     <ClInclude Include="Train.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Charactors.csv" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
