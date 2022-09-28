@@ -15,7 +15,12 @@ public:
 		this->ID = ID;
 		this->HP = HP;
 	}
+	Charactor()
+	{
+		Charactor("", 0, 0);
+	}
 };
 
 void ShowCharaInfo(Charactor);
 string GetCharaDescription(Charactor);
+vector<Charactor> GetCharaList();

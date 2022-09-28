@@ -7,12 +7,13 @@
 #include <time.h>
 #include <vector>
 
+#define Wait getchar();
 using namespace std;
 class Charactor;
 
-#include "Charactor.h"
 #include "Shop.h"
 #include "Train.h"
+#include "Charactor.h"
 
 void PrintLine();
 int GetInput(vector<int>);

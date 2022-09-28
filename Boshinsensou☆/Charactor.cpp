@@ -57,3 +57,13 @@ string GetCharaDescription(Charactor Chara)
 	}
 	return Description;
 }
+
+vector<Charactor> GetCharaList()
+{
+	vector<Charactor> CharaList;
+	CharaList.push_back(Charactor("UDK", 1, 100));
+	CharaList.push_back(Charactor("RU", 2, 100));
+	CharaList.push_back(Charactor("HNS", 3, 100));
+	CharaList.push_back(Charactor("YMN", 4, 100));
+	return CharaList;
+}
