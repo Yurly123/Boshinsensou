@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="리소스 파일\Chara">
+      <UniqueIdentifier>{7f60e379-72cd-4544-8e0e-2ced83e56128}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -44,18 +47,16 @@
     <ClInclude Include="Train.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CharaData.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Charactors.csv">
       <Filter>리소스 파일</Filter>
     </None>
-    <None Include="Talent.csv">
-      <Filter>리소스 파일</Filter>
+    <None Include="1 UDK.csv">
+      <Filter>리소스 파일\Chara</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="test.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
   </ItemGroup>
 </Project>

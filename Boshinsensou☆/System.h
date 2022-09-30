@@ -2,9 +2,11 @@
 
 #include <iostream>
 #include <vector>
+#include <array>
 
 #define Wait getchar();
 using namespace std;
+class CharaData;
 class Charactor;
 class Name
 {
@@ -49,6 +51,7 @@ public:
 	}
 };
 
+#include "CharaData.h"
 #include "Shop.h"
 #include "Train.h"
 #include "Charactor.h"

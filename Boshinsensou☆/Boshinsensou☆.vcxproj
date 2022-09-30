@@ -135,17 +135,15 @@
     <ClCompile Include="Train.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CharaData.h" />
     <ClInclude Include="Charactor.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="Train.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="1 UDK.csv" />
     <None Include="Charactors.csv" />
-    <None Include="Talent.csv" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

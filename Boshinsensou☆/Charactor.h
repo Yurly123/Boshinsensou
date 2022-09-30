@@ -10,6 +10,7 @@ public:
 	Name name;
 	int ID;
 	int HP;
+	CharaData CData;
 
 	Charactor(string name, int IsAlt, int ID, int HP)
 	{
