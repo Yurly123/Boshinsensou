@@ -4,4 +4,4 @@
 #include <fstream>
 #include <sstream>
 
-CData LoadCharaData(string filepath);
+CData LoadDefaultCharaData(string filepath);

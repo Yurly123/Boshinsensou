@@ -9,7 +9,7 @@ void Charactor::LoadCData()
 	filepath.append(" ");
 	filepath.append(Name.Text);
 	filepath.append(".csv");
-	this->cData = LoadCharaData(filepath);
+	this->cData = LoadDefaultCharaData(filepath);
 }
 void Charactor::LoadCharaList()
 {

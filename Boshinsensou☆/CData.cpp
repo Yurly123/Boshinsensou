@@ -91,7 +91,7 @@ string CData::CStr(int id)
 	return CStr_Name[id];
 }
 
-CData LoadCharaData(string filepath)
+CData LoadDefaultCharaData(string filepath)
 {
 	ifstream FileStream(filepath);
 	CData charaData;
