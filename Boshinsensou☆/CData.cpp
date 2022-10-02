@@ -18,9 +18,9 @@ CData::CData()
 }
 void CData::LoadCDatas()
 {
-	ifstream FlagS("CFlag.csv");
-	ifstream TalentS("CTalent.csv");
-	ifstream StrS("CStr.csv");
+	ifstream FlagS("CSV\\CFlag.csv");
+	ifstream TalentS("CSV\\CTalent.csv");
+	ifstream StrS("CSV\\CStr.csv");
 	string Buffer;
 
 	while (!FlagS.eof())

@@ -55,20 +55,23 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Charactors.csv">
+    <None Include="CSV\CFlag.csv">
       <Filter>리소스 파일</Filter>
     </None>
-    <None Include="1 UDK.csv">
+    <None Include="CSV\Charactors.csv">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="CSV\CStr.csv">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="CSV\CTalent.csv">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="CSV\Chara\1 UDK.csv">
       <Filter>리소스 파일\Chara</Filter>
     </None>
-    <None Include="CFlag.csv">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="CTalent.csv">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="CStr.csv">
-      <Filter>리소스 파일</Filter>
+    <None Include="CSV\Chara\2 RU.csv">
+      <Filter>리소스 파일\Chara</Filter>
     </None>
   </ItemGroup>
 </Project>

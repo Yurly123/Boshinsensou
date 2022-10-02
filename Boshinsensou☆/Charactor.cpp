@@ -4,7 +4,7 @@ vector<Charactor> Charactor::CharaList = vector<Charactor>();
 
 void Charactor::LoadCData()
 {
-	string filepath;
+	string filepath = "CSV\\Chara\\";
 	filepath.append(to_string(ID));
 	filepath.append(" ");
 	filepath.append(Name.Text);
@@ -13,7 +13,7 @@ void Charactor::LoadCData()
 }
 void Charactor::LoadCharaList()
 {
-	ifstream FileStream("Charactors.csv");
+	ifstream FileStream("CSV\\Charactors.csv");
 	while (!FileStream.eof())
 	{
 		string Buffer;

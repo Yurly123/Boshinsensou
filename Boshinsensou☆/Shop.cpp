@@ -38,7 +38,7 @@ void Shop()
 				Charactor selectChara = SelectCharactor(OwnCharaList);
 				if (selectChara.ID == -1) break;
 
-				cout << endl << selectChara.Name.WithPP("으로") << " 바꾸시겠습니까?" << endl;
+				cout << endl << selectChara.Name.WithPP("를") << " 선택하시겠습니까?" << endl;
 				cout << "[0] 예\t[1] 아니오" << endl;
 				if (!GetInput({ 0,1 }))
 				{
@@ -88,7 +88,7 @@ void ShowCharaInfo(Charactor Chara)
 	cout << endl << endl;
 
 	PrintLine();
-	cout << endl << "   -" << Chara.ID << "-\t" << Chara.Name.Text << endl << endl;
+	cout << endl << "   -" << Chara.ID << "-\t" << Chara.cData.cstr[CData::CStr("이름")] << endl << endl;
 	cout << "  체력 : " << Chara.cData.cflag[CData::CFlag("현재체력")] << " / " << Chara.cData.cflag[CData::CFlag("최대체력")] << endl;
 
 	cout << endl << GetCharaDescription(Chara) << endl;
