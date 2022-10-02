@@ -1,12 +1,85 @@
 #include "Charactor.h"
 
-void ShowCharaInfo(Charactor Chara)
+vector<Charactor> Charactor::CharaList = vector<Charactor>();
+
+void Charactor::LoadCData()
 {
-	PrintLine();
-	cout << endl << "   -" << Chara.ID << "-\t" << Chara.name.Text << endl;
-	cout << "   체력 : " << Chara.HP << endl;
-	cout << endl << endl << GetCharaDescription(Chara) << endl;
-	PrintLine();
+	string filepath;
+	filepath.append(to_string(ID));
+	filepath.append(" ");
+	filepath.append(Name.Text);
+	filepath.append(".csv");
+	this->cData = LoadCharaData(filepath);
+}
+void Charactor::LoadCharaList()
+{
+	ifstream FileStream("Charactors.csv");
+	while (!FileStream.eof())
+	{
+		string Buffer;
+
+		getline(FileStream, Buffer, ',');
+		int id = stoi(Buffer);
+
+		getline(FileStream, Buffer, ',');
+		string name = Buffer;
+
+		getline(FileStream, Buffer);
+		bool IsAlt = Buffer == "true";
+
+		Charactor chara = Charactor(name, IsAlt, id);
+		CharaList.push_back(chara);
+	}
+	FileStream.close();
+}
+vector<Charactor> Charactor::GetAllChara()
+{
+	return CharaList;
+}
+Charactor::Charactor(string name, bool IsAlt, int ID)
+{
+	this->Name = ::Name(name, IsAlt);
+	this->ID = ID;
+	LoadCData();
+}
+
+Name::Name(string text, bool isalt)
+{
+	Text = text;
+	IsAlt = isalt;
+}
+string Name::GetPP(string PP)
+{
+	//ori 는 가 를 로   와 나   로서   로써
+	//alt 은 이 을 으로 과 이나 으로서 으로써
+	if (IsAlt)
+	{
+		if (PP == "는") PP = "은";
+		else if (PP == "가") PP = "이";
+		else if (PP == "를") PP = "을";
+		else if (PP == "로") PP = "으로";
+		else if (PP == "와") PP = "과";
+		else if (PP == "나") PP = "이나";
+		else if (PP == "로서") PP = "으로서";
+		else if (PP == "로써") PP = "으로써";
+	}
+	else
+	{
+		if (PP == "은") PP = "는";
+		else if (PP == "이") PP = "가";
+		else if (PP == "을") PP = "를";
+		else if (PP == "으로") PP = "로";
+		else if (PP == "과") PP = "와";
+		else if (PP == "이나") PP = "나";
+		else if (PP == "으로서") PP = "로서";
+		else if (PP == "으로써") PP = "로써";
+	}
+	return PP;
+}
+string Name::WithPP(string PP)
+{
+	string text = Text;
+	return text.append(GetPP(PP));
 }
 
 string GetCharaDescription(Charactor Chara)
@@ -28,7 +101,7 @@ string GetCharaDescription(Charactor Chara)
 		Description.append("UDK누님과 사이가 좋다, 하지만 서로는 싫지는 않지만 좋아하지도 않다는 애매한 관계라고 얼버무린다.\n");
 		Description.append("차를 마시면서 \"푸하! 오늘도 좋은 날씨☆\" 라고 말하는 특이한 습관을 가졌다.\n");
 		Description.append("이번 전쟁에서 본인의 숨겨진 전투력으로 큰 성과를 이룰것으로 기대된다.\n");
-		Description.append("옛날에 RU누님의 유전자를 무와 결합한 생명체가 개발됐었다.\n");
+		Description.append("옛날에 RU누님의 유전자를 무와 결합한 생명체가 개발되었다 한다.\n");
 		break;
 	case 3:
 		Description.append("히나세 하루카\n\n");
@@ -56,31 +129,4 @@ string GetCharaDescription(Charactor Chara)
 		break;
 	}
 	return Description;
-}
-
-vector<Charactor> GetAllChara()
-{
-	ifstream FileStream("Charactors.csv");
-	vector<Charactor> CharaList;
-	while (!FileStream.eof())
-	{
-		string Buffer;
-
-		getline(FileStream, Buffer, ',');
-		int id = stoi(Buffer);
-
-		getline(FileStream, Buffer, ',');
-		string name = Buffer;
-
-		getline(FileStream, Buffer, ',');
-		bool IsAlt = Buffer == "true";
-
-		getline(FileStream, Buffer, ',');
-		int hp = stoi(Buffer);
-
-		CharaList.push_back(Charactor(name, IsAlt, id, hp));
-	}
-	FileStream.close();
-
-	return CharaList;
 }

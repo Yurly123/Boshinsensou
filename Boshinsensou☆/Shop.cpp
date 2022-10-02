@@ -2,12 +2,18 @@
 
 void Shop()
 {
-	Charactor CurrentChara = GetAllChara().front();
+	vector<Charactor> OwnCharaList;
+	for (auto ownChara : Charactor::GetAllChara())
+	{
+		if (ownChara.cData.cflag[CData::CFlag("보유중")])
+			OwnCharaList.push_back(ownChara);
+	}
+	Charactor CurrentChara = OwnCharaList.front();
 	while (true)
 	{
-		cout << endl << "현재 캐릭터 : " << CurrentChara.name.Text << endl;
+		cout << endl << "현재 캐릭터 : " << CurrentChara.Name.Text << endl;
 		PrintLine();
-		printf("\n       훈련하기[100]    캐릭터 정보[101]     캐릭터 변경[109]\n\n");
+		printf("\n     [100] 훈련하기   [101] 캐릭터 정보   [109] 캐릭터 변경\n\n");
 	//  printf("\n+=+=+=+=+=+=+=+=+=+_+=+=+=+=+=+=+=+=+=+_+=+=+=+=+=+=+=+=+=+_\n\n");
 		PrintLine();
 		int Input = GetInput({ 100,101,109 });
@@ -17,45 +23,78 @@ void Shop()
 			Train(CurrentChara);
 			break;
 		case 101:
-			ShowCharaInfo(CurrentChara);
-			Wait;
+			while (true)
+			{
+				cout << endl << "정보를 보고싶은 캐릭터를 고르십시오" << endl << endl;
+				Charactor selectChara = SelectCharactor(OwnCharaList);
+				if (selectChara.ID == -1) break;
+				ShowCharaInfo(selectChara);
+			}
 			break;
 		case 109:
-			CurrentChara = ChangeCharactor(CurrentChara);
+			while (true)
+			{
+				cout << endl << "선택하려는 캐릭터를 고르십시오" << endl << endl;
+				Charactor selectChara = SelectCharactor(OwnCharaList);
+				if (selectChara.ID == -1) break;
+
+				cout << endl << selectChara.Name.WithPP("으로") << " 바꾸시겠습니까?" << endl;
+				cout << "[0] 예\t[1] 아니오" << endl;
+				if (!GetInput({ 0,1 }))
+				{
+					CurrentChara = selectChara;
+					break;
+				}
+			}
 			break;
 		}
 	}
 }
 
-Charactor ChangeCharactor(Charactor CurrentChara)
+Charactor SelectCharactor(vector<Charactor> charaList)
 {
-	while (true)
+	PrintLine();
+	cout << endl;
+	vector<int> IDList;
+
+	for (Charactor chara : charaList)
 	{
-		PrintLine();
-		cout << endl;
-		vector<int> IDList;
-		vector<Charactor> CharaList = GetAllChara();
-
-		for (Charactor Chara : CharaList)
-		{
-			cout <<  "\t" << Chara.name.Text << "\t[" << Chara.ID << "]" << endl;
-			IDList.push_back(Chara.ID);
-		}
-		cout << endl << "\t돌아가기[1000]" << endl;
-		IDList.push_back(1000);
-		PrintLine();
-		int SelectID = GetInput(IDList);
-		if (SelectID == 1000) return CurrentChara;
-
-		Charactor SelectChara;
-		for (Charactor Chara : CharaList)
-		{
-			if (Chara.ID == SelectID) SelectChara = Chara;
-		}
-
-		cout << endl << SelectChara.name.Text << SelectChara.name.GetPP("으로") << " 바꾸시겠습니까?" << endl;
-		cout << "예[0]\t아니오[1]" << endl;
-
-		if (!GetInput({ 0,1 })) return SelectChara;
+		cout << "  [" << setw(3) << chara.ID << "] " << chara.Name.Text << endl;
+		IDList.push_back(chara.ID);
 	}
+	cout << endl;
+	PrintLine();
+	cout << endl << "\t[1000] 돌아가기" << endl;
+	IDList.push_back(1000);
+	int SelectID = GetInput(IDList);
+	if (SelectID == 1000) return Charactor();
+	for (Charactor chara : charaList)
+	{
+		if (chara.ID == SelectID) return chara;
+	}
+}
+
+void ShowCharaInfo(Charactor Chara)
+{
+	cout << endl;
+	PrintLine();
+	cout << endl;
+	cout << "  소질 : ";
+	for (int i = 1; i < CData::CTalent_Length; ++i)
+	{
+		if (Chara.cData.ctalent[i])
+			cout << "[" << CData::CTalent(i) << "] ";
+	}
+	cout << endl << endl;
+
+	PrintLine();
+	cout << endl << "   -" << Chara.ID << "-\t" << Chara.Name.Text << endl << endl;
+	cout << "  체력 : " << Chara.cData.cflag[CData::CFlag("현재체력")] << " / " << Chara.cData.cflag[CData::CFlag("최대체력")] << endl;
+
+	cout << endl << GetCharaDescription(Chara) << endl;
+
+	PrintLine();
+	cout << endl << "\t[1000] 돌아가기" << endl;
+
+	GetInput({ 1000 });
 }

@@ -4,23 +4,58 @@
 #include <fstream>
 #include <sstream>
 
-class Charactor
+class CData
 {
+private:
+	static vector<string> CFlag_Name;
+	static vector<string> CTalent_Name;
+	static vector<string> CStr_Name;
+	static unordered_map<string, int> CFlag_ID;
+	static unordered_map<string, int> CTalent_ID;
+	static unordered_map<string, int> CStr_ID;
 public:
-	Name name;
-	int ID;
-	int HP;
-	CharaData CData;
+	static int CFlag(string);
+	static int CTalent(string);
+	static int CStr(string);
+	static string CFlag(int);
+	static string CTalent(int);
+	static string CStr(int);
+	static int CFlag_Length;
+	static int CTalent_Length;
+	static int CStr_Length;
+	static void LoadCDatas();
 
-	Charactor(string name, int IsAlt, int ID, int HP)
-	{
-		this->name = Name(name, IsAlt);
-		this->ID = ID;
-		this->HP = HP;
-	}
-	Charactor() : Charactor("", false, 0, 0) { }
+	vector<int> cflag;
+	vector<bool> ctalent;
+	vector<string> cstr;
+
+	CData();
 };
 
-void ShowCharaInfo(Charactor);
+class Name
+{
+public:
+	string Text;
+	bool IsAlt;
+
+	Name(string = "", bool = false);
+	string GetPP(string);
+	string WithPP(string);
+};
+
+class Charactor
+{
+private:
+	void LoadCData();
+	static vector<Charactor> CharaList;
+public:
+	Name Name;
+	int ID;
+	CData cData;
+
+	static void LoadCharaList();
+	static vector<Charactor> GetAllChara();
+	Charactor(string = "", bool = false, int = -1);
+};
+
 string GetCharaDescription(Charactor);
-vector<Charactor> GetAllChara();

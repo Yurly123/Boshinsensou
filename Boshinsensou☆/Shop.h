@@ -3,4 +3,5 @@
 #include "System.h"
 
 void Shop();
-Charactor ChangeCharactor(Charactor);
+Charactor SelectCharactor(vector<Charactor>);
+void ShowCharaInfo(Charactor);

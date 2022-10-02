@@ -129,13 +129,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Charactor.cpp" />
+    <ClCompile Include="CData.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="Train.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CharaData.h" />
+    <ClInclude Include="CData.h" />
     <ClInclude Include="Charactor.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="System.h" />
@@ -143,7 +144,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="1 UDK.csv" />
+    <None Include="CFlag.csv" />
     <None Include="Charactors.csv" />
+    <None Include="CStr.csv" />
+    <None Include="CTalent.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
