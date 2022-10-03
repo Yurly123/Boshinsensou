@@ -8,16 +8,16 @@ void Shop()
 		vector<Charactor> OwnCharaList;
 		for (auto ownChara : Charactor::GetAllChara())
 		{
-			if (ownChara.cData.cflag[CData::CFlag("º¸À¯Áß")])
+			if (ownChara.cData.cflag[CData::CFlag("ë³´ìœ ì¤‘")])
 				OwnCharaList.push_back(ownChara);
 		}
 		if (CurrentChara.ID == -1)
 			CurrentChara = OwnCharaList.front();
 
-		cout << endl << "ÇöÀç Ä³¸¯ÅÍ : " << CurrentChara.Name.Text << endl;
+		cout << endl << "í˜„ìž¬ ìºë¦­í„° : " << CurrentChara.Name.Text << endl;
 		PrintLine();
-		cout << endl << "     [100] ÈÆ·ÃÇÏ±â     [101] Ä³¸¯ÅÍ Á¤º¸     [109] Ä³¸¯ÅÍ º¯°æ     [200] ÀúÀåÇÏ±â";
-		cout << endl << "     [300] ºÒ·¯¿À±â";
+		cout << endl << "     [100] í›ˆë ¨í•˜ê¸°     [101] ìºë¦­í„° ì •ë³´     [109] ìºë¦­í„° ë³€ê²½     [200] ì €ìž¥í•˜ê¸°";
+		cout << endl << "     [300] ë¶ˆëŸ¬ì˜¤ê¸°";
 		cout << endl << endl;
 		PrintLine();
 		int Input = GetInput({ 100,101,109,200,300 });
@@ -29,7 +29,7 @@ void Shop()
 		case 101:
 			while (true)
 			{
-				cout << endl << "Á¤º¸¸¦ º¸°í½ÍÀº Ä³¸¯ÅÍ¸¦ °í¸£½Ê½Ã¿À" << endl << endl;
+				cout << endl << "ì •ë³´ë¥¼ ë³´ê³ ì‹¶ì€ ìºë¦­í„°ë¥¼ ê³ ë¥´ì‹­ì‹œì˜¤" << endl << endl;
 				Charactor selectChara = SelectCharactor(OwnCharaList);
 				if (selectChara.ID == -1) break;
 				ShowCharaInfo(selectChara);
@@ -38,12 +38,12 @@ void Shop()
 		case 109:
 			while (true)
 			{
-				cout << endl << "¼±ÅÃÇÏ·Á´Â Ä³¸¯ÅÍ¸¦ °í¸£½Ê½Ã¿À" << endl << endl;
+				cout << endl << "ì„ íƒí•˜ë ¤ëŠ” ìºë¦­í„°ë¥¼ ê³ ë¥´ì‹­ì‹œì˜¤" << endl << endl;
 				Charactor selectChara = SelectCharactor(OwnCharaList);
 				if (selectChara.ID == -1) break;
 
-				cout << endl << selectChara.Name.WithPP("¸¦") << " ¼±ÅÃÇÏ½Ã°Ú½À´Ï±î?" << endl;
-				cout << "[0] ¿¹\t[1] ¾Æ´Ï¿À" << endl;
+				cout << endl << selectChara.Name.WithPP("ë¥¼") << " ì„ íƒí•˜ì‹œê² ìŠµë‹ˆê¹Œ?" << endl;
+				cout << "[0] ì˜ˆ\t[1] ì•„ë‹ˆì˜¤" << endl;
 				if (!GetInput({ 0,1 }))
 				{
 					CurrentChara = selectChara;
@@ -56,7 +56,7 @@ void Shop()
 			int index = 0;
 			while (true)
 			{
-				cout << endl << "¸î¹ø ½½·Ô¿¡ ÀúÀåÇÏ½Ã°Ú½À´Ï±î?" << endl << endl;
+				cout << endl << "ëª‡ë²ˆ ìŠ¬ë¡¯ì— ì €ìž¥í•˜ì‹œê² ìŠµë‹ˆê¹Œ?" << endl << endl;
 				int select = SelectSaveSlot(index);
 				if (select == 100) break;
 				else if (select == 101)
@@ -70,27 +70,27 @@ void Shop()
 				else
 				{
 					bool IsExisting = GetSlotStream(select).good();
-					cout << endl << "Á¤¸»·Î ";
+					cout << endl << "ì •ë§ë¡œ ";
 					if (IsExisting)
 						SetColor(11);
 					else
 						SetColor(8);
-					cout << "[" << select << "]¹ø ½½·Ô";
+					cout << "[" << select << "]ë²ˆ ìŠ¬ë¡¯";
 					SetColor(7);
 
-					cout << "¿¡ ÀúÀåÇÏ½Ã°Ú½À´Ï±î?" << endl;
+					cout << "ì— ì €ìž¥í•˜ì‹œê² ìŠµë‹ˆê¹Œ?" << endl;
 
 					if (IsExisting)
 					{
-						cout << "ÀÌ¹Ì ÀúÀåµÇ¾î ÀÖ´Â ½½·ÔÀÇ °æ¿ì, ";
+						cout << "ì´ë¯¸ ì €ìž¥ë˜ì–´ ìžˆëŠ” ìŠ¬ë¡¯ì˜ ê²½ìš°, ";
 						SetColor(11);
-						cout << "±âÁ¸ ÀúÀå³»¿ë";
+						cout << "ê¸°ì¡´ ì €ìž¥ë‚´ìš©";
 						SetColor(7);
-						cout << "Àº »ç¶óÁö°Ô µË´Ï´Ù." << endl;
+						cout << "ì€ ì‚¬ë¼ì§€ê²Œ ë©ë‹ˆë‹¤." << endl;
 					}
 
-					cout << "[0] ¿¹" << endl;
-					cout << "[1] ¾Æ´Ï¿ä" << endl;
+					cout << "[0] ì˜ˆ" << endl;
+					cout << "[1] ì•„ë‹ˆìš”" << endl;
 					if (!GetInput({ 0,1 }))
 					{
 						Save(select);
@@ -105,7 +105,7 @@ void Shop()
 			int index = 0;
 			while (true)
 			{
-				cout << endl << "¸î¹ø ½½·Ô¿¡¼­ ºÒ·¯¿À½Ã°Ú½À´Ï±î?" << endl << endl;
+				cout << endl << "ëª‡ë²ˆ ìŠ¬ë¡¯ì—ì„œ ë¶ˆëŸ¬ì˜¤ì‹œê² ìŠµë‹ˆê¹Œ?" << endl << endl;
 				int select = SelectSaveSlot(index);
 				if (select == 100) break;
 				else if (select == 101)
@@ -119,15 +119,15 @@ void Shop()
 				else
 				{
 					if (!GetSlotStream(select).good()) continue;
-					cout << endl << "Á¤¸»·Î ";
+					cout << endl << "ì •ë§ë¡œ ";
 					SetColor(11);
-					cout << "[" << select << "]¹ø ½½·Ô";
+					cout << "[" << select << "]ë²ˆ ìŠ¬ë¡¯";
 					SetColor(7);
 
-					cout << "¿¡¼­ ºÒ·¯¿À½Ã°Ú½À´Ï±î?" << endl;
+					cout << "ì—ì„œ ë¶ˆëŸ¬ì˜¤ì‹œê² ìŠµë‹ˆê¹Œ?" << endl;
 
-					cout << "[0] ¿¹" << endl;
-					cout << "[1] ¾Æ´Ï¿ä" << endl;
+					cout << "[0] ì˜ˆ" << endl;
+					cout << "[1] ì•„ë‹ˆìš”" << endl;
 					if (!GetInput({ 0,1 }))
 					{
 						Load(select);
@@ -154,7 +154,7 @@ Charactor SelectCharactor(vector<Charactor> charaList)
 	}
 	cout << endl;
 	PrintLine();
-	cout << endl << "\t[1000] µ¹¾Æ°¡±â" << endl;
+	cout << endl << "\t[1000] ëŒì•„ê°€ê¸°" << endl;
 	IDList.push_back(1000);
 	int SelectID = GetInput(IDList);
 	if (SelectID == 1000) return Charactor();
@@ -169,7 +169,7 @@ void ShowCharaInfo(Charactor Chara)
 	cout << endl;
 	PrintLine();
 	cout << endl;
-	cout << "  ¼ÒÁú : ";
+	cout << "  ì†Œì§ˆ : ";
 	for (int i = 1; i < CData::CTalent_Length; ++i)
 	{
 		if (Chara.cData.ctalent[i])
@@ -178,13 +178,13 @@ void ShowCharaInfo(Charactor Chara)
 	cout << endl << endl;
 
 	PrintLine();
-	cout << endl << "   -" << Chara.ID << "-\t" << Chara.cData.cstr[CData::CStr("ÀÌ¸§")] << endl << endl;
-	cout << "  Ã¼·Â : " << Chara.cData.cflag[CData::CFlag("ÇöÀçÃ¼·Â")] << " / " << Chara.cData.cflag[CData::CFlag("ÃÖ´ëÃ¼·Â")] << endl;
+	cout << endl << "   -" << Chara.ID << "-\t" << Chara.cData.cstr[CData::CStr("ì´ë¦„")] << endl << endl;
+	cout << "  ì²´ë ¥ : " << Chara.cData.cflag[CData::CFlag("í˜„ìž¬ì²´ë ¥")] << " / " << Chara.cData.cflag[CData::CFlag("ìµœëŒ€ì²´ë ¥")] << endl;
 
 	cout << endl << GetCharaDescription(Chara) << endl;
 
 	PrintLine();
-	cout << endl << "\t[1000] µ¹¾Æ°¡±â" << endl;
+	cout << endl << "\t[1000] ëŒì•„ê°€ê¸°" << endl;
 
 	GetInput({ 1000 });
 }
