@@ -2,20 +2,25 @@
 
 void Shop()
 {
-	vector<Charactor> OwnCharaList;
-	for (auto ownChara : Charactor::GetAllChara())
-	{
-		if (ownChara.cData.cflag[CData::CFlag("보유중")])
-			OwnCharaList.push_back(ownChara);
-	}
-	Charactor CurrentChara = OwnCharaList.front();
+	Charactor CurrentChara;
 	while (true)
 	{
+		vector<Charactor> OwnCharaList;
+		for (auto ownChara : Charactor::GetAllChara())
+		{
+			if (ownChara.cData.cflag[CData::CFlag("보유중")])
+				OwnCharaList.push_back(ownChara);
+		}
+		if (CurrentChara.ID == -1)
+			CurrentChara = OwnCharaList.front();
+
 		cout << endl << "현재 캐릭터 : " << CurrentChara.Name.Text << endl;
 		PrintLine();
-		printf("\n     [100] 훈련하기     [101] 캐릭터 정보     [109] 캐릭터 변경     [200] 저장하기\n\n");
+		cout << endl << "     [100] 훈련하기     [101] 캐릭터 정보     [109] 캐릭터 변경     [200] 저장하기";
+		cout << endl << "     [300] 불러오기";
+		cout << endl << endl;
 		PrintLine();
-		int Input = GetInput({ 100,101,109,200 });
+		int Input = GetInput({ 100,101,109,200,300 });
 		switch (Input)
 		{
 		case 100:
@@ -47,6 +52,7 @@ void Shop()
 			}
 			break;
 		case 200:
+		{
 			int index = 0;
 			while (true)
 			{
@@ -72,7 +78,7 @@ void Shop()
 					cout << "[" << select << "]번 슬롯";
 					SetColor(7);
 
-					cout <<"에 저장하시겠습니까?" << endl;
+					cout << "에 저장하시겠습니까?" << endl;
 
 					if (IsExisting)
 					{
@@ -80,9 +86,9 @@ void Shop()
 						SetColor(11);
 						cout << "기존 저장내용";
 						SetColor(7);
-						cout <<"은 사라지게 됩니다." << endl;
+						cout << "은 사라지게 됩니다." << endl;
 					}
-						
+
 					cout << "[0] 예" << endl;
 					cout << "[1] 아니요" << endl;
 					if (!GetInput({ 0,1 }))
@@ -92,7 +98,45 @@ void Shop()
 					}
 				}
 			}
-			break;
+		}
+		break;
+		case 300:
+		{
+			int index = 0;
+			while (true)
+			{
+				cout << endl << "몇번 슬롯에서 불러오시겠습니까?" << endl << endl;
+				int select = SelectSaveSlot(index);
+				if (select == 100) break;
+				else if (select == 101)
+				{
+					if (--index < 0) index += 10;
+				}
+				else if (select == 109)
+				{
+					if (++index > 9) index -= 10;
+				}
+				else
+				{
+					if (!GetSlotStream(select).good()) continue;
+					cout << endl << "정말로 ";
+					SetColor(11);
+					cout << "[" << select << "]번 슬롯";
+					SetColor(7);
+
+					cout << "에서 불러오시겠습니까?" << endl;
+
+					cout << "[0] 예" << endl;
+					cout << "[1] 아니요" << endl;
+					if (!GetInput({ 0,1 }))
+					{
+						Load(select);
+						break;
+					}
+				}
+			}
+		}
+		break;
 		}
 	}
 }

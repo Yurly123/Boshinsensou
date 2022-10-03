@@ -8,3 +8,4 @@
 int SelectSaveSlot(int);
 ifstream GetSlotStream(int);
 void Save(int);
+void Load(int);

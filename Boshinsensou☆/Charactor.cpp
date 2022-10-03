@@ -32,6 +32,10 @@ void Charactor::LoadCharaList()
 	}
 	FileStream.close();
 }
+void Charactor::UpdateCharaList(vector<Charactor> charaList)
+{
+	CharaList = charaList;
+}
 vector<Charactor> Charactor::GetAllChara()
 {
 	return CharaList;

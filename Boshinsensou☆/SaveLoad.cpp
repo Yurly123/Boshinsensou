@@ -68,5 +68,96 @@ void Save(int index)
 	out << setfill('0') << setw(2) << t->tm_min << ":";
 	out << setfill('0') << setw(2) << t->tm_sec << endl;
 
+	out << Charactor::GetAllChara().size() << endl;
+	for (auto chara : Charactor::GetAllChara())
+	{
+		out << chara.ID << endl;
+		for (int i = 0; i < CData::CFlag_Length; ++i)
+			out << "flag," << i << "," << chara.cData.cflag[i] << "," << endl;
+		for (int i = 0; i < CData::CTalent_Length; ++i)
+			out << "talent," << i << "," << chara.cData.ctalent[i] << "," << endl;
+		for (int i = 0; i < CData::CStr_Length; ++i)
+			out << "str," << i << "," << chara.cData.cstr[i] << "," << endl;
+		out << endl;
+	}
+
 	out.close();
+}
+
+void Load(int index)
+{
+	string path = "sav\\";
+	if (!(index / 10)) path.append("0");
+	path.append(to_string(index));
+	path.append(".sav");
+	ifstream in(path);
+
+	string Buffer;
+	getline(in, Buffer);
+
+	getline(in, Buffer);
+	int charaCount = stoi(Buffer);
+	vector<Charactor> charaList = Charactor::GetAllChara();
+
+	for (int i = 0; i < charaCount; ++i)
+	{
+		getline(in, Buffer);
+		int charaID = stoi(Buffer);
+
+		Charactor loadChara;
+		for (auto chara : charaList)
+			if (chara.ID == charaID)
+			{
+				loadChara = chara;
+				break;
+			}
+		
+		while (true)
+		{
+			getline(in, Buffer, ',');
+			if (Buffer == "flag")
+			{
+				getline(in, Buffer, ',');
+				int index = stoi(Buffer);
+
+				getline(in, Buffer, ',');
+				int value = stoi(Buffer);
+
+				loadChara.cData.cflag[index] = value;
+			}
+			else if (Buffer == "talent")
+			{
+				getline(in, Buffer, ',');
+				int index = stoi(Buffer);
+
+				getline(in, Buffer, ',');
+				bool value = stoi(Buffer);
+
+				loadChara.cData.ctalent[index] = value;
+			}
+			else if (Buffer == "str")
+			{
+				getline(in, Buffer, ',');
+				int index = stoi(Buffer);
+
+				getline(in, Buffer, ',');
+				string value = Buffer;
+
+				loadChara.cData.cstr[index] = value;
+			}
+			else
+				break;
+
+			getline(in, Buffer);
+		}
+
+		for (auto& chara : charaList)
+			if (chara.ID == charaID)
+			{
+				chara = loadChara;
+				break;
+			}
+	}
+
+	Charactor::UpdateCharaList(charaList);
 }
