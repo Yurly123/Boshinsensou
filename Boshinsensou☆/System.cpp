@@ -4,7 +4,7 @@ void PrintLine()
 {
 	for (int i = 0; i < 99; ++i)
 	{
-		printf("¦¡");
+		printf("â”€");
 	}
 	printf("\n");
 }

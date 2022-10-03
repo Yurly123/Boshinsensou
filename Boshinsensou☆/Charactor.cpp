@@ -54,29 +54,29 @@ Name::Name(string text, bool isalt)
 }
 string Name::GetPP(string PP)
 {
-	//ori ´Â °¡ ¸¦ ·Î   ¿Í ³ª   ·Î¼­   ·Î½á
-	//alt Àº ÀÌ À» À¸·Î °ú ÀÌ³ª À¸·Î¼­ À¸·Î½á
+	//ori ëŠ” ê°€ ë¥¼ ë¡œ   ì™€ ë‚˜   ë¡œì„œ   ë¡œì¨
+	//alt ì€ ì´ ì„ ìœ¼ë¡œ ê³¼ ì´ë‚˜ ìœ¼ë¡œì„œ ìœ¼ë¡œì¨
 	if (IsAlt)
 	{
-		if (PP == "´Â") PP = "Àº";
-		else if (PP == "°¡") PP = "ÀÌ";
-		else if (PP == "¸¦") PP = "À»";
-		else if (PP == "·Î") PP = "À¸·Î";
-		else if (PP == "¿Í") PP = "°ú";
-		else if (PP == "³ª") PP = "ÀÌ³ª";
-		else if (PP == "·Î¼­") PP = "À¸·Î¼­";
-		else if (PP == "·Î½á") PP = "À¸·Î½á";
+		if (PP == "ëŠ”") PP = "ì€";
+		else if (PP == "ê°€") PP = "ì´";
+		else if (PP == "ë¥¼") PP = "ì„";
+		else if (PP == "ë¡œ") PP = "ìœ¼ë¡œ";
+		else if (PP == "ì™€") PP = "ê³¼";
+		else if (PP == "ë‚˜") PP = "ì´ë‚˜";
+		else if (PP == "ë¡œì„œ") PP = "ìœ¼ë¡œì„œ";
+		else if (PP == "ë¡œì¨") PP = "ìœ¼ë¡œì¨";
 	}
 	else
 	{
-		if (PP == "Àº") PP = "´Â";
-		else if (PP == "ÀÌ") PP = "°¡";
-		else if (PP == "À»") PP = "¸¦";
-		else if (PP == "À¸·Î") PP = "·Î";
-		else if (PP == "°ú") PP = "¿Í";
-		else if (PP == "ÀÌ³ª") PP = "³ª";
-		else if (PP == "À¸·Î¼­") PP = "·Î¼­";
-		else if (PP == "À¸·Î½á") PP = "·Î½á";
+		if (PP == "ì€") PP = "ëŠ”";
+		else if (PP == "ì´") PP = "ê°€";
+		else if (PP == "ì„") PP = "ë¥¼";
+		else if (PP == "ìœ¼ë¡œ") PP = "ë¡œ";
+		else if (PP == "ê³¼") PP = "ì™€";
+		else if (PP == "ì´ë‚˜") PP = "ë‚˜";
+		else if (PP == "ìœ¼ë¡œì„œ") PP = "ë¡œì„œ";
+		else if (PP == "ìœ¼ë¡œì¨") PP = "ë¡œì¨";
 	}
 	return PP;
 }
@@ -92,44 +92,44 @@ string GetCharaDescription(Charactor Chara)
 	switch (Chara.ID)
 	{
 	case 1:
-		Description.append("¿ìÁîÅ° ÄÚ¿ì¼¼ÀÌ\n\n");
-		Description.append("ÄíÅ°¡ÙÀÇ ÃÊÃ¢±â ¸â¹ö·Î½á, ÀÎÅÍ³Ý¿¡¼­ Æò»ýµ¿¾È ¶°µå´Â ´©´ÔÀÌ´Ù. º°¸íÀº ¸¶¸®³ª\n");
-		Description.append("RU´©´Ô°ú »çÀÌ°¡ ÁÁ´Ù, ÇÏÁö¸¸ ¼­·Î´Â ½ÈÁö´Â ¾ÊÁö¸¸ ÁÁ¾ÆÇÏÁöµµ ¾Ê´Ù´Â ¾Ö¸ÅÇÑ °ü°è¶ó°í ¾ó¹ö¹«¸°´Ù.\n");
-		Description.append("UDK´©´ÔÀº Æ¯È÷³ª ¸ñ¼Ò¸®°¡ ÀÎ±â°¡ ¸¹¾Æ¼­ ¸¹Àº ÆÒÀ» °Å´À¸°´Ù°í ÇÑ´Ù.\n");
-		Description.append("ÄíÅ°¡Ù¸¦ È£¸ðµé·ÎºÎÅÍ ÁöÅ°±â À§ÇØ ±â²¨È÷ ÀÌ ÀüÀïÀÇ Áß½É¿¡¼­ È°¾àÇÏ°í ÀÖ´Ù.\n");
-		Description.append("ÁÁ¾ÆÇÏ´Â À½½ÄÀº Åä·Î·Î¼Ò¹Ù.\n");
+		Description.append("ìš°ì¦ˆí‚¤ ì½”ìš°ì„¸ì´\n\n");
+		Description.append("ì¿ í‚¤â˜†ì˜ ì´ˆì°½ê¸° ë©¤ë²„ë¡œì¨, ì¸í„°ë„·ì—ì„œ í‰ìƒë™ì•ˆ ë– ë“œëŠ” ëˆ„ë‹˜ì´ë‹¤. ë³„ëª…ì€ ë§ˆë¦¬ë‚˜\n");
+		Description.append("RUëˆ„ë‹˜ê³¼ ì‚¬ì´ê°€ ì¢‹ë‹¤, í•˜ì§€ë§Œ ì„œë¡œëŠ” ì‹«ì§€ëŠ” ì•Šì§€ë§Œ ì¢‹ì•„í•˜ì§€ë„ ì•Šë‹¤ëŠ” ì• ë§¤í•œ ê´€ê³„ë¼ê³  ì–¼ë²„ë¬´ë¦°ë‹¤.\n");
+		Description.append("UDKëˆ„ë‹˜ì€ íŠ¹ížˆë‚˜ ëª©ì†Œë¦¬ê°€ ì¸ê¸°ê°€ ë§Žì•„ì„œ ë§Žì€ íŒ¬ì„ ê±°ëŠë¦°ë‹¤ê³  í•œë‹¤.\n");
+		Description.append("ì¿ í‚¤â˜†ë¥¼ í˜¸ëª¨ë“¤ë¡œë¶€í„° ì§€í‚¤ê¸° ìœ„í•´ ê¸°êº¼ížˆ ì´ ì „ìŸì˜ ì¤‘ì‹¬ì—ì„œ í™œì•½í•˜ê³  ìžˆë‹¤.\n");
+		Description.append("ì¢‹ì•„í•˜ëŠ” ìŒì‹ì€ í† ë¡œë¡œì†Œë°”.\n");
 		break;
 	case 2:
-		Description.append("·¹¿ì\n\n");
-		Description.append("ÄíÅ°¡ÙÀÇ ½ÃÀÛÀ» ¿¬ ÃÊÃ¢±â ¸â¹ö·Î½á, »ìÀÌ Á¶±Ý Âð°Ô ¸Å·ÂÀûÀÎ ´©´ÔÀÌ´Ù.\n");
-		Description.append("UDK´©´Ô°ú »çÀÌ°¡ ÁÁ´Ù, ÇÏÁö¸¸ ¼­·Î´Â ½ÈÁö´Â ¾ÊÁö¸¸ ÁÁ¾ÆÇÏÁöµµ ¾Ê´Ù´Â ¾Ö¸ÅÇÑ °ü°è¶ó°í ¾ó¹ö¹«¸°´Ù.\n");
-		Description.append("Â÷¸¦ ¸¶½Ã¸é¼­ \"ÇªÇÏ! ¿À´Ãµµ ÁÁÀº ³¯¾¾¡Ù\" ¶ó°í ¸»ÇÏ´Â Æ¯ÀÌÇÑ ½À°üÀ» °¡Á³´Ù.\n");
-		Description.append("ÀÌ¹ø ÀüÀï¿¡¼­ º»ÀÎÀÇ ¼û°ÜÁø ÀüÅõ·ÂÀ¸·Î Å« ¼º°ú¸¦ ÀÌ·ê°ÍÀ¸·Î ±â´ëµÈ´Ù.\n");
-		Description.append("¿¾³¯¿¡ RU´©´ÔÀÇ À¯ÀüÀÚ¸¦ ¹«¿Í °áÇÕÇÑ »ý¸íÃ¼°¡ °³¹ßµÇ¾ú´Ù ÇÑ´Ù.\n");
+		Description.append("ë ˆìš°\n\n");
+		Description.append("ì¿ í‚¤â˜†ì˜ ì‹œìž‘ì„ ì—° ì´ˆì°½ê¸° ë©¤ë²„ë¡œì¨, ì‚´ì´ ì¡°ê¸ˆ ì°ê²Œ ë§¤ë ¥ì ì¸ ëˆ„ë‹˜ì´ë‹¤.\n");
+		Description.append("UDKëˆ„ë‹˜ê³¼ ì‚¬ì´ê°€ ì¢‹ë‹¤, í•˜ì§€ë§Œ ì„œë¡œëŠ” ì‹«ì§€ëŠ” ì•Šì§€ë§Œ ì¢‹ì•„í•˜ì§€ë„ ì•Šë‹¤ëŠ” ì• ë§¤í•œ ê´€ê³„ë¼ê³  ì–¼ë²„ë¬´ë¦°ë‹¤.\n");
+		Description.append("ì°¨ë¥¼ ë§ˆì‹œë©´ì„œ \"í‘¸í•˜! ì˜¤ëŠ˜ë„ ì¢‹ì€ ë‚ ì”¨â˜†\" ë¼ê³  ë§í•˜ëŠ” íŠ¹ì´í•œ ìŠµê´€ì„ ê°€ì¡Œë‹¤.\n");
+		Description.append("ì´ë²ˆ ì „ìŸì—ì„œ ë³¸ì¸ì˜ ìˆ¨ê²¨ì§„ ì „íˆ¬ë ¥ìœ¼ë¡œ í° ì„±ê³¼ë¥¼ ì´ë£°ê²ƒìœ¼ë¡œ ê¸°ëŒ€ëœë‹¤.\n");
+		Description.append("ì˜›ë‚ ì— RUëˆ„ë‹˜ì˜ ìœ ì „ìžë¥¼ ë¬´ì™€ ê²°í•©í•œ ìƒëª…ì²´ê°€ ê°œë°œë˜ì—ˆë‹¤ í•œë‹¤.\n");
 		break;
 	case 3:
-		Description.append("È÷³ª¼¼ ÇÏ·çÄ«\n\n");
-		Description.append("ÄíÅ°¡Ù ÃÊ´ëÀÇ µÎ¹øÂ° ½ÇÁúÀû ÁÖÀÎ°øÀÎ ALC¿ªÀ» ¸Ã°í ÀÖ´Â ´©´ÔÀÌ´Ù.\n");
-		Description.append("Ç×»ó ¿ô´Â ¾ó±¼·Î ³²µéÀ» ´ëÇÏ¸ç ÁÂÀýÇÑ µ¿·á¿¡°Ô °Ý·Á¸¦ Àß ÇØÁÖ±â±îÁöµµ ÇÏ´Â ¼º¿ìÀÇ ±Í°¨ÀÌ´Ù.\n");
-		Description.append("Æò¼Ò¿¡´Â ¾äÀüÇÑ ¼º°ÝÀÌÁö¸¸, ÇÑ¹ø È­°¡ ³ª¸é Ä£ÇÑ UDK¿¡°Ô ¹ç´Ù¸® ÈÄ¸®±â¸¦ °É Á¤µµ·Î Æø·ÂÀûÀÌ°Ô º¯ÇÑ´Ù.\n");;
-		Description.append("HNSÀÇ ÆÈ¿¡¼­ »¸¾î³ª¿À´Â °Å´ëÇÑ ÀÏÃ¼Çü ³´Àº HNSÀÇ ÀüÅõ·ÂÀ» ¸Å¿ì Å« ÆøÀ¸·Î »ó½Â½ÃÅ³ °ÍÀ¸·Î º¸ÀÎ´Ù.\n");
-		Description.append("Àº±ÙÇÑ º¯ÅÂÀûÀÎ ¸é¸ð°¡ ÀÖ´Ù°í ÇÑ´Ù.\n");
+		Description.append("ížˆë‚˜ì„¸ í•˜ë£¨ì¹´\n\n");
+		Description.append("ì¿ í‚¤â˜† ì´ˆëŒ€ì˜ ë‘ë²ˆì§¸ ì‹¤ì§ˆì  ì£¼ì¸ê³µì¸ ALCì—­ì„ ë§¡ê³  ìžˆëŠ” ëˆ„ë‹˜ì´ë‹¤.\n");
+		Description.append("í•­ìƒ ì›ƒëŠ” ì–¼êµ´ë¡œ ë‚¨ë“¤ì„ ëŒ€í•˜ë©° ì¢Œì ˆí•œ ë™ë£Œì—ê²Œ ê²©ë ¤ë¥¼ ìž˜ í•´ì£¼ê¸°ê¹Œì§€ë„ í•˜ëŠ” ì„±ìš°ì˜ ê·€ê°ì´ë‹¤.\n");
+		Description.append("í‰ì†Œì—ëŠ” ì–Œì „í•œ ì„±ê²©ì´ì§€ë§Œ, í•œë²ˆ í™”ê°€ ë‚˜ë©´ ì¹œí•œ UDKì—ê²Œ ë°­ë‹¤ë¦¬ í›„ë¦¬ê¸°ë¥¼ ê±¸ ì •ë„ë¡œ í­ë ¥ì ì´ê²Œ ë³€í•œë‹¤.\n");;
+		Description.append("HNSì˜ íŒ”ì—ì„œ ë»—ì–´ë‚˜ì˜¤ëŠ” ê±°ëŒ€í•œ ì¼ì²´í˜• ë‚«ì€ HNSì˜ ì „íˆ¬ë ¥ì„ ë§¤ìš° í° í­ìœ¼ë¡œ ìƒìŠ¹ì‹œí‚¬ ê²ƒìœ¼ë¡œ ë³´ì¸ë‹¤.\n");
+		Description.append("ì€ê·¼í•œ ë³€íƒœì ì¸ ë©´ëª¨ê°€ ìžˆë‹¤ê³  í•œë‹¤.\n");
 		break;
 	case 4:
-		Description.append("¾ß¹Ö\n\n");
-		Description.append("ÄíÅ°¡Ù1±â¸¦ Æ÷ÇÔÇÑ ¿©·¯ ÀÛÇ°¿¡¼­ SIK¿ªÀ» ¸Ã°í ÀÖ´Â ´©´ÔÀÌ´Ù.\n");
-		Description.append("ÀüÀïÀÌ ¹ú¾îÁö±â ÀüºÎÅÍ À½¸ù¿¡ ´ëÇÑ °ü½ÉÀÌ ³ô¾Æ, ½º½º·Î °üÀå±îÁö ÇÏ´Â Àû±Ø¼ºÀ» º¸¿©ÁÖ¾ú´Ù.\n");
-		Description.append("ÇÏÁö¸¸ ÀüÀïÀÌ ¹ú¾îÁöÀÚ ÄíÅ°¡ÙÀÇ Æí¿¡ ºÙÀ¸¸ç ¼º¿ìÀÇ º»ºÐÀ» ÀØÁö ¾Ê´Â ¸ð½ÀÀ» º¸¿©ÁÖ¾ú´Ù.\n");
-		Description.append("KNN´©´Ô¿¡°Ô °Ë¼úÀ» Àü¼ö ¹Þ¾ÒÀ¸¸ç, ëâÙÓñýìé÷¼Óï[À½¸ùÁöÀÏÅÂµµ] ¶ó´Â Àü¿ë°ËÀ» ´Ù·ê ¼ö ÀÖ´Ù.\n");
-		Description.append("½ÇÀº ÀûÀåÀÎ ¾ß¼ö¼±¹èÀÇ ¿©µ¿»ýÀÌ¶ó´Â ¼Ó¼³ÀÌ ¶°µ¹°í ÀÖ´Ù.\n");
+		Description.append("ì•¼ë°\n\n");
+		Description.append("ì¿ í‚¤â˜†1ê¸°ë¥¼ í¬í•¨í•œ ì—¬ëŸ¬ ìž‘í’ˆì—ì„œ SIKì—­ì„ ë§¡ê³  ìžˆëŠ” ëˆ„ë‹˜ì´ë‹¤.\n");
+		Description.append("ì „ìŸì´ ë²Œì–´ì§€ê¸° ì „ë¶€í„° ìŒëª½ì— ëŒ€í•œ ê´€ì‹¬ì´ ë†’ì•„, ìŠ¤ìŠ¤ë¡œ ê´€ìž¥ê¹Œì§€ í•˜ëŠ” ì ê·¹ì„±ì„ ë³´ì—¬ì£¼ì—ˆë‹¤.\n");
+		Description.append("í•˜ì§€ë§Œ ì „ìŸì´ ë²Œì–´ì§€ìž ì¿ í‚¤â˜†ì˜ íŽ¸ì— ë¶™ìœ¼ë©° ì„±ìš°ì˜ ë³¸ë¶„ì„ ìžŠì§€ ì•ŠëŠ” ëª¨ìŠµì„ ë³´ì—¬ì£¼ì—ˆë‹¤.\n");
+		Description.append("KNNëˆ„ë‹˜ì—ê²Œ ê²€ìˆ ì„ ì „ìˆ˜ ë°›ì•˜ìœ¼ë©°, æ·«å¤¢ä¹‹ä¸€å¤ªåˆ€[ìŒëª½ì§€ì¼íƒœë„] ë¼ëŠ” ì „ìš©ê²€ì„ ë‹¤ë£° ìˆ˜ ìžˆë‹¤.\n");
+		Description.append("ì‹¤ì€ ì ìž¥ì¸ ì•¼ìˆ˜ì„ ë°°ì˜ ì—¬ë™ìƒì´ë¼ëŠ” ì†ì„¤ì´ ë– ëŒê³  ìžˆë‹¤.\n");
 		break;
 	default:
-		Description.append("ERROR ´©´Ô\n\n");
-		Description.append("ÄíÅ°¡Ù0±â¿¡ Ãâ¿¬ ½ÅÃ»À» ÇßÁö¸¸ 1:114514ÀÇ °æÀï·üÀ» ¶ÕÁö ¸øÇÏ°í °á±¹ ¶³¾îÁö°Ô µÇ¾ú´Ù.\n");
-		Description.append("±×ÈÄ COAT»çÀÇ È£¸ðºñµð¿À¿¡µµ Ãâ¿¬ ½ÅÃ»À» ÇßÀ¸³ª ÀÌ ¶ÇÇÑ 1:110¾àÀÇ °æÀï·üÀ» ¶ÕÁö ¸øÇÏ°í ¶³¾îÁ³´Ù.\n");
-		Description.append("ÄíÅ°¡Ù¿Í À½¸ù ¸ðµÎ¿¡°Ô ¹ö·ÁÁø ±×³à´Â °á±¹ ¾îµð¿¡µµ ¼ÓÇÏÁö ¸øÇÏ°í ÀÌ »çÅÂ¿¡ ÈÖ¸»¸®°Ô µÇ¾ú´Ù.\n");
-		Description.append("ÇÏÁö¸¸ ±×³à´Â Áö±Ýµµ °ÔÀÓ¿¡ Ãâ¿¬ÇÏÁö ¸øÇÏ°í µ¥ÀÌÅÍ »óÀ¸·Î¸¸ Á¸ÀçÇÏ°Ô µÇ¾ú´Ù.\n");
-		Description.append("½½ÇÁ±¸³ª.. (Á¦Çà¹«»ó)\n");
+		Description.append("ERROR ëˆ„ë‹˜\n\n");
+		Description.append("ì¿ í‚¤â˜†0ê¸°ì— ì¶œì—° ì‹ ì²­ì„ í–ˆì§€ë§Œ 1:114514ì˜ ê²½ìŸë¥ ì„ ëš«ì§€ ëª»í•˜ê³  ê²°êµ­ ë–¨ì–´ì§€ê²Œ ë˜ì—ˆë‹¤.\n");
+		Description.append("ê·¸í›„ COATì‚¬ì˜ í˜¸ëª¨ë¹„ë””ì˜¤ì—ë„ ì¶œì—° ì‹ ì²­ì„ í–ˆìœ¼ë‚˜ ì´ ë˜í•œ 1:110ì•½ì˜ ê²½ìŸë¥ ì„ ëš«ì§€ ëª»í•˜ê³  ë–¨ì–´ì¡Œë‹¤.\n");
+		Description.append("ì¿ í‚¤â˜†ì™€ ìŒëª½ ëª¨ë‘ì—ê²Œ ë²„ë ¤ì§„ ê·¸ë…€ëŠ” ê²°êµ­ ì–´ë””ì—ë„ ì†í•˜ì§€ ëª»í•˜ê³  ì´ ì‚¬íƒœì— íœ˜ë§ë¦¬ê²Œ ë˜ì—ˆë‹¤.\n");
+		Description.append("í•˜ì§€ë§Œ ê·¸ë…€ëŠ” ì§€ê¸ˆë„ ê²Œìž„ì— ì¶œì—°í•˜ì§€ ëª»í•˜ê³  ë°ì´í„° ìƒìœ¼ë¡œë§Œ ì¡´ìž¬í•˜ê²Œ ë˜ì—ˆë‹¤.\n");
+		Description.append("ìŠ¬í”„êµ¬ë‚˜.. (ì œí–‰ë¬´ìƒ)\n");
 		break;
 	}
 	return Description;

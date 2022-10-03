@@ -22,7 +22,7 @@ int SelectSaveSlot(int index)
 		{
 			SetColor(8);
 			cout << "  [" << i << "]\t";
-			cout << "¾øÀ½";
+			cout << "ì—†ìŒ";
 		}
 		cout << endl;
 		SetColor(7);
@@ -30,7 +30,7 @@ int SelectSaveSlot(int index)
 
 	cout << endl << "\t-" << index + 1 << "-" << endl << endl;
 	PrintLine();
-	cout << endl << "     [101] ÀÌÀü ÆäÀÌÁö     [100] µ¹¾Æ°¡±â     [109] ´ÙÀ½ ÆäÀÌÁö" << endl;
+	cout << endl << "     [101] ì´ì „ íŽ˜ì´ì§€     [100] ëŒì•„ê°€ê¸°     [109] ë‹¤ìŒ íŽ˜ì´ì§€" << endl;
 
 	for (int i = 0; i < 100; ++i)
 		InputLIst.push_back(i);
