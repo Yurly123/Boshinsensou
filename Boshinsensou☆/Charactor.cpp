@@ -92,7 +92,6 @@ string GetCharaDescription(Charactor Chara)
 	switch (Chara.ID)
 	{
 	case 1:
-		Description.append("우즈키 코우세이\n\n");
 		Description.append("쿠키☆의 초창기 멤버로써, 인터넷에서 평생동안 떠드는 누님이다. 별명은 마리나\n");
 		Description.append("RU누님과 사이가 좋다, 하지만 서로는 싫지는 않지만 좋아하지도 않다는 애매한 관계라고 얼버무린다.\n");
 		Description.append("UDK누님은 특히나 목소리가 인기가 많아서 많은 팬을 거느린다고 한다.\n");
@@ -100,7 +99,6 @@ string GetCharaDescription(Charactor Chara)
 		Description.append("좋아하는 음식은 토로로소바.\n");
 		break;
 	case 2:
-		Description.append("레우\n\n");
 		Description.append("쿠키☆의 시작을 연 초창기 멤버로써, 살이 조금 찐게 매력적인 누님이다.\n");
 		Description.append("UDK누님과 사이가 좋다, 하지만 서로는 싫지는 않지만 좋아하지도 않다는 애매한 관계라고 얼버무린다.\n");
 		Description.append("차를 마시면서 \"푸하! 오늘도 좋은 날씨☆\" 라고 말하는 특이한 습관을 가졌다.\n");
@@ -108,7 +106,6 @@ string GetCharaDescription(Charactor Chara)
 		Description.append("옛날에 RU누님의 유전자를 무와 결합한 생명체가 개발되었다 한다.\n");
 		break;
 	case 3:
-		Description.append("히나세 하루카\n\n");
 		Description.append("쿠키☆ 초대의 두번째 실질적 주인공인 ALC역을 맡고 있는 누님이다.\n");
 		Description.append("항상 웃는 얼굴로 남들을 대하며 좌절한 동료에게 격려를 잘 해주기까지도 하는 성우의 귀감이다.\n");
 		Description.append("평소에는 얌전한 성격이지만, 한번 화가 나면 친한 UDK에게 밭다리 후리기를 걸 정도로 폭력적이게 변한다.\n");;
@@ -116,7 +113,6 @@ string GetCharaDescription(Charactor Chara)
 		Description.append("은근한 변태적인 면모가 있다고 한다.\n");
 		break;
 	case 4:
-		Description.append("야밍\n\n");
 		Description.append("쿠키☆1기를 포함한 여러 작품에서 SIK역을 맡고 있는 누님이다.\n");
 		Description.append("전쟁이 벌어지기 전부터 음몽에 대한 관심이 높아, 스스로 관장까지 하는 적극성을 보여주었다.\n");
 		Description.append("하지만 전쟁이 벌어지자 쿠키☆의 편에 붙으며 성우의 본분을 잊지 않는 모습을 보여주었다.\n");

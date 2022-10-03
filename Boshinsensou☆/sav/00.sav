@@ -1,15 +1,15 @@
-2022-10-01_15:45:27
+2022-10-01_23:34:05
 4
 1
 flag,0,114514,
 flag,1,100,
 talent,0,1,
-talent,1,1,
+talent,1,0,
 talent,2,1,
 talent,3,1,
-talent,4,1,
-str,0,¿ìÁîÅ° ÄÚ¿ì¼¼ÀÌ,
-
+talent,4,0,
+str,0,ìš°ì¦ˆí‚¤ ì½”ìš°ì„¸ì´,
+,
 2
 flag,0,100,
 flag,1,100,
@@ -17,9 +17,9 @@ talent,0,1,
 talent,1,0,
 talent,2,1,
 talent,3,1,
-talent,4,0,
-str,0,·¹¿ì,
-
+talent,4,1,
+str,0,ë ˆìš°,
+,
 3
 flag,0,0,
 flag,1,0,
@@ -29,7 +29,7 @@ talent,2,0,
 talent,3,0,
 talent,4,0,
 str,0,,
-
+,
 4
 flag,0,0,
 flag,1,0,
@@ -39,4 +39,4 @@ talent,2,0,
 talent,3,0,
 talent,4,0,
 str,0,,
-
+,

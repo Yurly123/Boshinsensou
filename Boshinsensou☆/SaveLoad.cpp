@@ -78,7 +78,7 @@ void Save(int index)
 			out << "talent," << i << "," << chara.cData.ctalent[i] << "," << endl;
 		for (int i = 0; i < CData::CStr_Length; ++i)
 			out << "str," << i << "," << chara.cData.cstr[i] << "," << endl;
-		out << endl;
+		out << "," << endl;
 	}
 
 	out.close();
@@ -146,7 +146,10 @@ void Load(int index)
 				loadChara.cData.cstr[index] = value;
 			}
 			else
+			{
+				getline(in, Buffer);
 				break;
+			}
 
 			getline(in, Buffer);
 		}

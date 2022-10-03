@@ -8,7 +8,7 @@ void Shop()
 		vector<Charactor> OwnCharaList;
 		for (auto ownChara : Charactor::GetAllChara())
 		{
-			if (ownChara.cData.cflag[CData::CFlag("보유중")])
+			if (ownChara.cData.ctalent[CData::CTalent("보유중")])
 				OwnCharaList.push_back(ownChara);
 		}
 		if (CurrentChara.ID == -1)
@@ -178,10 +178,10 @@ void ShowCharaInfo(Charactor Chara)
 	cout << endl << endl;
 
 	PrintLine();
-	cout << endl << "   -" << Chara.ID << "-\t" << Chara.cData.cstr[CData::CStr("이름")] << endl << endl;
+	cout << endl << "   -" << Chara.ID << "-\t" << Chara.Name.Text << endl << endl;
 	cout << "  체력 : " << Chara.cData.cflag[CData::CFlag("현재체력")] << " / " << Chara.cData.cflag[CData::CFlag("최대체력")] << endl;
 
-	cout << endl << GetCharaDescription(Chara) << endl;
+	cout << endl << " " << Chara.cData.cstr[CData::CStr("이름")] << endl << endl << GetCharaDescription(Chara) << endl;
 
 	PrintLine();
 	cout << endl << "\t[1000] 돌아가기" << endl;
