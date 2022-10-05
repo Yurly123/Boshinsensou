@@ -13,12 +13,14 @@ using namespace std;
 class CData;
 class Name;
 class Charactor;
+class Command;
 
 #include "CData.h"
 #include "Shop.h"
 #include "Train.h"
 #include "Charactor.h"
 #include "SaveLoad.h"
+#include "Command.h"
 
 void PrintLine();
 int GetInput(vector<int>);

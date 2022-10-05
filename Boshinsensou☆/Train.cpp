@@ -22,7 +22,7 @@ void TrainLoop(Charactor TrainChara)
 		cout << "\t[999] 훈련종료" << endl;
 		cout << endl;
 		PrintLine();
-		int Command = GetInput({ 200,999 });
+		int Command = GetInput({ 999 });
 
 		if (Command == 999) break;
 		switch (Command)
