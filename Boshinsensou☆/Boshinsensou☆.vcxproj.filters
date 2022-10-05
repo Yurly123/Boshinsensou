@@ -79,5 +79,11 @@
     <None Include="CSV\Chara\2 RU.csv">
       <Filter>리소스 파일\Chara</Filter>
     </None>
+    <None Include="CSV\Chara\3 HNS.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\4 YMN.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
   </ItemGroup>
 </Project>

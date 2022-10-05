@@ -47,8 +47,7 @@ ifstream GetSlotStream(int index)
 	if (index / 10 == 0) path.append("0");
 	path.append(to_string(index));
 	path.append(".sav");
-	ifstream slot(path);
-	return slot;
+	return ifstream(path);
 }
 
 void Save(int index)

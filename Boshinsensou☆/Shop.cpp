@@ -16,8 +16,12 @@ void Shop()
 
 		cout << endl << "현재 캐릭터 : " << CurrentChara.Name.Text << endl;
 		PrintLine();
-		cout << endl << "     [100] 훈련하기     [101] 캐릭터 정보     [109] 캐릭터 변경     [200] 저장하기";
-		cout << endl << "     [300] 불러오기";
+		cout << endl;
+		cout << "    " << "[100] 훈련하기";
+		cout << "    " << "[101] 캐릭터 정보";
+		cout << "    " << "[109] 캐릭터 변경";
+		cout << "    " << "[200] 저장하기";
+		cout << "    " << "[300] 불러오기";
 		cout << endl << endl;
 		PrintLine();
 		int Input = GetInput({ 100,101,109,200,300 });
