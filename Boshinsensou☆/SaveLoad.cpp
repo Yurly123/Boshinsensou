@@ -71,12 +71,12 @@ void Save(int index)
 	for (auto chara : Charactor::GetAllChara())
 	{
 		out << chara.ID << endl;
-		for (int i = 0; i < CData::CFlag_Length; ++i)
-			out << "flag," << i << "," << chara.cData.cflag[i] << "," << endl;
-		for (int i = 0; i < CData::CTalent_Length; ++i)
-			out << "talent," << i << "," << chara.cData.ctalent[i] << "," << endl;
-		for (int i = 0; i < CData::CStr_Length; ++i)
-			out << "str," << i << "," << chara.cData.cstr[i] << "," << endl;
+		for (int i = 0; i < CData::Flag_Length; ++i)
+			out << "flag," << i << "," << chara.Cflag[i] << "," << endl;
+		for (int i = 0; i < CData::Talent_Length; ++i)
+			out << "talent," << i << "," << chara.Ctalent[i] << "," << endl;
+		for (int i = 0; i < CData::Str_Length; ++i)
+			out << "str," << i << "," << chara.Cstr[i] << "," << endl;
 		out << "," << endl;
 	}
 
@@ -122,7 +122,7 @@ void Load(int index)
 				getline(in, Buffer, ',');
 				int value = stoi(Buffer);
 
-				loadChara.cData.cflag[index] = value;
+				loadChara.Cflag[index] = value;
 			}
 			else if (Buffer == "talent")
 			{
@@ -132,7 +132,7 @@ void Load(int index)
 				getline(in, Buffer, ',');
 				bool value = stoi(Buffer);
 
-				loadChara.cData.ctalent[index] = value;
+				loadChara.Ctalent[index] = value;
 			}
 			else if (Buffer == "str")
 			{
@@ -142,7 +142,7 @@ void Load(int index)
 				getline(in, Buffer, ',');
 				string value = Buffer;
 
-				loadChara.cData.cstr[index] = value;
+				loadChara.Cstr[index] = value;
 			}
 			else
 			{

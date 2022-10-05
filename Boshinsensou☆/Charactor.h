@@ -4,7 +4,7 @@
 #include <fstream>
 #include <sstream>
 
-class CData
+static class CData
 {
 private:
 	static vector<string> CFlag_Name;
@@ -14,22 +14,16 @@ private:
 	static unordered_map<string, int> CTalent_ID;
 	static unordered_map<string, int> CStr_ID;
 public:
-	static int CFlag(string);
-	static int CTalent(string);
-	static int CStr(string);
-	static string CFlag(int);
-	static string CTalent(int);
-	static string CStr(int);
-	static int CFlag_Length;
-	static int CTalent_Length;
-	static int CStr_Length;
+	static int GetFlag(string);
+	static int GetTalent(string);
+	static int GetStr(string);
+	static string GetFlag(int);
+	static string GetTalent(int);
+	static string GetStr(int);
+	static int Flag_Length;
+	static int Talent_Length;
+	static int Str_Length;
 	static void LoadCDatas();
-
-	vector<int> cflag;
-	vector<bool> ctalent;
-	vector<string> cstr;
-
-	CData();
 };
 
 class Name
@@ -51,7 +45,9 @@ private:
 public:
 	Name Name;
 	int ID;
-	CData cData;
+	vector<int> Cflag;
+	vector<bool> Ctalent;
+	vector<string> Cstr;
 
 	static void LoadCharaList();
 	static void UpdateCharaList(vector<Charactor>);

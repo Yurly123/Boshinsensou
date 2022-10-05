@@ -8,7 +8,7 @@ void Shop()
 		vector<Charactor> OwnCharaList;
 		for (auto ownChara : Charactor::GetAllChara())
 		{
-			if (ownChara.cData.ctalent[CData::CTalent("보유중")])
+			if (ownChara.Ctalent[CData::GetTalent("보유중")])
 				OwnCharaList.push_back(ownChara);
 		}
 		if (CurrentChara.ID == -1)
@@ -17,11 +17,11 @@ void Shop()
 		cout << endl << "현재 캐릭터 : " << CurrentChara.Name.Text << endl;
 		PrintLine();
 		cout << endl;
-		cout << "    " << "[100] 훈련하기";
-		cout << "    " << "[101] 캐릭터 정보";
-		cout << "    " << "[109] 캐릭터 변경";
-		cout << "    " << "[200] 저장하기";
-		cout << "    " << "[300] 불러오기";
+		cout << "   " << "[100] 훈련하기";
+		cout << "   " << "[101] 캐릭터 정보";
+		cout << "   " << "[109] 캐릭터 변경";
+		cout << "   " << "[200] 저장하기";
+		cout << "   " << "[300] 불러오기";
 		cout << endl << endl;
 		PrintLine();
 		int Input = GetInput({ 100,101,109,200,300 });
@@ -174,18 +174,18 @@ void ShowCharaInfo(Charactor Chara)
 	PrintLine();
 	cout << endl;
 	cout << "  소질 : ";
-	for (int i = 1; i < CData::CTalent_Length; ++i)
+	for (int i = 1; i < CData::Talent_Length; ++i)
 	{
-		if (Chara.cData.ctalent[i])
-			cout << "[" << CData::CTalent(i) << "] ";
+		if (Chara.Ctalent[i])
+			cout << "[" << CData::GetTalent(i) << "] ";
 	}
 	cout << endl << endl;
 
 	PrintLine();
 	cout << endl << "   -" << Chara.ID << "-\t" << Chara.Name.Text << endl << endl;
-	cout << "  체력 : " << Chara.cData.cflag[CData::CFlag("현재체력")] << " / " << Chara.cData.cflag[CData::CFlag("최대체력")] << endl;
+	cout << "  체력 : " << Chara.Cflag[CData::GetFlag("현재체력")] << " / " << Chara.Cflag[CData::GetFlag("최대체력")] << endl;
 
-	cout << endl << " " << Chara.cData.cstr[CData::CStr("이름")] << endl << endl << GetCharaDescription(Chara) << endl;
+	cout << endl << " " << Chara.Cstr[CData::GetStr("이름")] << endl << endl << GetCharaDescription(Chara) << endl;
 
 	PrintLine();
 	cout << endl << "\t[1000] 돌아가기" << endl;

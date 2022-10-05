@@ -1,6 +1,7 @@
 #pragma once
 
 #include "System.h"
+#include "com999.h"
 
 class Command
 {

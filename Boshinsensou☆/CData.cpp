@@ -6,16 +6,10 @@ vector<string> CData::CStr_Name = vector<string>();
 unordered_map<string, int> CData::CFlag_ID = unordered_map<string, int>();
 unordered_map<string, int> CData::CTalent_ID = unordered_map<string, int>();
 unordered_map<string, int> CData::CStr_ID = unordered_map<string, int>();
-int CData::CFlag_Length = 0;
-int CData::CTalent_Length = 0;
-int CData::CStr_Length = 0;
+int CData::Flag_Length = 0;
+int CData::Talent_Length = 0;
+int CData::Str_Length = 0;
 
-CData::CData()
-{
-	cflag = vector<int>(CFlag_Length, 0);
-	ctalent = vector<bool>(CTalent_Length, false);
-	cstr = vector<string>(CStr_Length, "");
-}
 void CData::LoadCDatas()
 {
 	ifstream FlagS("CSV\\CFlag.csv");
@@ -33,7 +27,7 @@ void CData::LoadCDatas()
 
 		CFlag_Name.emplace(CFlag_Name.begin() + id, name);
 		CFlag_ID.emplace(make_pair(name, id));
-		++CFlag_Length;
+		++Flag_Length;
 
 		getline(FlagS, Buffer);
 	}
@@ -47,7 +41,7 @@ void CData::LoadCDatas()
 
 		CTalent_Name.emplace(CTalent_Name.begin() + id, name);
 		CTalent_ID.emplace(make_pair(name, id));
-		++CTalent_Length;
+		++Talent_Length;
 
 		getline(TalentS, Buffer);
 	}
@@ -61,41 +55,40 @@ void CData::LoadCDatas()
 
 		CStr_Name.emplace(CStr_Name.begin() + id, name);
 		CStr_ID.emplace(make_pair(name, id));
-		++CStr_Length;
+		++Str_Length;
 
 		getline(StrS, Buffer);
 	}
 }
-int CData::CFlag(string name)
+int CData::GetFlag(string name)
 {
 	return CFlag_ID[name];
 }
-string CData::CFlag(int id)
+string CData::GetFlag(int id)
 {
 	return CFlag_Name[id];
 }
-int CData::CTalent(string name)
+int CData::GetTalent(string name)
 {
 	return CTalent_ID[name];
 }
-string CData::CTalent(int id)
+string CData::GetTalent(int id)
 {
 	return CTalent_Name[id];
 }
-int CData::CStr(string name)
+int CData::GetStr(string name)
 {
 	return CStr_ID[name];
 }
-string CData::CStr(int id)
+string CData::GetStr(int id)
 {
 	return CStr_Name[id];
 }
 
-CData LoadDefaultCharaData(string filepath)
+void LoadDefaultCData(string filepath, Charactor& chara)
 {
 	ifstream FileStream(filepath);
-	CData charaData;
-	if (!FileStream.is_open()) return charaData;
+	if (!FileStream.is_open()) return;
 
 	while (!FileStream.eof())
 	{
@@ -110,14 +103,14 @@ CData LoadDefaultCharaData(string filepath)
 			getline(FileStream, Buffer, ',');
 			int value = stoi(Buffer);
 
-			charaData.cflag[index] = value;
+			chara.Cflag[index] = value;
 		}
 		else if (Buffer == "talent")
 		{
 			getline(FileStream, Buffer, ',');
 			int index = stoi(Buffer);
 
-			charaData.ctalent[index] = true;
+			chara.Ctalent[index] = true;
 		}
 		else if (Buffer == "str")
 		{
@@ -127,12 +120,11 @@ CData LoadDefaultCharaData(string filepath)
 			getline(FileStream, Buffer, ',');
 			string str = Buffer;
 
-			charaData.cstr[index] = str;
+			chara.Cstr[index] = str;
 		}
 
 		getline(FileStream, Buffer);
 	}
 
 	FileStream.close();
-	return charaData;
 }

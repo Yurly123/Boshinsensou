@@ -1,17 +1,5 @@
-﻿  999.cpp
+﻿  Charactor.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xloctime(744,1): fatal  error C1060: 컴파일러의 힙 공간이 부족합니다.
   CData.cpp
-  Charactor.cpp
-  Command.cpp
-  Main.cpp
-  SaveLoad.cpp
-  Shop.cpp
-  System.cpp
-  Train.cpp
-C:\Users\Yurly\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(31,3): warning C4060: switch문에 'case' 또는 'default' 레이블이 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xlocmon(692,1): fatal  error C1060: 컴파일러의 힙 공간이 부족합니다.
   코드를 생성하고 있습니다...
-C:\Users\Yurly\Documents\GitHub\Boshinsensou\Boshinsensou☆\Shop.cpp(169): warning C4715: 'SelectCharactor': 모든 제어 경로에서 값을 반환하지는 않습니다.
-Command.obj : error LNK2005: "void __cdecl Command999(void)" (?Command999@@YAXXZ)이(가) 999.obj에 이미 정의되어 있습니다.
-Command.obj : error LNK2005: "void __cdecl Loadcom999(void)" (?Loadcom999@@YAXXZ)이(가) 999.obj에 이미 정의되어 있습니다.
-999.obj : error LNK2001: 확인할 수 없는 외부 기호 "public: static class std::unordered_map<int,class Command,struct std::hash<int>,struct std::equal_to<int>,class std::allocator<struct std::pair<int const ,class Command> > > Command::ComList" (?ComList@Command@@2V?$unordered_map@HVCommand@@U?$hash@H@std@@U?$equal_to@H@3@V?$allocator@U?$pair@$$CBHVCommand@@@std@@@3@@std@@A)
-Command.obj : error LNK2001: 확인할 수 없는 외부 기호 "public: static class std::unordered_map<int,class Command,struct std::hash<int>,struct std::equal_to<int>,class std::allocator<struct std::pair<int const ,class Command> > > Command::ComList" (?ComList@Command@@2V?$unordered_map@HVCommand@@U?$hash@H@std@@U?$equal_to@H@3@V?$allocator@U?$pair@$$CBHVCommand@@@std@@@3@@std@@A)
-C:\Users\Yurly\Documents\GitHub\Boshinsensou\Boshinsensou☆\x64\Debug\Boshinsensou☆.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.

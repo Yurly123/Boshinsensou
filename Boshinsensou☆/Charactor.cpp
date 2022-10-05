@@ -9,7 +9,7 @@ void Charactor::LoadCData()
 	filepath.append(" ");
 	filepath.append(Name.Text);
 	filepath.append(".csv");
-	this->cData = LoadDefaultCharaData(filepath);
+	LoadDefaultCData(filepath, *this);
 }
 void Charactor::LoadCharaList()
 {
@@ -44,6 +44,9 @@ Charactor::Charactor(string name, bool IsAlt, int ID)
 {
 	this->Name = ::Name(name, IsAlt);
 	this->ID = ID;
+	Cflag = vector<int>(CData::Flag_Length);
+	Ctalent = vector<bool>(CData::Talent_Length);
+	Cstr = vector<string>(CData::Str_Length);
 	LoadCData();
 }
 

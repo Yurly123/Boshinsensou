@@ -19,6 +19,9 @@
     <Filter Include="소스 파일\Commands">
       <UniqueIdentifier>{8741f4c3-80b5-4ed6-aea8-1dae9f983bd7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Commands">
+      <UniqueIdentifier>{1ba3838c-0f73-483d-b5d9-d7d3a87d09d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -45,7 +48,7 @@
     <ClCompile Include="Command.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="999.cpp">
+    <ClCompile Include="com999.cpp">
       <Filter>소스 파일\Commands</Filter>
     </ClCompile>
   </ItemGroup>
@@ -70,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="Command.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="com999.h">
+      <Filter>헤더 파일\Commands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

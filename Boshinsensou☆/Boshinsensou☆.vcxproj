@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <DisableSpecificWarnings>6031</DisableSpecificWarnings>
+      <DisableSpecificWarnings>6031;4091</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,7 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="999.cpp" />
+    <ClCompile Include="com999.cpp" />
     <ClCompile Include="Charactor.cpp" />
     <ClCompile Include="CData.cpp" />
     <ClCompile Include="Command.cpp" />
@@ -139,6 +139,7 @@
     <ClCompile Include="Train.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="com999.h" />
     <ClInclude Include="CData.h" />
     <ClInclude Include="Charactor.h" />
     <ClInclude Include="Command.h" />
