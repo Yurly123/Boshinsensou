@@ -1,6 +1,6 @@
 #include "Train.h"
 
-void Train(Charactor TrainChara)
+void Train(Charactor& TrainChara)
 {
 	PrintLine();
 	cout << endl << "훈련을 시작합니다." << endl;
@@ -11,14 +11,14 @@ void Train(Charactor TrainChara)
 	PrintLine();
 }
 
-void TrainLoop(Charactor TrainChara)
+void TrainLoop(Charactor& TrainChara)
 {
 	while (true)
 	{
 		PrintLine();
 		cout << endl;
-		cout << "\t" << TrainChara.Name.Text << endl;
-		cout << "\t체력 " << TrainChara.Cflag[CData::GetFlag("현재체력")]
+		cout << "   " << TrainChara.Cstr[CData::GetStr("이름")] << endl;
+		cout << "   체력 " << TrainChara.Cflag[CData::GetFlag("현재체력")]
 			<< " / " << TrainChara.Cflag[CData::GetFlag("최대체력")] << endl;
 		cout << endl;
 		PrintLine();
@@ -36,7 +36,7 @@ void TrainLoop(Charactor TrainChara)
 		int selectCom = GetInput(inputList);
 
 		cout << endl << Command::ComList[selectCom].Name << endl << endl;
-		Command::ComList[selectCom].Commit();
+		Command::ComList[selectCom].Commit(TrainChara);
 
 		if (selectCom == 999) break;
 	}

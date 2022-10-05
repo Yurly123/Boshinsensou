@@ -50,9 +50,9 @@ public:
 	vector<string> Cstr;
 
 	static void LoadCharaList();
-	static void UpdateCharaList(vector<Charactor>);
+	static void UpdateCharaList(vector<Charactor>&);
 	static vector<Charactor> GetAllChara();
 	Charactor(string = "", bool = false, int = -1);
 };
 
-string GetCharaDescription(Charactor);
+string GetCharaDescription(Charactor&);

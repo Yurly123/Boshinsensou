@@ -6,7 +6,7 @@ void Shop()
 	while (true)
 	{
 		vector<Charactor> OwnCharaList;
-		for (auto ownChara : Charactor::GetAllChara())
+		for (auto& ownChara : Charactor::GetAllChara())
 		{
 			if (ownChara.Ctalent[CData::GetTalent("보유중")])
 				OwnCharaList.push_back(ownChara);
@@ -145,7 +145,7 @@ void Shop()
 	}
 }
 
-Charactor SelectCharactor(vector<Charactor> charaList)
+Charactor SelectCharactor(vector<Charactor>& charaList)
 {
 	PrintLine();
 	cout << endl;
@@ -168,7 +168,7 @@ Charactor SelectCharactor(vector<Charactor> charaList)
 	}
 }
 
-void ShowCharaInfo(Charactor Chara)
+void ShowCharaInfo(Charactor& Chara)
 {
 	cout << endl;
 	PrintLine();

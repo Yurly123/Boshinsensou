@@ -1,5 +1,5 @@
-﻿  Charactor.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xloctime(744,1): fatal  error C1060: 컴파일러의 힙 공간이 부족합니다.
-  CData.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xlocmon(692,1): fatal  error C1060: 컴파일러의 힙 공간이 부족합니다.
+﻿  Shop.cpp
+  com000.cpp
   코드를 생성하고 있습니다...
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Shop.cpp(169): warning C4715: 'SelectCharactor': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  Boshinsensou☆.vcxproj -> C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\x64\Debug\Boshinsensou☆.exe

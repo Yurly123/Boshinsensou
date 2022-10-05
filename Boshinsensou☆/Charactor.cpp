@@ -32,7 +32,7 @@ void Charactor::LoadCharaList()
 	}
 	FileStream.close();
 }
-void Charactor::UpdateCharaList(vector<Charactor> charaList)
+void Charactor::UpdateCharaList(vector<Charactor>& charaList)
 {
 	CharaList = charaList;
 }
@@ -89,7 +89,7 @@ string Name::WithPP(string PP)
 	return text.append(GetPP(PP));
 }
 
-string GetCharaDescription(Charactor Chara)
+string GetCharaDescription(Charactor& Chara)
 {
 	string Description;
 	switch (Chara.ID)

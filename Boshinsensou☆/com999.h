@@ -2,5 +2,5 @@
 
 #include "System.h"
 
-void Command999();
 void Loadcom999();
+void Command999(Charactor&);
