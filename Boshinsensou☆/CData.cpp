@@ -128,3 +128,19 @@ void LoadDefaultCData(string filepath, Charactor& chara)
 
 	FileStream.close();
 }
+
+void AbstractEP(Charactor& chara, int amount)
+{
+	if (chara.Cflag[CData::GetFlag("현재기력")] - amount >= 0)
+	{
+		chara.Cflag[CData::GetFlag("현재기력")] -= amount;
+	}
+	else if (chara.Cflag[CData::GetFlag("현재기력")] > 0)
+	{
+		chara.Cflag[CData::GetFlag("현재기력")] = 0;
+	}
+	else
+	{
+		chara.Cflag[CData::GetFlag("현재체력")] -= amount * 2;
+	}
+}

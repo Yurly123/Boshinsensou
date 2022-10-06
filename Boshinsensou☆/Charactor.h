@@ -56,3 +56,4 @@ public:
 };
 
 string GetCharaDescription(Charactor&);
+void PrintCharaHPEP(Charactor&);

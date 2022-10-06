@@ -133,3 +133,20 @@ string GetCharaDescription(Charactor& Chara)
 	}
 	return Description;
 }
+
+void PrintCharaHPEP(Charactor& chara)
+{
+	double ratio = (double)chara.Cflag[CData::GetFlag("현재체력")] / (double)chara.Cflag[CData::GetFlag("최대체력")];
+	if (ratio > 2 / 3) SetColor(10);
+	else if (ratio > 1 / 3) SetColor(6);
+	else SetColor(4);
+	cout << "   체력 ";
+	cout << chara.Cflag[CData::GetFlag("현재체력")];
+	SetColor(10);
+	cout << " / " << chara.Cflag[CData::GetFlag("최대체력")];
+
+	if (chara.Cflag[CData::GetFlag("현재기력")]) SetColor(9);
+	else SetColor(8);
+	cout << "   기력 " << chara.Cflag[CData::GetFlag("현재기력")] << " / " << chara.Cflag[CData::GetFlag("최대기력")];
+	SetColor(7);
+}

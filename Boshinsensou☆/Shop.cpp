@@ -14,7 +14,13 @@ void Shop()
 		if (CurrentChara.ID == -1)
 			CurrentChara = OwnCharaList.front();
 
-		cout << endl << "현재 캐릭터 : " << CurrentChara.Name.Text << endl;
+		cout << endl;
+		PrintLine();
+		cout << endl;
+		cout << "   현재 캐릭터 : " << CurrentChara.Name.Text << endl;
+		PrintCharaHPEP(CurrentChara);
+		cout << endl << endl;
+
 		PrintLine();
 		cout << endl;
 		cout << "   " << "[100] 훈련하기";
@@ -97,7 +103,7 @@ void Shop()
 					cout << "[1] 아니요" << endl;
 					if (!GetInput({ 0,1 }))
 					{
-						Save(select);
+						Save(select, CurrentChara);
 						break;
 					}
 				}
@@ -134,7 +140,7 @@ void Shop()
 					cout << "[1] 아니요" << endl;
 					if (!GetInput({ 0,1 }))
 					{
-						Load(select);
+						Load(select, CurrentChara);
 						break;
 					}
 				}
@@ -182,9 +188,7 @@ void ShowCharaInfo(Charactor& Chara)
 	cout << endl << endl;
 
 	PrintLine();
-	cout << endl << "   -" << Chara.ID << "-\t" << Chara.Name.Text << endl << endl;
-	cout << "  체력 : " << Chara.Cflag[CData::GetFlag("현재체력")] << " / " << Chara.Cflag[CData::GetFlag("최대체력")] << endl;
-
+	cout << endl << "   -" << Chara.ID << "-\t" << Chara.Name.Text << endl;
 	cout << endl << " " << Chara.Cstr[CData::GetStr("이름")] << endl << endl << GetCharaDescription(Chara) << endl;
 
 	PrintLine();

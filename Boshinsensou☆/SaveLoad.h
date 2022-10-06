@@ -7,5 +7,5 @@
 
 int SelectSaveSlot(int);
 ifstream GetSlotStream(int);
-void Save(int);
-void Load(int);
+void Save(int, Charactor&);
+void Load(int, Charactor&);

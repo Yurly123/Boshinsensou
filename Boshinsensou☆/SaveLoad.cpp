@@ -50,7 +50,7 @@ ifstream GetSlotStream(int index)
 	return ifstream(path);
 }
 
-void Save(int index)
+void Save(int index, Charactor& selectChara)
 {
 	string path = "sav\\";
 	if (!(index / 10)) path.append("0");
@@ -58,6 +58,7 @@ void Save(int index)
 	path.append(".sav");
 	ofstream out(path);
 
+	// 날짜 저장
 	time_t timer = time(NULL);
 	struct tm* t = localtime(&timer);
 	out << t->tm_year + 1900 << "-";
@@ -67,6 +68,7 @@ void Save(int index)
 	out << setfill('0') << setw(2) << t->tm_min << ":";
 	out << setfill('0') << setw(2) << t->tm_sec << endl;
 
+	// CData 저장
 	out << Charactor::GetAllChara().size() << endl;
 	for (auto chara : Charactor::GetAllChara())
 	{
@@ -80,10 +82,13 @@ void Save(int index)
 		out << "," << endl;
 	}
 
+	// 선택 캐릭터 저장
+	out << selectChara.ID << endl;
+
 	out.close();
 }
 
-void Load(int index)
+void Load(int index, Charactor& selectChara)
 {
 	string path = "sav\\";
 	if (!(index / 10)) path.append("0");
@@ -160,6 +165,15 @@ void Load(int index)
 				break;
 			}
 	}
+
+	getline(in, Buffer);
+	int id = stoi(Buffer);
+	for (auto& chara : charaList)
+		if (chara.ID == id)
+		{
+			selectChara = chara;
+			break;
+		}
 
 	Charactor::UpdateCharaList(charaList);
 }
