@@ -3,4 +3,4 @@
 #include "System.h"
 
 void Loadcom000();
-void Command000(Charactor&);
+void Command000(Charactor&, vector<int>&);

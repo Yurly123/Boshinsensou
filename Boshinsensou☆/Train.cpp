@@ -13,6 +13,7 @@ void Train(Charactor& TrainChara)
 
 void TrainLoop(Charactor& TrainChara)
 {
+	vector<int> parameter(Parameter::Param_Length, 0);
 	while (true)
 	{
 		PrintLine();
@@ -36,7 +37,7 @@ void TrainLoop(Charactor& TrainChara)
 		int selectCom = GetInput(inputList);
 
 		cout << endl << Command::ComList[selectCom].Name << endl << endl;
-		Command::ComList[selectCom].Commit(TrainChara);
+		Command::ComList[selectCom].Commit(TrainChara, parameter);
 
 		if (selectCom == 999) break;
 	}

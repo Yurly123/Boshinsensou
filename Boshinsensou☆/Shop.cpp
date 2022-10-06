@@ -151,7 +151,7 @@ Charactor SelectCharactor(vector<Charactor>& charaList)
 	cout << endl;
 	vector<int> IDList;
 
-	for (Charactor chara : charaList)
+	for (Charactor& chara : charaList)
 	{
 		cout << "  [" << setw(3) << chara.ID << "] " << chara.Name.Text << endl;
 		IDList.push_back(chara.ID);
@@ -162,7 +162,7 @@ Charactor SelectCharactor(vector<Charactor>& charaList)
 	IDList.push_back(1000);
 	int SelectID = GetInput(IDList);
 	if (SelectID == 1000) return Charactor();
-	for (Charactor chara : charaList)
+	for (Charactor& chara : charaList)
 	{
 		if (chara.ID == SelectID) return chara;
 	}

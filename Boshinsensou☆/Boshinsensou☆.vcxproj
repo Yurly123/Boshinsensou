@@ -152,13 +152,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CSV\CFlag.csv" />
-    <None Include="CSV\Charactors.csv" />
+    <None Include="CSV\Charactor.csv" />
     <None Include="CSV\Chara\1 UDK.csv" />
     <None Include="CSV\Chara\2 RU.csv" />
     <None Include="CSV\Chara\3 HNS.csv" />
     <None Include="CSV\Chara\4 YMN.csv" />
     <None Include="CSV\CStr.csv" />
     <None Include="CSV\CTalent.csv" />
+    <None Include="CSV\Param.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

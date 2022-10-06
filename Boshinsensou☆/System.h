@@ -6,6 +6,8 @@
 #include <array>
 #include <unordered_map>
 #include <Windows.h>
+#include <ctime>
+#include <cstdlib>
 
 #define Wait getchar();
 #define SetColor(color) SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color)

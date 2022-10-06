@@ -13,7 +13,7 @@ void Charactor::LoadCData()
 }
 void Charactor::LoadCharaList()
 {
-	ifstream FileStream("CSV\\Charactors.csv");
+	ifstream FileStream("CSV\\Charactor.csv");
 	while (!FileStream.eof())
 	{
 		string Buffer;
