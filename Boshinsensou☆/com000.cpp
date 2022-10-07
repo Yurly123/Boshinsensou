@@ -17,17 +17,16 @@ void Command000(Charactor& chara, vector<int>& param)
 	{
 	case 0:
 		cout << "잘 풀리지 않은것 같다..";
-		param[Parameter::GetParam("텐션")] += 10;
+		param[Parameter::GetParam("의욕")] += 10;
 		break;
 	case 1:
 		cout << "그럭저럭 풀린것 같다.";
-		param[Parameter::GetParam("텐션")] += 20;
+		param[Parameter::GetParam("의욕")] += 15;
 		break;
 	case 2:
 		cout << "잘 풀린것 같다.";
-		param[Parameter::GetParam("텐션")] += 30;
+		param[Parameter::GetParam("의욕")] += 20;
 		break;
 	}
-	param[Parameter::GetParam("텐션")] *= 1.1f;
 	AbstractEP(chara, 10);
 }

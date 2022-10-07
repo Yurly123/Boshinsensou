@@ -60,7 +60,10 @@ void TrainLoop(Charactor& TrainChara)
 		for (int i = 0; i < Parameter::Param_Length; ++i)
 		{
 			if (parameter[i] != temp[i])
+			{
+				parameter[i] += (parameter[i] - temp[i]) * 1.1f;
 				cout << Parameter::GetParam(i) << " : " << temp[i] << " → " << parameter[i] << endl;
+			}
 		}
 		Wait;
 	}

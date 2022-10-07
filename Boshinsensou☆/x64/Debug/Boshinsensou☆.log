@@ -1,18 +1,7 @@
-﻿  CData.cpp
-  Charactor.cpp
-  Command.cpp
-  Main.cpp
-  SaveLoad.cpp
-  Shop.cpp
-  System.cpp
-  Train.cpp
-  com000.cpp
-C:\Users\Yurly\Documents\GitHub\Boshinsensou\Boshinsensou☆\com000.cpp(31,42): warning C4244: '*=': 'float'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  Train.cpp
+C:\Users\Yurly\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,46): warning C4244: '+=': 'float'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
           with
           [
               _Ty=int
           ]
-  com999.cpp
-  코드를 생성하고 있습니다...
-C:\Users\Yurly\Documents\GitHub\Boshinsensou\Boshinsensou☆\Shop.cpp(175): warning C4715: 'SelectCharactor': 모든 제어 경로에서 값을 반환하지는 않습니다.
   Boshinsensou☆.vcxproj -> C:\Users\Yurly\Documents\GitHub\Boshinsensou\Boshinsensou☆\x64\Debug\Boshinsensou☆.exe

@@ -3,6 +3,7 @@
 #include "System.h"
 
 #include "com000.h"
+#include "com010.h"
 #include "com999.h"
 
 class Parameter
@@ -24,5 +25,5 @@ public:
 	int ID;
 	void (*Commit)(Charactor&, vector<int>&);
 	static void LoadCommands();
-	static unordered_map<int, Command> ComList;
+	static map<int, Command> ComList;
 };

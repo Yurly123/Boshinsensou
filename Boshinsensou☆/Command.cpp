@@ -1,6 +1,6 @@
 #include "Command.h"
 
-unordered_map<int, Command> Command::ComList = unordered_map<int, Command>();
+map<int, Command> Command::ComList = map<int, Command>();
 vector<string> Parameter::Param_Name = vector<string>();
 unordered_map<string, int> Parameter::Param_ID = unordered_map<string, int>();
 int Parameter::Param_Length = 0;
@@ -39,5 +39,6 @@ string Parameter::GetParam(int id)
 void Command::LoadCommands()
 {
 	Loadcom000();
+	Loadcom010();
 	Loadcom999();
 }

@@ -1,8 +1,8 @@
 #include "CData.h"
 
-vector<string> CData::CFlag_Name = vector<string>();
-vector<string> CData::CTalent_Name = vector<string>();
-vector<string> CData::CStr_Name = vector<string>();
+unordered_map<int, string> CData::CFlag_Name = unordered_map<int, string>();
+unordered_map<int, string> CData::CTalent_Name = unordered_map<int, string>();
+unordered_map<int, string> CData::CStr_Name = unordered_map<int, string>();
 unordered_map<string, int> CData::CFlag_ID = unordered_map<string, int>();
 unordered_map<string, int> CData::CTalent_ID = unordered_map<string, int>();
 unordered_map<string, int> CData::CStr_ID = unordered_map<string, int>();
@@ -25,7 +25,7 @@ void CData::LoadCDatas()
 		getline(FlagS, Buffer, ',');
 		string name = Buffer;
 
-		CFlag_Name.emplace(CFlag_Name.begin() + id, name);
+		CFlag_Name.emplace(make_pair(id, name));
 		CFlag_ID.emplace(make_pair(name, id));
 		++Flag_Length;
 
@@ -39,7 +39,7 @@ void CData::LoadCDatas()
 		getline(TalentS, Buffer, ',');
 		string name = Buffer;
 
-		CTalent_Name.emplace(CTalent_Name.begin() + id, name);
+		CTalent_Name.emplace(make_pair(id, name));
 		CTalent_ID.emplace(make_pair(name, id));
 		++Talent_Length;
 
@@ -53,7 +53,7 @@ void CData::LoadCDatas()
 		getline(StrS, Buffer, ',');
 		string name = Buffer;
 
-		CStr_Name.emplace(CStr_Name.begin() + id, name);
+		CStr_Name.emplace(make_pair(id, name));
 		CStr_ID.emplace(make_pair(name, id));
 		++Str_Length;
 

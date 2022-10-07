@@ -7,9 +7,9 @@
 static class CData
 {
 private:
-	static vector<string> CFlag_Name;
-	static vector<string> CTalent_Name;
-	static vector<string> CStr_Name;
+	static unordered_map<int, string> CFlag_Name;
+	static unordered_map<int, string> CTalent_Name;
+	static unordered_map<int, string> CStr_Name;
 	static unordered_map<string, int> CFlag_ID;
 	static unordered_map<string, int> CTalent_ID;
 	static unordered_map<string, int> CStr_ID;
