@@ -1,8 +1,8 @@
 #include "Command.h"
 
 map<int, Command> Command::ComList = map<int, Command>();
-vector<string> Parameter::Param_Name = vector<string>();
-unordered_map<string, int> Parameter::Param_ID = unordered_map<string, int>();
+map<int, string> Parameter::Param_Name = map<int, string>();
+map<string, int> Parameter::Param_ID = map<string, int>();
 int Parameter::Param_Length = 0;
 
 void Parameter::LoadParam()
@@ -18,7 +18,7 @@ void Parameter::LoadParam()
 		getline(ParamS, Buffer, ',');
 		string name = Buffer;
 
-		Param_Name.emplace(Param_Name.begin() + id, name);
+		Param_Name.emplace(make_pair(id, name));
 		Param_ID.emplace(make_pair(name, id));
 		++Param_Length;
 

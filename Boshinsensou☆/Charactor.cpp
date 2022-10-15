@@ -7,9 +7,37 @@ void Charactor::LoadCData()
 	string filepath = "CSV\\Chara\\";
 	filepath.append(to_string(ID));
 	filepath.append(" ");
-	filepath.append(Name.Text);
+	filepath.append(Name);
 	filepath.append(".csv");
 	LoadDefaultCData(filepath, *this);
+}
+int Charactor::GetCflag(string name)
+{
+	return Cflag[CData::GetFlag(name)];
+}
+bool Charactor::GetCtalent(string name)
+{
+	return Ctalent[CData::GetTalent(name)];
+}
+string Charactor::GetCstr(string name)
+{
+	return Cstr[CData::GetStr(name)];
+}
+void Charactor::SetCflag(string name, int value)
+{
+	Cflag[CData::GetFlag(name)] = value;
+}
+void Charactor::SetCtalent(string name, bool value)
+{
+	Ctalent[CData::GetTalent(name)] = value;
+}
+void Charactor::SetCstr(string name, string value)
+{
+	Cstr[CData::GetStr(name)] = value;
+}
+void Charactor::AddCflag(string name, int value)
+{
+	Cflag[CData::GetFlag(name)] += value;
 }
 void Charactor::LoadCharaList()
 {
@@ -44,9 +72,9 @@ Charactor::Charactor(string name, bool IsAlt, int ID)
 {
 	this->Name = ::Name(name, IsAlt);
 	this->ID = ID;
-	Cflag = vector<int>(CData::Flag_Length);
-	Ctalent = vector<bool>(CData::Talent_Length);
-	Cstr = vector<string>(CData::Str_Length);
+	Cflag = map<int, int>();
+	Ctalent = map<int, bool>();
+	Cstr = map<int, string>();
 	LoadCData();
 }
 
@@ -57,8 +85,8 @@ Name::Name(string text, bool isalt)
 }
 string Name::GetPP(string PP)
 {
-	//ori 는 가 를 로   와 나   로서   로써
-	//alt 은 이 을 으로 과 이나 으로서 으로써
+	//original 는 가 를 로   와 나   로서   로써
+	//alternat 은 이 을 으로 과 이나 으로서 으로써
 	if (IsAlt)
 	{
 		if (PP == "는") PP = "은";
@@ -88,7 +116,6 @@ string Name::WithPP(string PP)
 	string text = Text;
 	return text.append(GetPP(PP));
 }
-
 string GetCharaDescription(Charactor& Chara)
 {
 	string Description;
@@ -136,14 +163,14 @@ string GetCharaDescription(Charactor& Chara)
 
 void PrintCharaHPEP(Charactor& chara)
 {
-	double ratio = (double)chara.Cflag[CData::GetFlag("현재체력")] / (double)chara.Cflag[CData::GetFlag("최대체력")];
+	double ratio = (double)chara.GetCflag("현재체력") / (double)chara.GetCflag("최대체력");
 	if (ratio > 2.0 / 3.0) SetColor(10);
 	else if (ratio > 1.0 / 3.0) SetColor(6);
 	else SetColor(4);
-	cout << "   체력 " << chara.Cflag[CData::GetFlag("현재체력")] << " / " << chara.Cflag[CData::GetFlag("최대체력")];
+	cout << "   체력 " << chara.GetCflag("현재체력") << " / " << chara.GetCflag("최대체력");
 
-	if (chara.Cflag[CData::GetFlag("현재기력")]) SetColor(9);
+	if (chara.GetCflag("현재기력")) SetColor(9);
 	else SetColor(8);
-	cout << "   기력 " << chara.Cflag[CData::GetFlag("현재기력")] << " / " << chara.Cflag[CData::GetFlag("최대기력")];
+	cout << "   기력 " << chara.GetCflag("현재기력") << " / " << chara.GetCflag("최대기력");
 	SetColor(7);
 }

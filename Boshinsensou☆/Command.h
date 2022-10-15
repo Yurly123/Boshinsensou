@@ -9,8 +9,8 @@
 class Parameter
 {
 private:
-	static vector<string> Param_Name;
-	static unordered_map<string, int> Param_ID;
+	static map<int, string> Param_Name;
+	static map<string, int> Param_ID;
 public:
 	static int GetParam(string);
 	static string GetParam(int);

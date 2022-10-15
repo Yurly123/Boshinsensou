@@ -13,5 +13,5 @@ void Command010(Charactor& chara, vector<int>& param)
 	cout << chara.Name.WithPP("는") << " 샌드백을 친다" << endl;
 	param[Parameter::GetParam("의욕")] += 15;
 	AbstractEP(chara, 10);
-	chara.Cflag[CData::GetFlag("현재체력")] -= 10;
+	chara.AddCflag("현재체력", -10);
 }

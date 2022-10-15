@@ -6,18 +6,22 @@ void Shop()
 	while (true)
 	{
 		vector<Charactor> OwnCharaList;
-		for (auto& ownChara : Charactor::GetAllChara())
+		vector<Charactor> AllChara = Charactor::GetAllChara();
+		for (auto& ownChara : AllChara)
 		{
-			if (ownChara.Ctalent[CData::GetTalent("보유중")])
+			if (ownChara.ID == CurrentChara.ID)
+				ownChara = CurrentChara;
+			if (ownChara.GetCtalent("보유중"))
 				OwnCharaList.push_back(ownChara);
 		}
+		Charactor::UpdateCharaList(AllChara);
 		if (CurrentChara.ID == -1)
 			CurrentChara = OwnCharaList.front();
 
 		cout << endl;
 		PrintLine();
 		cout << endl;
-		cout << "   현재 캐릭터 : " << CurrentChara.Name.Text << endl;
+		cout << "   현재 캐릭터 : " << CurrentChara.Name << endl;
 		PrintCharaHPEP(CurrentChara);
 		cout << endl << endl;
 
@@ -159,7 +163,7 @@ Charactor SelectCharactor(vector<Charactor>& charaList)
 
 	for (Charactor& chara : charaList)
 	{
-		cout << "  [" << setw(3) << chara.ID << "] " << chara.Name.Text << endl;
+		cout << "  [" << setw(3) << chara.ID << "] " << chara.Name << endl;
 		IDList.push_back(chara.ID);
 	}
 	cout << endl;
@@ -172,6 +176,7 @@ Charactor SelectCharactor(vector<Charactor>& charaList)
 	{
 		if (chara.ID == SelectID) return chara;
 	}
+	return Charactor();
 }
 
 void ShowCharaInfo(Charactor& Chara)
@@ -188,8 +193,8 @@ void ShowCharaInfo(Charactor& Chara)
 	cout << endl << endl;
 
 	PrintLine();
-	cout << endl << "   -" << Chara.ID << "-\t" << Chara.Name.Text << endl;
-	cout << endl << " " << Chara.Cstr[CData::GetStr("이름")] << endl << endl << GetCharaDescription(Chara) << endl;
+	cout << endl << "   -" << Chara.ID << "-\t" << Chara.Name << endl;
+	cout << endl << " " << Chara.GetCstr("이름") << endl << endl << GetCharaDescription(Chara) << endl;
 
 	PrintLine();
 	cout << endl << "\t[1000] 돌아가기" << endl;

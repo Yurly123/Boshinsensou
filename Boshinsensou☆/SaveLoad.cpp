@@ -14,8 +14,14 @@ int SelectSaveSlot(int index)
 		{
 			SetColor(11);
 			cout << "  [" << i << "]\t";
+
+			stringstream temp;
+			for(int i = 0; i < 20; ++i)
+				temp << (char)slot.get();
+			temp = Decode(temp);
+
 			string buff;
-			getline(slot, buff);
+			getline(temp, buff);
 			cout << buff;
 		}
 		else
@@ -52,11 +58,7 @@ ifstream GetSlotStream(int index)
 
 void Save(int index, Charactor& selectChara)
 {
-	string path = "sav\\";
-	if (!(index / 10)) path.append("0");
-	path.append(to_string(index));
-	path.append(".sav");
-	ofstream out(path);
+	stringstream out;
 
 	// 날짜 저장
 	time_t timer = time(NULL);
@@ -70,7 +72,7 @@ void Save(int index, Charactor& selectChara)
 
 	// CData 저장
 	out << Charactor::GetAllChara().size() << endl;
-	for (auto chara : Charactor::GetAllChara())
+	for (auto& chara : Charactor::GetAllChara())
 	{
 		out << chara.ID << endl;
 		for (int i = 0; i < CData::Flag_Length; ++i)
@@ -85,7 +87,17 @@ void Save(int index, Charactor& selectChara)
 	// 선택 캐릭터 저장
 	out << selectChara.ID << endl;
 
-	out.close();
+	out = Encode(out);
+	string path = "sav\\";
+	if (!(index / 10)) path.append("0");
+	path.append(to_string(index));
+	path.append(".sav");
+	ofstream saveStream(path);
+	while (!out.eof())
+	{
+		saveStream << (char)out.get();
+	}
+	saveStream.close();
 }
 
 void Load(int index, Charactor& selectChara)
@@ -94,7 +106,13 @@ void Load(int index, Charactor& selectChara)
 	if (!(index / 10)) path.append("0");
 	path.append(to_string(index));
 	path.append(".sav");
-	ifstream in(path);
+	ifstream loadStream(path);
+	stringstream in;
+	while (!loadStream.eof())
+	{
+		in << (char)loadStream.get();
+	}
+	in = Decode(in);
 
 	string Buffer;
 	getline(in, Buffer);
@@ -109,7 +127,7 @@ void Load(int index, Charactor& selectChara)
 		int charaID = stoi(Buffer);
 
 		Charactor loadChara;
-		for (auto chara : charaList)
+		for (auto& chara : charaList)
 			if (chara.ID == charaID)
 			{
 				loadChara = chara;
@@ -176,4 +194,41 @@ void Load(int index, Charactor& selectChara)
 		}
 
 	Charactor::UpdateCharaList(charaList);
+}
+
+stringstream Encode(stringstream& stream)
+{
+	stringstream code;
+	int singleCode;
+	int temp;
+	while (!stream.eof())
+	{
+		singleCode = stream.get();
+
+		singleCode += 127;
+		temp = singleCode & 0b1111;
+		singleCode >>= 4;
+		singleCode += temp << 4;
+
+		code << (char)singleCode;
+	}
+	return code;
+}
+stringstream Decode(stringstream& stream)
+{
+	stringstream code;
+	int singleCode;
+	int temp;
+	while (!stream.eof())
+	{
+		singleCode = stream.get();
+
+		temp = singleCode & 0b1111;
+		singleCode >>= 4;
+		singleCode += temp << 4;
+		singleCode -= 127;
+
+		code << (char)singleCode;
+	}
+	return code;
 }

@@ -7,12 +7,12 @@
 static class CData
 {
 private:
-	static unordered_map<int, string> CFlag_Name;
-	static unordered_map<int, string> CTalent_Name;
-	static unordered_map<int, string> CStr_Name;
-	static unordered_map<string, int> CFlag_ID;
-	static unordered_map<string, int> CTalent_ID;
-	static unordered_map<string, int> CStr_ID;
+	static map<int, string> CFlag_Name;
+	static map<int, string> CTalent_Name;
+	static map<int, string> CStr_Name;
+	static map<string, int> CFlag_ID;
+	static map<string, int> CTalent_ID;
+	static map<string, int> CStr_ID;
 public:
 	static int GetFlag(string);
 	static int GetTalent(string);
@@ -28,13 +28,23 @@ public:
 
 class Name
 {
-public:
+private:
 	string Text;
+public:
 	bool IsAlt;
 
 	Name(string = "", bool = false);
 	string GetPP(string);
 	string WithPP(string);
+	operator string() const
+	{
+		return Text;
+	}
+	friend ostream& operator <<(ostream& out, const Name& name)
+	{
+		out << name.Text;
+		return out;
+	}
 };
 
 class Charactor
@@ -45,9 +55,16 @@ private:
 public:
 	Name Name;
 	int ID;
-	vector<int> Cflag;
-	vector<bool> Ctalent;
-	vector<string> Cstr;
+	map<int, int> Cflag;
+	map<int, bool> Ctalent;
+	map<int, string> Cstr;
+	int GetCflag(string);
+	bool GetCtalent(string);
+	string GetCstr(string);
+	void SetCflag(string, int);
+	void SetCtalent(string, bool);
+	void SetCstr(string, string);
+	void AddCflag(string, int);
 
 	static void LoadCharaList();
 	static void UpdateCharaList(vector<Charactor>&);

@@ -10,6 +10,6 @@ void Loadcom999()
 
 void Command999(Charactor& chara, vector<int>& param)
 {
-	cout << chara.Name.Text << "의 훈련을 마칩니다." << endl;
+	cout << chara.Name << "의 훈련을 마칩니다." << endl;
 	Wait;
 }

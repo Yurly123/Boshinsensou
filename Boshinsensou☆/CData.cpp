@@ -1,11 +1,11 @@
 #include "CData.h"
 
-unordered_map<int, string> CData::CFlag_Name = unordered_map<int, string>();
-unordered_map<int, string> CData::CTalent_Name = unordered_map<int, string>();
-unordered_map<int, string> CData::CStr_Name = unordered_map<int, string>();
-unordered_map<string, int> CData::CFlag_ID = unordered_map<string, int>();
-unordered_map<string, int> CData::CTalent_ID = unordered_map<string, int>();
-unordered_map<string, int> CData::CStr_ID = unordered_map<string, int>();
+map<int, string> CData::CFlag_Name = map<int, string>();
+map<int, string> CData::CTalent_Name = map<int, string>();
+map<int, string> CData::CStr_Name = map<int, string>();
+map<string, int> CData::CFlag_ID = map<string, int>();
+map<string, int> CData::CTalent_ID = map<string, int>();
+map<string, int> CData::CStr_ID = map<string, int>();
 int CData::Flag_Length = 0;
 int CData::Talent_Length = 0;
 int CData::Str_Length = 0;
@@ -131,16 +131,16 @@ void LoadDefaultCData(string filepath, Charactor& chara)
 
 void AbstractEP(Charactor& chara, int amount)
 {
-	if (chara.Cflag[CData::GetFlag("현재기력")] - amount >= 0)
+	if (chara.GetCflag("현재기력") - amount >= 0)
 	{
-		chara.Cflag[CData::GetFlag("현재기력")] -= amount;
+		chara.AddCflag("현재기력", -amount);
 	}
-	else if (chara.Cflag[CData::GetFlag("현재기력")] > 0)
+	else if (chara.GetCflag("현재기력") > 0)
 	{
-		chara.Cflag[CData::GetFlag("현재기력")] = 0;
+		chara.SetCflag("현재기력", 0);
 	}
 	else
 	{
-		chara.Cflag[CData::GetFlag("현재체력")] -= amount * 2;
+		chara.AddCflag("현재체력", -amount * 2);
 	}
 }
