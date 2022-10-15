@@ -108,10 +108,10 @@ string Name::WithPP(string PP)
 	string text = Text;
 	return text.append(GetPP(PP));
 }
-string GetCharaDescription(Charactor& Chara)
+string GetCharaDescription(Charactor& chara)
 {
 	string Description;
-	switch (Chara.ID)
+	switch (chara.ID)
 	{
 	case 1:
 		Description.append("쿠키☆의 초창기 멤버로써, 인터넷에서 평생동안 떠드는 누님이다. 별명은 마리나\n");
