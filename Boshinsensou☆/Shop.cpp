@@ -1,28 +1,30 @@
 #include "Shop.h"
 
+int dayTime = 0;
+
 void Shop()
 {
-	Charactor CurrentChara;
+	int CurrentCharaIndex = -1;
 	while (true)
 	{
 		vector<Charactor> OwnCharaList;
-		vector<Charactor> AllChara = Charactor::GetAllChara();
-		for (auto& ownChara : AllChara)
+		for (auto& ownChara : Charactor::CharaList)
 		{
-			if (ownChara.ID == CurrentChara.ID)
-				ownChara = CurrentChara;
 			if (ownChara.GetCtalent("보유중"))
 				OwnCharaList.push_back(ownChara);
 		}
-		Charactor::UpdateCharaList(AllChara);
-		if (CurrentChara.ID == -1)
-			CurrentChara = OwnCharaList.front();
+		if (CurrentCharaIndex == -1)
+			CurrentCharaIndex = 0;
 
 		cout << endl;
 		PrintLine();
 		cout << endl;
-		cout << "   현재 캐릭터 : " << CurrentChara.Name << endl;
-		PrintCharaHPEP(CurrentChara);
+		if (dayTime % 2) SetColor(9);
+		else SetColor(14);
+		cout << "\t" << dayTime / 2 + 1 << "일째 " << (dayTime % 2 ? "밤" : "낮") << endl << endl;
+		SetColor(7);
+		cout << "   -" << OwnCharaList[CurrentCharaIndex].Name << "-" << endl;
+		PrintCharaHPEP(OwnCharaList[CurrentCharaIndex]);
 		cout << endl << endl;
 
 		PrintLine();
@@ -38,7 +40,8 @@ void Shop()
 		switch (Input)
 		{
 		case 100:
-			Train(CurrentChara);
+			Train(OwnCharaList[CurrentCharaIndex]);
+			ProgressTime();
 			break;
 		case 101:
 			while (true)
@@ -60,7 +63,16 @@ void Shop()
 				cout << "[0] 예\t[1] 아니오" << endl;
 				if (!GetInput({ 0,1 }))
 				{
-					CurrentChara = selectChara;
+					int length = OwnCharaList.size();
+					for (int i = 0; i < length; ++i)
+					{
+						try
+						{
+							if (OwnCharaList[i].ID == selectChara.ID)
+								CurrentCharaIndex = i;
+						}
+						catch (exception) { ++length; }
+					}
 					break;
 				}
 			}
@@ -107,7 +119,7 @@ void Shop()
 					cout << "[1] 아니요" << endl;
 					if (!GetInput({ 0,1 }))
 					{
-						Save(select, CurrentChara);
+						Save(select, OwnCharaList[CurrentCharaIndex], dayTime);
 						break;
 					}
 				}
@@ -144,7 +156,7 @@ void Shop()
 					cout << "[1] 아니요" << endl;
 					if (!GetInput({ 0,1 }))
 					{
-						Load(select, CurrentChara);
+						Load(select, OwnCharaList[CurrentCharaIndex], dayTime);
 						break;
 					}
 				}
@@ -155,6 +167,27 @@ void Shop()
 	}
 }
 
+void ProgressTime()
+{
+	++dayTime;
+
+	for (auto& chara : Charactor::CharaList)
+	{
+		chara.AddCflag("현재체력", chara.GetCflag("최대체력") * 0.375);
+		chara.AddCflag("현재기력", chara.GetCflag("최대기력") * 0.50);
+		if (chara.GetCflag("현재체력") > chara.GetCflag("최대체력"))
+			chara.SetCflag("현재체력", chara.GetCflag("최대체력"));
+		if (chara.GetCflag("현재기력") > chara.GetCflag("최대기력"))
+			chara.SetCflag("현재기력", chara.GetCflag("최대기력"));
+	}
+
+	PrintLine();
+	cout << endl;
+	cout << (dayTime % 2 ? "밤" : "낮") << "이 되었습니다." << endl;
+	Wait;
+	PrintLine();
+}
+
 Charactor SelectCharactor(vector<Charactor>& charaList)
 {
 	PrintLine();
@@ -163,7 +196,9 @@ Charactor SelectCharactor(vector<Charactor>& charaList)
 
 	for (Charactor& chara : charaList)
 	{
-		cout << "  [" << setw(3) << chara.ID << "] " << chara.Name << endl;
+		cout << "  [" << setw(3) << chara.ID << "] " << chara.Name << "\t";
+		PrintCharaHPEP(chara);
+		cout << endl;
 		IDList.push_back(chara.ID);
 	}
 	cout << endl;

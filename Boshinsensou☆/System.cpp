@@ -2,7 +2,7 @@
 
 void PrintLine()
 {
-	for (int i = 0; i < 99; ++i)
+	for (int i = 0; i < 97; ++i)
 	{
 		printf("─");
 	}

@@ -28,5 +28,5 @@ void Command000(Charactor& chara, vector<int>& param)
 		param[Parameter::GetParam("의욕")] += 20;
 		break;
 	}
-	AbstractEP(chara, 10);
+	AbstractEP(chara, 5);
 }

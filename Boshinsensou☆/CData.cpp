@@ -141,6 +141,6 @@ void AbstractEP(Charactor& chara, int amount)
 	}
 	else
 	{
-		chara.AddCflag("현재체력", -amount * 2);
+		chara.AddCflag("현재체력", -amount);
 	}
 }

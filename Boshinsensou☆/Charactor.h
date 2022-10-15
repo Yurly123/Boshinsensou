@@ -51,7 +51,6 @@ class Charactor
 {
 private:
 	void LoadCData();
-	static vector<Charactor> CharaList;
 public:
 	Name Name;
 	int ID;
@@ -66,9 +65,8 @@ public:
 	void SetCstr(string, string);
 	void AddCflag(string, int);
 
+	static vector<Charactor> CharaList;
 	static void LoadCharaList();
-	static void UpdateCharaList(vector<Charactor>&);
-	static vector<Charactor> GetAllChara();
 	Charactor(string = "", bool = false, int = -1);
 };
 

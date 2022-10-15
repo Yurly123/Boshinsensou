@@ -8,7 +8,14 @@ void Train(Charactor& TrainChara)
 
 	TrainLoop(TrainChara);
 	
-	PrintLine();
+	for (auto& chara : Charactor::CharaList)
+	{
+		if (chara.ID == TrainChara.ID)
+		{
+			chara = TrainChara;
+			break;
+		}
+	}
 }
 
 void TrainLoop(Charactor& TrainChara)
@@ -65,6 +72,14 @@ void TrainLoop(Charactor& TrainChara)
 				cout << Parameter::GetParam(i) << " : " << temp[i] << " → " << parameter[i] << endl;
 			}
 		}
+
+		if (TrainChara.GetCflag("현재체력") <= 20)
+		{
+			cout << endl << "**" << TrainChara.Name.WithPP("가") << " 너무 지쳤으므로 훈련을 종료합니다**" << endl;
+			Wait;
+			break;
+		}
+
 		Wait;
 	}
 }

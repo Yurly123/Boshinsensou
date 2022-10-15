@@ -10,8 +10,8 @@ void Loadcom010()
 
 void Command010(Charactor& chara, vector<int>& param)
 {
-	cout << chara.Name.WithPP("는") << " 샌드백을 친다" << endl;
+	cout << chara.Name.WithPP("는") << " 있는 힘껏 샌드백을 쳤다" << endl;
 	param[Parameter::GetParam("의욕")] += 15;
-	AbstractEP(chara, 10);
-	chara.AddCflag("현재체력", -10);
+	AbstractEP(chara, 5);
+	chara.AddCflag("현재체력", -5);
 }

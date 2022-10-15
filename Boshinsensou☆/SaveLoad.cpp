@@ -15,14 +15,18 @@ int SelectSaveSlot(int index)
 			SetColor(11);
 			cout << "  [" << i << "]\t";
 
-			stringstream temp;
-			for(int i = 0; i < 20; ++i)
-				temp << (char)slot.get();
-			temp = Decode(temp);
+			stringstream readStream;
+			for(int i = 0; i < 25; ++i)
+				readStream << (char)slot.get();
+			readStream = Decode(readStream);
 
 			string buff;
-			getline(temp, buff);
-			cout << buff;
+			getline(readStream, buff);
+			cout << buff << "\t";
+
+			getline(readStream, buff);
+			int dayTime = stoi(buff);
+			cout << dayTime / 2 + 1 << "일째 " << (dayTime % 2 ? "밤" : "낮");
 		}
 		else
 		{
@@ -56,7 +60,7 @@ ifstream GetSlotStream(int index)
 	return ifstream(path);
 }
 
-void Save(int index, Charactor& selectChara)
+void Save(int index, Charactor& selectChara, int& dayTime)
 {
 	stringstream out;
 
@@ -69,10 +73,12 @@ void Save(int index, Charactor& selectChara)
 	out << setfill('0') << setw(2) << t->tm_hour << ":";
 	out << setfill('0') << setw(2) << t->tm_min << ":";
 	out << setfill('0') << setw(2) << t->tm_sec << endl;
+	
+	out << dayTime << endl;
 
 	// CData 저장
-	out << Charactor::GetAllChara().size() << endl;
-	for (auto& chara : Charactor::GetAllChara())
+	out << Charactor::CharaList.size() << endl;
+	for (auto& chara : Charactor::CharaList)
 	{
 		out << chara.ID << endl;
 		for (int i = 0; i < CData::Flag_Length; ++i)
@@ -100,7 +106,7 @@ void Save(int index, Charactor& selectChara)
 	saveStream.close();
 }
 
-void Load(int index, Charactor& selectChara)
+void Load(int index, Charactor& selectChara, int& dayTime)
 {
 	string path = "sav\\";
 	if (!(index / 10)) path.append("0");
@@ -116,10 +122,11 @@ void Load(int index, Charactor& selectChara)
 
 	string Buffer;
 	getline(in, Buffer);
+	getline(in, Buffer);
+	dayTime = stoi(Buffer);
 
 	getline(in, Buffer);
 	int charaCount = stoi(Buffer);
-	vector<Charactor> charaList = Charactor::GetAllChara();
 
 	for (int i = 0; i < charaCount; ++i)
 	{
@@ -127,7 +134,7 @@ void Load(int index, Charactor& selectChara)
 		int charaID = stoi(Buffer);
 
 		Charactor loadChara;
-		for (auto& chara : charaList)
+		for (auto& chara : Charactor::CharaList)
 			if (chara.ID == charaID)
 			{
 				loadChara = chara;
@@ -176,7 +183,7 @@ void Load(int index, Charactor& selectChara)
 			getline(in, Buffer);
 		}
 
-		for (auto& chara : charaList)
+		for (auto& chara : Charactor::CharaList)
 			if (chara.ID == charaID)
 			{
 				chara = loadChara;
@@ -186,14 +193,12 @@ void Load(int index, Charactor& selectChara)
 
 	getline(in, Buffer);
 	int id = stoi(Buffer);
-	for (auto& chara : charaList)
+	for (auto& chara : Charactor::CharaList)
 		if (chara.ID == id)
 		{
 			selectChara = chara;
 			break;
 		}
-
-	Charactor::UpdateCharaList(charaList);
 }
 
 stringstream Encode(stringstream& stream)
@@ -222,7 +227,7 @@ stringstream Decode(stringstream& stream)
 	while (!stream.eof())
 	{
 		singleCode = stream.get();
-
+		
 		temp = singleCode & 0b1111;
 		singleCode >>= 4;
 		singleCode += temp << 4;

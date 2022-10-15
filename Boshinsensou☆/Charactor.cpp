@@ -60,14 +60,6 @@ void Charactor::LoadCharaList()
 	}
 	FileStream.close();
 }
-void Charactor::UpdateCharaList(vector<Charactor>& charaList)
-{
-	CharaList = charaList;
-}
-vector<Charactor> Charactor::GetAllChara()
-{
-	return CharaList;
-}
 Charactor::Charactor(string name, bool IsAlt, int ID)
 {
 	this->Name = ::Name(name, IsAlt);
@@ -169,7 +161,7 @@ void PrintCharaHPEP(Charactor& chara)
 	else SetColor(4);
 	cout << "   체력 " << chara.GetCflag("현재체력") << " / " << chara.GetCflag("최대체력");
 
-	if (chara.GetCflag("현재기력")) SetColor(9);
+	if (chara.GetCflag("현재기력") > 0) SetColor(9);
 	else SetColor(8);
 	cout << "   기력 " << chara.GetCflag("현재기력") << " / " << chara.GetCflag("최대기력");
 	SetColor(7);
