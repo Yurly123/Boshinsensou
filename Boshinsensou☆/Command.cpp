@@ -3,7 +3,7 @@
 map<int, Command> Command::ComList = map<int, Command>();
 map<int, string> Parameter::Param_Name = map<int, string>();
 map<string, int> Parameter::Param_ID = map<string, int>();
-int Parameter::Param_Length = 0;
+map<int, string> Parameter::ParamList = map<int, string>();
 
 void Parameter::LoadParam()
 {
@@ -20,7 +20,7 @@ void Parameter::LoadParam()
 
 		Param_Name.emplace(make_pair(id, name));
 		Param_ID.emplace(make_pair(name, id));
-		++Param_Length;
+		ParamList.emplace(make_pair(id, name));
 
 		getline(ParamS, Buffer);
 	}

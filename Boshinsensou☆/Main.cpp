@@ -6,6 +6,7 @@ void Initialize()
 	system("mode con cols=100 lines=50");
 	SetConsoleScreenBufferSize(GetStdHandle(STD_OUTPUT_HANDLE), { 100,250 });
 	srand((unsigned int)time(NULL));
+
 	SetColor(7);
 	cout << "Loading CDatas..." << endl;
 	CData::LoadCDatas();

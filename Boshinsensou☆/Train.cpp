@@ -20,7 +20,12 @@ void Train(Charactor& TrainChara)
 
 void TrainLoop(Charactor& TrainChara)
 {
-	vector<int> parameter(Parameter::Param_Length);
+	map<int, int> parameter;
+	for (auto& param : Parameter::ParamList)
+	{
+		parameter.emplace(make_pair(param.first, 0));
+	}
+
 	while (true)
 	{
 		PrintLine();
@@ -29,9 +34,9 @@ void TrainLoop(Charactor& TrainChara)
 		PrintCharaHPEP(TrainChara);
 		cout << endl;
 
-		for (int i = 0; i < Parameter::Param_Length; ++i)
+		for (auto& param : Parameter::ParamList)
 		{
-			cout << "   " << Parameter::GetParam(i) << " " << parameter[i];
+			cout << "   " << param.second << " " << parameter[param.first];
 		}
 		cout << endl << endl;
 		PrintLine();
@@ -50,7 +55,7 @@ void TrainLoop(Charactor& TrainChara)
 
 		cout << endl << Command::ComList[selectCom].Name << endl << endl;
 
-		vector<int> temp(parameter);
+		map<int, int> temp(parameter);
 		int hp = TrainChara.GetCflag("현재체력");
 		int ep = TrainChara.GetCflag("현재기력");
 		Command::ComList[selectCom].Commit(TrainChara, parameter);
@@ -64,12 +69,13 @@ void TrainLoop(Charactor& TrainChara)
 		if (TrainChara.GetCflag("현재기력") != ep)
 			cout << "기력 : " << ep << " → " << TrainChara.GetCflag("현재기력") << endl;
 		cout << endl;
-		for (int i = 0; i < Parameter::Param_Length; ++i)
+
+		for (auto& param : Parameter::ParamList)
 		{
-			if (parameter[i] != temp[i])
+			if (parameter[param.first] != temp[param.first])
 			{
-				parameter[i] += (parameter[i] - temp[i]) * 1.1f;
-				cout << Parameter::GetParam(i) << " : " << temp[i] << " → " << parameter[i] << endl;
+				parameter[param.first] += (parameter[param.first] - temp[param.first]) * 1.1f;
+				cout << param.second << " : " << temp[param.first] << " → " << parameter[param.first] << endl;
 			}
 		}
 

@@ -14,7 +14,7 @@ private:
 public:
 	static int GetParam(string);
 	static string GetParam(int);
-	static int Param_Length;
+	static map<int, string> ParamList;
 	static void LoadParam();
 };
 
@@ -23,7 +23,7 @@ class Command
 public:
 	string Name;
 	int ID;
-	void (*Commit)(Charactor&, vector<int>&);
+	void (*Commit)(Charactor&, map<int, int>&);
 	static void LoadCommands();
 	static map<int, Command> ComList;
 };

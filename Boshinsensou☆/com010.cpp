@@ -8,7 +8,7 @@ void Loadcom010()
 	Command::ComList[10].Commit = Command010;
 }
 
-void Command010(Charactor& chara, vector<int>& param)
+void Command010(Charactor& chara, map<int, int>& param)
 {
 	cout << chara.Name.WithPP("는") << " 있는 힘껏 샌드백을 쳤다" << endl;
 	param[Parameter::GetParam("의욕")] += 15;

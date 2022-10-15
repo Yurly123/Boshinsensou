@@ -173,8 +173,8 @@ void ProgressTime()
 
 	for (auto& chara : Charactor::CharaList)
 	{
-		chara.AddCflag("현재체력", chara.GetCflag("최대체력") * 0.375);
-		chara.AddCflag("현재기력", chara.GetCflag("최대기력") * 0.50);
+		chara.AddCflag("현재체력", chara.GetCflag("최대체력") * 0.25);
+		chara.AddCflag("현재기력", chara.GetCflag("최대기력") * 0.375);
 		if (chara.GetCflag("현재체력") > chara.GetCflag("최대체력"))
 			chara.SetCflag("현재체력", chara.GetCflag("최대체력"));
 		if (chara.GetCflag("현재기력") > chara.GetCflag("최대기력"))
