@@ -9,7 +9,6 @@
 class Parameter
 {
 private:
-	static map<int, string> Param_Name;
 	static map<string, int> Param_ID;
 public:
 	static int GetParam(string);

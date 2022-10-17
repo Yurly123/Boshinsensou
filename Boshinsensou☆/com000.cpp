@@ -17,16 +17,20 @@ void Command000(Charactor& chara, map<int, int>& param)
 	{
 	case 0:
 		cout << "잘 풀리지 않은것 같다..";
+		param[Parameter::GetParam("피로")] -= 30;
 		param[Parameter::GetParam("의욕")] += 10;
 		break;
 	case 1:
 		cout << "그럭저럭 풀린것 같다.";
-		param[Parameter::GetParam("의욕")] += 15;
+		param[Parameter::GetParam("피로")] -= 60;
+		param[Parameter::GetParam("의욕")] += 20;
 		break;
 	case 2:
 		cout << "잘 풀린것 같다.";
-		param[Parameter::GetParam("의욕")] += 20;
+		param[Parameter::GetParam("피로")] -= 90;
+		param[Parameter::GetParam("의욕")] += 30;
 		break;
 	}
+	param[Parameter::GetParam("유산소")] += 5;
 	AbstractEP(chara, 5);
 }

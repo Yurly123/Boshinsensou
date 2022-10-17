@@ -1,31 +1,29 @@
 #include "Command.h"
 
 map<int, Command> Command::ComList = map<int, Command>();
-map<int, string> Parameter::Param_Name = map<int, string>();
 map<string, int> Parameter::Param_ID = map<string, int>();
 map<int, string> Parameter::ParamList = map<int, string>();
 
 void Parameter::LoadParam()
 {
-	ifstream ParamS("CSV\\Param.csv");
+	ifstream paramStream("CSV\\Param.csv");
 	string Buffer;
 
-	while (!ParamS.eof())
+	while (!paramStream.eof())
 	{
-		getline(ParamS, Buffer, ',');
+		getline(paramStream, Buffer, ',');
 		int id = stoi(Buffer);
 
-		getline(ParamS, Buffer, ',');
+		getline(paramStream, Buffer, ',');
 		string name = Buffer;
 
-		Param_Name.emplace(make_pair(id, name));
-		Param_ID.emplace(make_pair(name, id));
-		ParamList.emplace(make_pair(id, name));
+		Param_ID[name] = id;
+		ParamList[id] = name;
 
-		getline(ParamS, Buffer);
+		getline(paramStream, Buffer);
 	}
 
-	ParamS.close();
+	paramStream.close();
 }
 int Parameter::GetParam(string name)
 {
@@ -33,7 +31,7 @@ int Parameter::GetParam(string name)
 }
 string Parameter::GetParam(int id)
 {
-	return Param_Name[id];
+	return ParamList[id];
 }
 
 void Command::LoadCommands()

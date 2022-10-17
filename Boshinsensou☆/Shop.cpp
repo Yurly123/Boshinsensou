@@ -27,9 +27,9 @@ void Shop()
 		// Shop 정보 출력
 		if (dayTime % 2) SetColor(9);
 		else SetColor(14);
-		cout << "\t" << dayTime / 2 + 1 << "일째 " << (dayTime % 2 ? "밤" : "낮") << endl << endl;	// 밤낮일수
+		cout << "\t" << dayTime / 2 + 1 << "일째 " << (dayTime % 2 ? "밤" : "낮") << endl;	// 밤낮일수
 		SetColor(7);
-		cout << "   -" << OwnCharaList[CurrentCharaIndex].Name << "-" << endl;	// 캐릭터 이름
+		cout << "\t- " << OwnCharaList[CurrentCharaIndex].Name << " - " << endl;	// 캐릭터 이름
 		PrintCharaHPEP(OwnCharaList[CurrentCharaIndex]);	// 체력 기력
 		cout << endl;
 
@@ -48,7 +48,7 @@ void Shop()
 		cout << endl;
 		PrintLine();
 
-		// Shop 커맨드 입력
+		// Shop 커맨드 입력 받기
 		int Input = GetInput({ 100,101,109,200,300 });
 		switch (Input)
 		{

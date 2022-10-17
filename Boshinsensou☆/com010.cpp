@@ -11,7 +11,8 @@ void Loadcom010()
 void Command010(Charactor& chara, map<int, int>& param)
 {
 	cout << chara.Name.WithPP("는") << " 있는 힘껏 샌드백을 쳤다" << endl;
-	param[Parameter::GetParam("의욕")] += 15;
+	param[Parameter::GetParam("의욕")] += 30;
+	param[Parameter::GetParam("유산소")] += 15;
 	AbstractEP(chara, 5);
 	chara.AddCflag("현재체력", -5);
 }

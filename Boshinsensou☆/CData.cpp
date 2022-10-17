@@ -12,52 +12,52 @@ int CData::Str_Length = 0;
 
 void CData::LoadCDatas()
 {
-	ifstream FlagS("CSV\\CFlag.csv");
-	ifstream TalentS("CSV\\CTalent.csv");
-	ifstream StrS("CSV\\CStr.csv");
+	ifstream flagStream("CSV\\CFlag.csv");
+	ifstream talentStream("CSV\\CTalent.csv");
+	ifstream strStream("CSV\\CStr.csv");
 	string Buffer;
 
-	while (!FlagS.eof())
+	while (!flagStream.eof())
 	{
-		getline(FlagS, Buffer, ',');
+		getline(flagStream, Buffer, ',');
 		int id = stoi(Buffer);
 
-		getline(FlagS, Buffer, ',');
+		getline(flagStream, Buffer, ',');
 		string name = Buffer;
 
-		CFlag_Name.emplace(make_pair(id, name));
-		CFlag_ID.emplace(make_pair(name, id));
+		CFlag_Name[id] = name;
+		CFlag_ID[name] = id;
 		++Flag_Length;
 
-		getline(FlagS, Buffer);
+		getline(flagStream, Buffer);
 	}
-	while (!TalentS.eof())
+	while (!talentStream.eof())
 	{
-		getline(TalentS, Buffer, ',');
+		getline(talentStream, Buffer, ',');
 		int id = stoi(Buffer);
 
-		getline(TalentS, Buffer, ',');
+		getline(talentStream, Buffer, ',');
 		string name = Buffer;
 
-		CTalent_Name.emplace(make_pair(id, name));
-		CTalent_ID.emplace(make_pair(name, id));
+		CTalent_Name[id] = name;
+		CTalent_ID[name] = id;
 		++Talent_Length;
 
-		getline(TalentS, Buffer);
+		getline(talentStream, Buffer);
 	}
-	while (!StrS.eof())
+	while (!strStream.eof())
 	{
-		getline(StrS, Buffer, ',');
+		getline(strStream, Buffer, ',');
 		int id = stoi(Buffer);
 
-		getline(StrS, Buffer, ',');
+		getline(strStream, Buffer, ',');
 		string name = Buffer;
 
-		CStr_Name.emplace(make_pair(id, name));
-		CStr_ID.emplace(make_pair(name, id));
+		CStr_Name[id] = name;
+		CStr_ID[name] = id;
 		++Str_Length;
 
-		getline(StrS, Buffer);
+		getline(strStream, Buffer);
 	}
 }
 int CData::GetFlag(string name)
@@ -88,7 +88,7 @@ string CData::GetStr(int id)
 void LoadDefaultCData(string filepath, Charactor& chara)
 {
 	ifstream FileStream(filepath);
-	if (!FileStream.is_open()) return;
+	if (!FileStream.is_open() || !FileStream.good()) return;
 
 	while (!FileStream.eof())
 	{

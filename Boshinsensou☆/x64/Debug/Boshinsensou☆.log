@@ -1,16 +1,2 @@
-﻿  CData.cpp
-  Charactor.cpp
-  Command.cpp
-  Main.cpp
-  SaveLoad.cpp
-  Shop.cpp
-C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Shop.cpp(199,65): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Shop.cpp(200,65): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  System.cpp
-  Train.cpp
-C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(77,76): warning C4244: '+=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  com000.cpp
-  com010.cpp
-  com999.cpp
-  코드를 생성하고 있습니다...
-  Boshinsensou☆.vcxproj -> C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\x64\Debug\Boshinsensou☆.exe
+﻿  Train.cpp
+  Boshinsensou☆.vcxproj -> C:\Users\Yurly\Documents\GitHub\Boshinsensou\Boshinsensou☆\x64\Debug\Boshinsensou☆.exe

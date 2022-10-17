@@ -30,7 +30,7 @@ void TrainLoop(Charactor& TrainChara)
 	{
 		PrintLine();
 		cout << endl;
-		cout << "   " << TrainChara.GetCstr("이름") << endl;
+		cout << "\t" << TrainChara.GetCstr("이름") << endl;
 		PrintCharaHPEP(TrainChara);
 		cout << endl;
 
@@ -60,10 +60,29 @@ void TrainLoop(Charactor& TrainChara)
 		int ep = TrainChara.GetCflag("현재기력");
 		Command::ComList[selectCom].Commit(TrainChara, parameter);
 		if (selectCom == 999) break;
+
+		for (auto& param : Parameter::ParamList)
+		{
+			if (parameter[param.first] != temp[param.first])
+			{
+				if (param.second == "유산소" || param.second == "무산소")
+					parameter[Parameter::GetParam("피로")] += (parameter[param.first] - temp[param.first]) / 2;
+
+				if (param.second != "피로" && param.second != "의욕")
+					parameter[param.first] += (parameter[param.first] - temp[param.first]) * parameter[Parameter::GetParam("의욕")] / 100;
+			}
+
+			if (parameter[param.first] < 0)
+				parameter[param.first] = 0;
+		}
+		if (TrainChara.GetCflag("현재체력") != hp)
+			TrainChara.AddCflag("현재체력", -(hp - TrainChara.GetCflag("현재체력")) * parameter[Parameter::GetParam("피로")] / 200);
+		if (TrainChara.GetCflag("현재기력") != ep)
+			TrainChara.AddCflag("현재기력", -(ep - TrainChara.GetCflag("현재기력")) * parameter[Parameter::GetParam("피로")] / 200);
+
 		cout << endl;
 		Wait;
 		
-		cout << endl;
 		if (TrainChara.GetCflag("현재체력") != hp)
 			cout << "체력 : " << hp << " → " << TrainChara.GetCflag("현재체력") << endl;
 		if (TrainChara.GetCflag("현재기력") != ep)
@@ -74,7 +93,6 @@ void TrainLoop(Charactor& TrainChara)
 		{
 			if (parameter[param.first] != temp[param.first])
 			{
-				parameter[param.first] += (parameter[param.first] - temp[param.first]) * 1.1f;
 				cout << param.second << " : " << temp[param.first] << " → " << parameter[param.first] << endl;
 			}
 		}
