@@ -26,14 +26,14 @@ using namespace std;	// 국룰
 // 클래스 정의
 class CData;
 class Name;
-class Charactor;
+class Character;
 class Command;
 
 // 사용자 정의 헤더파일 사용
 #include "CData.h"
 #include "Shop.h"
 #include "Train.h"
-#include "Charactor.h"
+#include "Character.h"
 #include "SaveLoad.h"
 #include "Command.h"
 

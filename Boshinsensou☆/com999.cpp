@@ -8,8 +8,7 @@ void Loadcom999()
 	Command::ComList[999].Commit = Command999;
 }
 
-void Command999(Charactor& chara, map<int, int>& param)
+void Command999(Character& chara, map<int, int>& param)
 {
 	cout << chara.Name << "의 훈련을 마칩니다." << endl;
-	Wait;
 }

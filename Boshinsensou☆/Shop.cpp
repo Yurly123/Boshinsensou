@@ -9,8 +9,8 @@ void Shop()
 	// 반복
 	while (true)
 	{
-		vector<Charactor> OwnCharaList;	// 소유중인 캐릭터의 리스트
-		for (auto& ownChara : Charactor::CharaList)
+		vector<Character> OwnCharaList;	// 소유중인 캐릭터의 리스트
+		for (auto& ownChara : Character::CharaList)
 		{
 			// 보유중인 캐릭터 리스트에 추가
 			if (ownChara.GetCtalent("보유중"))
@@ -61,7 +61,7 @@ void Shop()
 			while (true)
 			{
 				cout << endl << "정보를 보고싶은 캐릭터를 고르십시오" << endl << endl;
-				Charactor selectChara = SelectCharactor(OwnCharaList);	// 캐릭터 받기
+				Character selectChara = SelectCharactor(OwnCharaList);	// 캐릭터 받기
 				if (selectChara.ID == -1) break;	// 무효값이면 반복 종료
 				ShowCharaInfo(selectChara);	// 캐릭터 정보 표시
 			}
@@ -71,7 +71,7 @@ void Shop()
 			while (true)
 			{
 				cout << endl << "선택하려는 캐릭터를 고르십시오" << endl << endl;
-				Charactor selectChara = SelectCharactor(OwnCharaList);	// 캐릭터 받기
+				Character selectChara = SelectCharactor(OwnCharaList);	// 캐릭터 받기
 				if (selectChara.ID == -1) break;	// 무효값이면 반복 종료
 
 				// 선택 재확인
@@ -194,7 +194,7 @@ void ProgressTime()
 	++dayTime;	// 시간 가감
 
 	// 캐릭터들 체력/기력 회복
-	for (auto& chara : Charactor::CharaList)
+	for (auto& chara : Character::CharaList)
 	{
 		chara.AddCflag("현재체력", chara.GetCflag("최대체력") * 0.25);
 		chara.AddCflag("현재기력", chara.GetCflag("최대기력") * 0.375);
@@ -213,14 +213,14 @@ void ProgressTime()
 	PrintLine();
 }
 
-Charactor SelectCharactor(vector<Charactor>& charaList)
+Character SelectCharactor(vector<Character>& charaList)
 {
 	PrintLine();
 	cout << endl;
 
 	vector<int> IDList;	// 입력 받을 캐릭터(ID) 리스트
 
-	for (Charactor& chara : charaList)
+	for (Character& chara : charaList)
 	{
 		// 캐릭터 정보 간략히 표시
 		cout << "  [" << setw(3) << chara.ID << "] " << chara.Name << "\t";
@@ -235,18 +235,18 @@ Charactor SelectCharactor(vector<Charactor>& charaList)
 	IDList.push_back(1000);
 
 	int SelectID = GetInput(IDList);	// 입력 받기
-	if (SelectID == 1000) return Charactor();	// 돌아가기면 무효값 반환
+	if (SelectID == 1000) return Character();	// 돌아가기면 무효값 반환
 
 	// 캐릭터 찾아서 반환
-	for (Charactor& chara : charaList)
+	for (Character& chara : charaList)
 	{
 		if (chara.ID == SelectID) return chara;
 	}
 
-	return Charactor();	// 맞는거 없으면 무효값 반환
+	return Character();	// 맞는거 없으면 무효값 반환
 }
 
-void ShowCharaInfo(Charactor& Chara)
+void ShowCharaInfo(Character& Chara)
 {
 	cout << endl;
 	PrintLine();

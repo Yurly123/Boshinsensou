@@ -3,5 +3,5 @@
 #include "System.h"
 #include <fstream>
 
-void Train(Charactor&);
-void TrainLoop(Charactor&);
+void Train(Character&);
+map<int, int> TrainLoop(Character&);

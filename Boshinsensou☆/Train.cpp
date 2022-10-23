@@ -1,24 +1,48 @@
 #include "Train.h"
 
-void Train(Charactor& TrainChara)
+void Train(Character& TrainChara)
 {
 	PrintLine();
 	cout << endl << "훈련을 시작합니다." << endl;
 	Wait;
 
-	TrainLoop(TrainChara);
-	
-	for (auto& chara : Charactor::CharaList)
+	map<int, int> parameter = TrainLoop(TrainChara);
+	Wait;
+
+	PrintLine();
+	cout << endl << "얻은 포인트 : " << endl;
+	cout << endl;
+	for (auto& param : Parameter::ParamList)
 	{
-		if (chara.ID == TrainChara.ID)
-		{
-			chara = TrainChara;
-			break;
-		}
+		if (parameter[param.first] > 0)
+			cout << " - " << param.second << " : " << parameter[param.first] << endl;
+		else
+			parameter[param.first] = 0;
 	}
+	Wait;
+
+	if (parameter[Parameter::GetParam("피로")] > 0)
+	{
+		cout << "피로도 " << parameter[Parameter::GetParam("피로")] << "에서 감소한 포인트 : " << endl;
+		cout << endl;
+		for (auto& param : Parameter::ParamList)
+		{
+			if (param.second != "피로")
+			{
+				parameter[param.first] -= parameter[Parameter::GetParam("피로")];
+
+				if (parameter[param.first] > 0)
+					cout << " - " << param.second << " : " << parameter[param.first] << endl;
+			}
+		}
+		Wait;
+	}
+	
+
+	ImproveCharaStat(TrainChara, parameter);
 }
 
-void TrainLoop(Charactor& TrainChara)
+map<int, int> TrainLoop(Character& TrainChara)
 {
 	map<int, int> parameter;
 	for (auto& param : Parameter::ParamList)
@@ -100,10 +124,19 @@ void TrainLoop(Charactor& TrainChara)
 		if (TrainChara.GetCflag("현재체력") <= 20)
 		{
 			cout << endl << "**" << TrainChara.Name.WithPP("가") << " 너무 지쳤으므로 훈련을 종료합니다**" << endl;
-			Wait;
 			break;
 		}
 
 		Wait;
 	}
+
+	for (auto& chara : Character::CharaList)
+	{
+		if (chara.ID == TrainChara.ID)
+		{
+			chara = TrainChara;
+			break;
+		}
+	}
+	return parameter;
 }

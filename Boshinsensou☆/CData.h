@@ -4,5 +4,5 @@
 #include <fstream>
 #include <sstream>
 
-void LoadDefaultCData(string, Charactor&);
-void AbstractEP(Charactor&, int);
+void LoadDefaultCData(string, Character&);
+void AbstractEP(Character&, int);

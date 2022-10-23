@@ -13,7 +13,7 @@ void Initialize()
 	cout << "Loading CDatas..." << endl;
 	CData::LoadCDatas();	// 캐릭터 데이터 로딩
 	cout << "Loading Charactors..." << endl;
-	Charactor::LoadCharaList();	// 캐릭터 로딩
+	Character::LoadCharaList();	// 캐릭터 로딩
 	cout << "Loading Commands..." << endl;
 	Command::LoadCommands();	// 커맨드 내용 로딩
 	cout << "Loading Parameters..." << endl;

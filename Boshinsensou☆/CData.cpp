@@ -85,7 +85,7 @@ string CData::GetStr(int id)
 	return CStr_Name[id];
 }
 
-void LoadDefaultCData(string filepath, Charactor& chara)
+void LoadDefaultCData(string filepath, Character& chara)
 {
 	ifstream FileStream(filepath);
 	if (!FileStream.is_open() || !FileStream.good()) return;
@@ -129,7 +129,7 @@ void LoadDefaultCData(string filepath, Charactor& chara)
 	FileStream.close();
 }
 
-void AbstractEP(Charactor& chara, int amount)
+void AbstractEP(Character& chara, int amount)
 {
 	if (chara.GetCflag("현재기력") - amount >= 0)
 	{

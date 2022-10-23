@@ -22,7 +22,7 @@ class Command
 public:
 	string Name;
 	int ID;
-	void (*Commit)(Charactor&, map<int, int>&);
+	void (*Commit)(Character&, map<int, int>&);
 	static void LoadCommands();
 	static map<int, Command> ComList;
 };

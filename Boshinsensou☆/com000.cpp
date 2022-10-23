@@ -8,7 +8,7 @@ void Loadcom000()
 	Command::ComList[0].Commit = Command000;
 }
 
-void Command000(Charactor& chara, map<int, int>& param)
+void Command000(Character& chara, map<int, int>& param)
 {
 	cout << "당신은 " << chara.Name.WithPP("와") << " 몸풀기 겸 스트레칭을 하기로 했다" << endl;
 	Wait;

@@ -60,7 +60,7 @@ ifstream GetSlotStream(int index)
 	return ifstream(path);
 }
 
-void Save(int index, Charactor& selectChara, int& dayTime)
+void Save(int index, Character& selectChara, int& dayTime)
 {
 	stringstream out;
 
@@ -77,8 +77,8 @@ void Save(int index, Charactor& selectChara, int& dayTime)
 	out << dayTime << endl;
 
 	// CData 저장
-	out << Charactor::CharaList.size() << endl;
-	for (auto& chara : Charactor::CharaList)
+	out << Character::CharaList.size() << endl;
+	for (auto& chara : Character::CharaList)
 	{
 		out << chara.ID << endl;
 		for (int i = 0; i < CData::Flag_Length; ++i)
@@ -106,7 +106,7 @@ void Save(int index, Charactor& selectChara, int& dayTime)
 	saveStream.close();
 }
 
-void Load(int index, Charactor& selectChara, int& dayTime)
+void Load(int index, Character& selectChara, int& dayTime)
 {
 	string path = "sav\\";
 	if (!(index / 10)) path.append("0");
@@ -133,8 +133,8 @@ void Load(int index, Charactor& selectChara, int& dayTime)
 		getline(in, Buffer);
 		int charaID = stoi(Buffer);
 
-		Charactor loadChara;
-		for (auto& chara : Charactor::CharaList)
+		Character loadChara;
+		for (auto& chara : Character::CharaList)
 			if (chara.ID == charaID)
 			{
 				loadChara = chara;
@@ -183,7 +183,7 @@ void Load(int index, Charactor& selectChara, int& dayTime)
 			getline(in, Buffer);
 		}
 
-		for (auto& chara : Charactor::CharaList)
+		for (auto& chara : Character::CharaList)
 			if (chara.ID == charaID)
 			{
 				chara = loadChara;
@@ -193,7 +193,7 @@ void Load(int index, Charactor& selectChara, int& dayTime)
 
 	getline(in, Buffer);
 	int id = stoi(Buffer);
-	for (auto& chara : Charactor::CharaList)
+	for (auto& chara : Character::CharaList)
 		if (chara.ID == id)
 		{
 			selectChara = chara;

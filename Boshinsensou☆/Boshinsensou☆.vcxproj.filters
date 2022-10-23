@@ -36,7 +36,7 @@
     <ClCompile Include="Train.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Charactor.cpp">
+    <ClCompile Include="Character.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CData.cpp">
@@ -65,7 +65,7 @@
     <ClInclude Include="Shop.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Charactor.h">
+    <ClInclude Include="Character.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Train.h">
@@ -94,7 +94,7 @@
     <None Include="CSV\CFlag.csv">
       <Filter>리소스 파일</Filter>
     </None>
-    <None Include="CSV\Charactor.csv">
+    <None Include="CSV\Character.csv">
       <Filter>리소스 파일</Filter>
     </None>
     <None Include="CSV\CStr.csv">
