@@ -2,10 +2,7 @@
 
 void Loadcom000()
 {
-	Command::ComList.emplace(make_pair(0, Command()));
-	Command::ComList[0].ID = 0;
-	Command::ComList[0].Name = "스트레칭";
-	Command::ComList[0].Commit = Command000;
+	Command::ComList[0] = Command(0, "스트레칭", Command000);
 }
 
 void Command000(Character& chara, map<int, int>& param)

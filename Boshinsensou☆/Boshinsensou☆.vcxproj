@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="com000.cpp" />
+    <ClCompile Include="com009.cpp" />
     <ClCompile Include="com010.cpp" />
     <ClCompile Include="com999.cpp" />
     <ClCompile Include="Character.cpp" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="com000.h" />
+    <ClInclude Include="com009.h" />
     <ClInclude Include="com010.h" />
     <ClInclude Include="com999.h" />
     <ClInclude Include="CData.h" />

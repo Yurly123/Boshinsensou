@@ -1,14 +1,11 @@
 #include "CData.h"
 
-map<int, string> CData::CFlag_Name = map<int, string>();
-map<int, string> CData::CTalent_Name = map<int, string>();
-map<int, string> CData::CStr_Name = map<int, string>();
+map<int, string> CData::CFlagList = map<int, string>();
+map<int, string> CData::CTalentList = map<int, string>();
+map<int, string> CData::CStrList = map<int, string>();
 map<string, int> CData::CFlag_ID = map<string, int>();
 map<string, int> CData::CTalent_ID = map<string, int>();
 map<string, int> CData::CStr_ID = map<string, int>();
-int CData::Flag_Length = 0;
-int CData::Talent_Length = 0;
-int CData::Str_Length = 0;
 
 void CData::LoadCDatas()
 {
@@ -25,9 +22,8 @@ void CData::LoadCDatas()
 		getline(flagStream, Buffer, ',');
 		string name = Buffer;
 
-		CFlag_Name[id] = name;
+		CFlagList[id] = name;
 		CFlag_ID[name] = id;
-		++Flag_Length;
 
 		getline(flagStream, Buffer);
 	}
@@ -39,9 +35,8 @@ void CData::LoadCDatas()
 		getline(talentStream, Buffer, ',');
 		string name = Buffer;
 
-		CTalent_Name[id] = name;
+		CTalentList[id] = name;
 		CTalent_ID[name] = id;
-		++Talent_Length;
 
 		getline(talentStream, Buffer);
 	}
@@ -53,9 +48,8 @@ void CData::LoadCDatas()
 		getline(strStream, Buffer, ',');
 		string name = Buffer;
 
-		CStr_Name[id] = name;
+		CStrList[id] = name;
 		CStr_ID[name] = id;
-		++Str_Length;
 
 		getline(strStream, Buffer);
 	}
@@ -66,7 +60,7 @@ int CData::GetFlag(string name)
 }
 string CData::GetFlag(int id)
 {
-	return CFlag_Name[id];
+	return CFlagList[id];
 }
 int CData::GetTalent(string name)
 {
@@ -74,7 +68,7 @@ int CData::GetTalent(string name)
 }
 string CData::GetTalent(int id)
 {
-	return CTalent_Name[id];
+	return CTalentList[id];
 }
 int CData::GetStr(string name)
 {
@@ -82,7 +76,7 @@ int CData::GetStr(string name)
 }
 string CData::GetStr(int id)
 {
-	return CStr_Name[id];
+	return CStrList[id];
 }
 
 void LoadDefaultCData(string filepath, Character& chara)

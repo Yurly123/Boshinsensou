@@ -37,7 +37,6 @@ void Train(Character& TrainChara)
 		}
 		Wait;
 	}
-	
 
 	ImproveCharaStat(TrainChara, parameter);
 }

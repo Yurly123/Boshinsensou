@@ -169,15 +169,37 @@ void PrintCharaHPEP(Character& chara)
 
 void ImproveCharaStat(Character& chara, map<int, int>& parameter)
 {
-	PrintLine();
-	cout << endl;
-
-	for (auto& param : Parameter::ParamList)
+	while (true)
 	{
-		if (param.second != "피로")
-			cout << "   " << param.second << " : " << parameter[param.first];
+		PrintLine();
+		cout << endl;
+
+		for (auto& param : Parameter::ParamList)
+		{
+			if (param.second != "피로")
+				cout << "   " << param.second << " : " << parameter[param.first];
+		}
+		cout << endl << endl;
+		PrintLine();
+		cout << endl;
+
+		cout << "  상승시킬 능력을 골라주세요." << endl << endl;
+
+		vector<int> inputList;
+		for (auto& flag : CData::CFlagList)
+		{
+			if (20 <= flag.first && flag.first < 30)
+			{
+				cout << "   [ " << flag.first - 20 << "] " << flag.second << endl;
+				inputList.push_back(flag.first - 20);
+			}
+		}
+		cout << endl << "   [100] 능력상승 종료" << endl;
+		inputList.push_back(100);
+
+		cout << endl;
+		PrintLine();
+		int input = GetInput(inputList);
+		if (input == 100) break;
 	}
-	cout << endl << endl;
-	PrintLine();
-	Wait;
 }

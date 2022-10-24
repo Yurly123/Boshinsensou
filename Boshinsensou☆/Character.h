@@ -8,9 +8,6 @@
 static class CData
 {
 private:
-	static map<int, string> CFlag_Name;	// Flag 이름
-	static map<int, string> CTalent_Name;	// Talent 이름
-	static map<int, string> CStr_Name;	// Str 이름
 	static map<string, int> CFlag_ID;	// Flag ID
 	static map<string, int> CTalent_ID;	// Talent ID
 	static map<string, int> CStr_ID;	// Str ID
@@ -41,9 +38,9 @@ public:
 	// id : 받을 Str의 ID
 	static string GetStr(int);
 
-	static int Flag_Length;	// Flag 리스트의 길이
-	static int Talent_Length;	// Talent 리스트의 길이
-	static int Str_Length;	// Str 리스트의 길이
+	static map<int, string> CFlagList;	// Flag 이름
+	static map<int, string> CTalentList;	// Talent 이름
+	static map<int, string> CStrList;	// Str 이름
 
 	// CFlag, CTalent, CStr 정보 로딩
 	static void LoadCDatas();

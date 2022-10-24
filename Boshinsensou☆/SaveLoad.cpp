@@ -81,12 +81,12 @@ void Save(int index, Character& selectChara, int& dayTime)
 	for (auto& chara : Character::CharaList)
 	{
 		out << chara.ID << endl;
-		for (int i = 0; i < CData::Flag_Length; ++i)
-			out << "flag," << i << "," << chara.Cflag[i] << "," << endl;
-		for (int i = 0; i < CData::Talent_Length; ++i)
-			out << "talent," << i << "," << chara.Ctalent[i] << "," << endl;
-		for (int i = 0; i < CData::Str_Length; ++i)
-			out << "str," << i << "," << chara.Cstr[i] << "," << endl;
+		for (auto& flag : CData::CFlagList)
+			out << "flag," << flag.first << "," << chara.Cflag[flag.first] << "," << endl;
+		for (auto& talent : CData::CTalentList)
+			out << "talent," << talent.first << "," << chara.Ctalent[talent.first] << "," << endl;
+		for (auto& str : CData::CStrList)
+			out << "str," << str.first << "," << chara.Cstr[str.first] << "," << endl;
 		out << "," << endl;
 	}
 

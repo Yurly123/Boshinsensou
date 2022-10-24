@@ -248,31 +248,70 @@ Character SelectCharactor(vector<Character>& charaList)
 
 void ShowCharaInfo(Character& Chara)
 {
-	cout << endl;
-	PrintLine();
-	cout << endl;
-
-	// 소질 표시
-	cout << "  소질 : ";
-	for (int i = 1; i < CData::Talent_Length; ++i)
+	int index = 0;
+	while (true)
 	{
-		if (Chara.Ctalent[i])
-			cout << "[" << CData::GetTalent(i) << "] ";
+		cout << endl;
+		PrintLine();
+		cout << endl;
+
+		switch (index)
+		{
+		case 0:
+		{
+			// 소질 표시
+			cout << "  소질 : ";
+			for (auto& talent : CData::CTalentList)
+			{
+				if (talent.first == 0) continue;
+				if (Chara.Ctalent[talent.first])
+					cout << "[" << talent.second << "] ";
+			}
+			cout << endl << endl;
+
+			PrintLine();
+			cout << endl;
+			cout << "  능력 : " << endl;
+			for (auto& flag : CData::CFlagList)
+			{
+				if (20 <= flag.first && flag.first < 30)
+				{
+					cout << "   " << flag.second << " : " << Chara.Cflag[flag.first];
+				}
+			}
+			cout << endl << endl;
+		} break;
+		case 1:
+		{
+			// 이름 표시
+			cout << "   -" << Chara.ID << "-\t" << Chara.Name << endl;
+			cout << endl << " " << Chara.GetCstr("이름") << endl;
+
+			// 캐릭터 설명 표시
+			cout << endl << GetCharaDescription(Chara) << endl;
+		} break;
+		}
+
+		PrintLine();
+		vector<int> inputList;
+		cout << endl;
+		if (index > 0)
+		{
+			cout << "\t[101] 이전 페이지"; inputList.push_back(101);
+		}
+		else
+			cout << "\t\t";
+		cout << "\t[1000] 돌아가기"; inputList.push_back(1000);
+		if (index < 1)
+		{
+			cout << "\t[109] 이전 페이지"; inputList.push_back(109);
+		}
+		cout << endl;
+
+		int input = GetInput(inputList);
+
+		if (input == 1000) break;
+		else if (input == 101) --index;
+		else if (input == 109) ++index;
 	}
-	cout << endl;
-
-	cout << endl;
-	PrintLine();
-
-	// 이름 표시
-	cout << endl << "   -" << Chara.ID << "-\t" << Chara.Name << endl;
-	cout << endl << " " << Chara.GetCstr("이름") << endl;
-
-	// 캐릭터 설명 표시
-	cout << endl << GetCharaDescription(Chara) << endl;
-
-	PrintLine();
-	cout << endl << "\t[1000] 돌아가기" << endl;
-
-	GetInput({ 1000 });
 }

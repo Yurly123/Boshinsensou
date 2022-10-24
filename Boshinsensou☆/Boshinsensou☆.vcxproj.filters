@@ -57,6 +57,9 @@
     <ClCompile Include="com010.cpp">
       <Filter>소스 파일\Commands</Filter>
     </ClCompile>
+    <ClCompile Include="com009.cpp">
+      <Filter>소스 파일\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System.h">
@@ -87,6 +90,9 @@
       <Filter>헤더 파일\Commands</Filter>
     </ClInclude>
     <ClInclude Include="com010.h">
+      <Filter>헤더 파일\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="com009.h">
       <Filter>헤더 파일\Commands</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,6 +3,7 @@
 #include "System.h"
 
 #include "com000.h"
+#include "com009.h"
 #include "com010.h"
 #include "com999.h"
 
@@ -25,4 +26,7 @@ public:
 	void (*Commit)(Character&, map<int, int>&);
 	static void LoadCommands();
 	static map<int, Command> ComList;
+
+	Command();
+	Command(int, string, void(Character&, map<int, int>&));
 };
