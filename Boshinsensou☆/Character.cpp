@@ -190,7 +190,7 @@ void ImproveCharaStat(Character& chara, map<int, int>& parameter)
 		{
 			if (20 <= flag.first && flag.first < 30)
 			{
-				cout << "   [ " << flag.first - 20 << "] " << flag.second << endl;
+				cout << "   [ " << flag.first - 20 << "] " << flag.second << chara.Cflag[flag.first] + 1 << endl;
 				inputList.push_back(flag.first - 20);
 			}
 		}
@@ -201,5 +201,70 @@ void ImproveCharaStat(Character& chara, map<int, int>& parameter)
 		PrintLine();
 		int input = GetInput(inputList);
 		if (input == 100) break;
+		UpCStat(chara, parameter, input);
+	}
+}
+
+void UpCStat(Character& chara, map<int, int>& parameter, int index)
+{
+	while (true)
+	{
+		PrintLine();
+		cout << endl;
+		
+		cout << "   [0] " << CData::GetFlag(index + 20) << chara.Cflag[index + 20] + 1;
+		switch (index)
+		{
+		case 0:	// 지구력
+			cout << "\t유산소 포인트 500 필요";
+			break;
+		case 1:	// 근력
+			cout << "\t무산소 포인트 500 필요";
+			break;
+		}
+		cout << endl;
+		cout << "   [1] 돌아가기" << endl;
+
+		cout << endl;
+
+		if (GetInput({ 0,1 })) break;
+		else
+		{
+			try
+			{
+				switch (index)
+				{
+				case 0:	// 지구력
+					if (parameter[Parameter::GetParam("유산소")] < 500)
+						throw 0;
+					else
+					{
+						parameter[Parameter::GetParam("유산소")] -= 500;
+						++chara.Cflag[CData::GetFlag("지구력")];
+						return;
+					}
+					break;
+				case 1:	// 근력
+					if (parameter[Parameter::GetParam("무산소")] < 500)
+						throw 0;
+					else
+					{
+						parameter[Parameter::GetParam("유산소")] -= 500;
+						++chara.Cflag[CData::GetFlag("근력")];
+						return;
+					}
+					break;
+				}
+			}
+			catch (int type)
+			{
+				cout << endl;
+				if (type == 0)
+					cout << "포인트가 부족합니다." << endl;
+
+				Wait;
+				return;
+			}
+		}
 	}
 }

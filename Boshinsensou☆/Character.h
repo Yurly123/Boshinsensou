@@ -148,3 +148,5 @@ string GetCharaDescription(Character&);
 void PrintCharaHPEP(Character&);
 
 void ImproveCharaStat(Character&, map<int, int>&);
+
+void UpCStat(Character&, map<int, int>&, int);

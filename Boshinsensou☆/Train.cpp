@@ -33,6 +33,8 @@ void Train(Character& TrainChara)
 
 				if (parameter[param.first] > 0)
 					cout << " - " << param.second << " : " << parameter[param.first] << endl;
+				else
+					parameter[param.first] = 0;
 			}
 		}
 		Wait;
@@ -102,6 +104,8 @@ map<int, int> TrainLoop(Character& TrainChara)
 			TrainChara.AddCflag("현재체력", -(hp - TrainChara.GetCflag("현재체력")) * parameter[Parameter::GetParam("피로")] / 200);
 		if (TrainChara.GetCflag("현재기력") != ep)
 			TrainChara.AddCflag("현재기력", -(ep - TrainChara.GetCflag("현재기력")) * parameter[Parameter::GetParam("피로")] / 200);
+		if (TrainChara.GetCflag("현재기력") < 0)
+			TrainChara.SetCflag("현재기력", 0);
 
 		cout << endl;
 		Wait;
