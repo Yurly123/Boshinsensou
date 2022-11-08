@@ -1,5 +1,7 @@
 #include "System.h"
 
+char* programPath;
+
 // 초기설정, 데이터 로딩등 처리 함수
 void Initialize()
 {
@@ -25,8 +27,9 @@ void Initialize()
 }
 
 // 프로그램 진입점
-int main()
+int main(int argc, char *argv[])
 {
+	programPath = argv[0];
 	Initialize();	// 기본 세팅
 	Shop();	// 메인 루프
 }

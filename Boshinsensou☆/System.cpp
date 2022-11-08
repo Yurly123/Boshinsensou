@@ -2,7 +2,6 @@
 
 void PrintLine()
 {
-	// ─ <- 이거로 한줄 출력
 	for (int i = 0; i < 97; ++i)
 	{
 		printf("─");
@@ -42,4 +41,10 @@ int GetInput(vector<int> InputList)
 	}
 
 	return Input;
+}
+
+extern char* programPath;
+void Restart()
+{
+	system(programPath);
 }

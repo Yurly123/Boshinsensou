@@ -237,3 +237,22 @@ stringstream Decode(stringstream& stream)
 	}
 	return code;
 }
+
+void AutoSave(Character& selectChara, int& dayTime)
+{
+	for (int i = 0; i < 10; ++i)
+	{
+		auto slot = GetSlotStream(90 + i);
+		if (slot.fail())
+		{
+			Save(90 + i, selectChara, dayTime);
+			string path = "sav\\";
+			path.append(to_string(i < 9 ? 90 + i + 1 : 90));
+			path.append(".sav");
+			remove(path.c_str());
+			slot.close();
+			break;
+		}
+		slot.close();
+	}
+}

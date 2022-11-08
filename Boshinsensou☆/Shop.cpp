@@ -57,7 +57,7 @@ void Shop()
 		{
 		case 100:	// 훈련
 			Train(OwnCharaList[CurrentCharaIndex]);
-			ProgressTime();
+			ProgressTime(OwnCharaList[CurrentCharaIndex]);
 			break;
 
 		case 101:	// 캐릭터 정보 확인
@@ -190,14 +190,14 @@ void Shop()
 		break;
 
 		case 500:	// 전투
-			BeginBattle();
-			ProgressTime();
+			Battle(OwnCharaList);
+			ProgressTime(OwnCharaList[CurrentCharaIndex]);
 			break;
 		}
 	}
 }
 
-void ProgressTime()
+void ProgressTime(Character& currentChara)
 {
 	++dayTime;	// 시간 가감
 
@@ -212,6 +212,8 @@ void ProgressTime()
 		if (chara.GetCflag("현재기력") > chara.GetCflag("최대기력"))
 			chara.SetCflag("현재기력", chara.GetCflag("최대기력"));
 	}
+
+	AutoSave(currentChara, dayTime);
 
 	PrintLine();
 	cout << endl;

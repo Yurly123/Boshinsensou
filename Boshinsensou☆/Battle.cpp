@@ -1,6 +1,8 @@
 #include "Battle.h"
 
-void BeginBattle()
+void Battle(vector<Character>& ownCharaList)
 {
-
+	Wait;
+	PrintLine();
+	Wait;
 }

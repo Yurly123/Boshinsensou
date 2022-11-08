@@ -12,3 +12,4 @@ void Save(int, Character&, int&);
 void Load(int, Character&, int&);
 stringstream Encode(stringstream&);
 stringstream Decode(stringstream&);
+void AutoSave(Character&, int&);

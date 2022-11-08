@@ -46,3 +46,6 @@ void PrintLine();
 // 입력 받기
 // InputList : 입력 받기 가능한 값들의 리스트
 int GetInput(vector<int>);
+
+// 프로그램 재기동
+void Restart();

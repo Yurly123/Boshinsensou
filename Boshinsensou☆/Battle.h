@@ -1,4 +1,4 @@
 #pragma once
 #include "System.h"
 
-void BeginBattle();
+void Battle(vector<Character>&);
