@@ -126,15 +126,9 @@ void LoadDefaultCData(string filepath, Character& chara)
 void AbstractEP(Character& chara, int amount)
 {
 	if (chara.GetCflag("현재기력") - amount >= 0)
-	{
 		chara.AddCflag("현재기력", -amount);
-	}
 	else if (chara.GetCflag("현재기력") > 0)
-	{
 		chara.SetCflag("현재기력", 0);
-	}
 	else
-	{
 		chara.AddCflag("현재체력", -amount);
-	}
 }

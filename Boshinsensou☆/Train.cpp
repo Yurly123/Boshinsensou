@@ -143,3 +143,111 @@ map<int, int> TrainLoop(Character& TrainChara)
 	}
 	return parameter;
 }
+
+void ImproveCharaStat(Character& chara, map<int, int>& parameter)
+{
+	while (true)
+	{
+		PrintLine();
+		cout << endl;
+
+		for (auto& param : Parameter::ParamList)
+		{
+			if (param.second != "피로")
+				cout << "   " << param.second << " : " << parameter[param.first];
+		}
+		cout << endl << endl;
+		PrintLine();
+		cout << endl;
+
+		cout << "  상승시킬 능력을 골라주세요." << endl << endl;
+
+		vector<int> inputList;
+		for (auto& flag : CData::CFlagList)
+		{
+			if (20 <= flag.first && flag.first < 30)
+			{
+				bool isSatisfied;
+				StatRequirement(flag.first - 20, chara, parameter, isSatisfied);
+				if (!isSatisfied) SetColor(8);
+				cout << "   [ " << flag.first - 20 << "] " << flag.second << chara.Cflag[flag.first] + 1 << endl;
+				SetColor(7);
+				inputList.push_back(flag.first - 20);
+			}
+		}
+		cout << endl << "   [100] 능력상승 종료" << endl;
+		inputList.push_back(100);
+
+		cout << endl;
+		PrintLine();
+		int input = GetInput(inputList);
+		if (input == 100) break;
+		UpCStat(chara, parameter, input);
+	}
+}
+
+void UpCStat(Character& chara, map<int, int>& parameter, int index)
+{
+	bool isSatisfied;
+	map<int, int> require = StatRequirement(index, chara, parameter, isSatisfied);
+	while (true)
+	{
+		PrintLine();
+		cout << endl;
+
+		cout << "   [0] " << CData::GetFlag(index + 20) << chara.Cflag[index + 20] + 1;
+		for (auto& req : require)
+		{
+			cout << "\t" << Parameter::GetParam(req.first) << " 포인트 " << req.second;
+		}
+		cout << " 필요" << endl;
+		cout << "   [1] 돌아가기" << endl;
+
+		cout << endl;
+
+		if (GetInput({ 0,1 })) break;
+		else
+		{
+			if (isSatisfied)
+			{
+				for (auto& req : require)
+					parameter[req.first] -= req.second;
+				++chara.Cflag[index + 20];
+				return;
+			}
+			else
+			{
+				cout << endl << "포인트가 부족합니다." << endl;
+				Wait;
+				return;
+			}
+		}
+	}
+}
+
+map<int, int> StatRequirement(int index, Character& chara, map<int, int>& parameter, bool& isSatisfied)
+{
+	map<int, int> require;
+
+	switch (index)
+	{
+	case 0: // 지구력
+		require[Parameter::GetParam("유산소")] = 500 * (chara.GetCflag("지구력") + 1);
+		break;
+	case 1: // 근력
+		require[Parameter::GetParam("무산소")] = 500 * (chara.GetCflag("근력") + 1);
+		break;
+	}
+
+	for (auto& req : require)
+	{
+		if (parameter[req.first] <= req.second)
+		{
+			isSatisfied = false;
+			return require;
+		}
+	}
+
+	isSatisfied = true;
+	return require;
+}

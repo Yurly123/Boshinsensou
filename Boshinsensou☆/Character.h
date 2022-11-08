@@ -146,7 +146,3 @@ string GetCharaDescription(Character&);
 // 캐릭터 체력/기력 표시
 // chara : 표시할 캐릭터
 void PrintCharaHPEP(Character&);
-
-void ImproveCharaStat(Character&, map<int, int>&);
-
-void UpCStat(Character&, map<int, int>&, int);
