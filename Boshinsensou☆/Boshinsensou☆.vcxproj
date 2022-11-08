@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Battle.cpp" />
     <ClCompile Include="com000.cpp" />
     <ClCompile Include="com009.cpp" />
     <ClCompile Include="com010.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="Train.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Battle.h" />
     <ClInclude Include="com000.h" />
     <ClInclude Include="com009.h" />
     <ClInclude Include="com010.h" />

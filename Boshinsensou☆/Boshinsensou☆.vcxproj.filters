@@ -60,6 +60,9 @@
     <ClCompile Include="com009.cpp">
       <Filter>소스 파일\Commands</Filter>
     </ClCompile>
+    <ClCompile Include="Battle.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System.h">
@@ -94,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="com009.h">
       <Filter>헤더 파일\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

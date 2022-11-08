@@ -38,18 +38,21 @@ void Shop()
 		cout << endl;
 
 		//	Shop 커맨드 출력
-		cout << "   " << "[100] 훈련하기";
-		cout << "   " << "[101] 캐릭터 정보";
-		cout << "   " << "[109] 캐릭터 변경";
-		cout << "   " << "[200] 저장하기";
-		cout << "   " << "[300] 불러오기";
+		vector<int> ShopList;
+		string space = "    ";
+		cout << space << "[100] 훈련하기"; ShopList.push_back(100);
+		cout << space << "[101] 캐릭터 정보"; ShopList.push_back(101);
+		cout << space << "[109] 캐릭터 변경"; ShopList.push_back(109);
+		cout << space << "[200] 저장하기"; ShopList.push_back(200);
+		cout << space << "[300] 불러오기"; ShopList.push_back(300);
+		cout << space << "[500] 전투"; ShopList.push_back(500);
 		cout << endl;
 
 		cout << endl;
 		PrintLine();
 
 		// Shop 커맨드 입력 받기
-		int Input = GetInput({ 100,101,109,200,300 });
+		int Input = GetInput(ShopList);
 		switch (Input)
 		{
 		case 100:	// 훈련
@@ -185,6 +188,11 @@ void Shop()
 			}
 		}
 		break;
+
+		case 500:	// 전투
+			BeginBattle();
+			ProgressTime();
+			break;
 		}
 	}
 }
