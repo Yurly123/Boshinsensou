@@ -16,17 +16,20 @@ int SelectSaveSlot(int index)
 			cout << "  [" << i << "]\t";
 
 			stringstream readStream;
-			for(int i = 0; i < 25; ++i)
+			for(int i = 0; i < 50; ++i)
 				readStream << (char)slot.get();
 			readStream = Decode(readStream);
 
 			string buff;
 			getline(readStream, buff);
-			cout << buff << "\t";
+			cout << buff << "   ";
 
 			getline(readStream, buff);
 			int dayTime = stoi(buff);
 			cout << dayTime / 2 + 1 << "일째 " << (dayTime % 2 ? "밤" : "낮");
+
+			getline(readStream, buff);
+			cout << "   " << buff << " 선택중";
 		}
 		else
 		{
@@ -60,7 +63,7 @@ ifstream GetSlotStream(int index)
 	return ifstream(path);
 }
 
-void Save(int index, Character& selectChara, int& dayTime)
+void Save(int index, int currentCharaIndex, int dayTime)
 {
 	stringstream out;
 
@@ -75,6 +78,15 @@ void Save(int index, Character& selectChara, int& dayTime)
 	out << setfill('0') << setw(2) << t->tm_sec << endl;
 	
 	out << dayTime << endl;
+	int count = 0;
+	for (auto& chara : Character::CharaList)
+		if (chara.GetCtalent("보유중"))
+			if (currentCharaIndex == count)
+			{
+				out << chara.Name << endl;
+				break;
+			}
+			else count++;
 
 	// CData 저장
 	out << Character::CharaList.size() << endl;
@@ -91,7 +103,7 @@ void Save(int index, Character& selectChara, int& dayTime)
 	}
 
 	// 선택 캐릭터 저장
-	out << selectChara.ID << endl;
+	out << currentCharaIndex << endl;
 
 	out = Encode(out);
 	string path = "sav\\";
@@ -106,7 +118,7 @@ void Save(int index, Character& selectChara, int& dayTime)
 	saveStream.close();
 }
 
-void Load(int index, Character& selectChara, int& dayTime)
+void Load(int index, int& currentCharaIndex, int& dayTime)
 {
 	string path = "sav\\";
 	if (!(index / 10)) path.append("0");
@@ -124,6 +136,7 @@ void Load(int index, Character& selectChara, int& dayTime)
 	getline(in, Buffer);
 	getline(in, Buffer);
 	dayTime = stoi(Buffer);
+	getline(in, Buffer);
 
 	getline(in, Buffer);
 	int charaCount = stoi(Buffer);
@@ -192,13 +205,17 @@ void Load(int index, Character& selectChara, int& dayTime)
 	}
 
 	getline(in, Buffer);
-	int id = stoi(Buffer);
+	int charaIndex = stoi(Buffer);
+	int count = 0;
 	for (auto& chara : Character::CharaList)
-		if (chara.ID == id)
-		{
-			selectChara = chara;
-			break;
-		}
+		if (chara.GetCtalent("보유중"))
+			if (charaIndex == count)
+			{
+				currentCharaIndex = count;
+				break;
+			}
+			else count++;
+
 }
 
 stringstream Encode(stringstream& stream)
@@ -238,14 +255,14 @@ stringstream Decode(stringstream& stream)
 	return code;
 }
 
-void AutoSave(Character& selectChara, int& dayTime)
+void AutoSave(int currentCharaIndex, int dayTime)
 {
 	for (int i = 0; i < 10; ++i)
 	{
 		auto slot = GetSlotStream(90 + i);
 		if (slot.fail())
 		{
-			Save(90 + i, selectChara, dayTime);
+			Save(90 + i, currentCharaIndex, dayTime);
 			string path = "sav\\";
 			path.append(to_string(i < 9 ? 90 + i + 1 : 90));
 			path.append(".sav");

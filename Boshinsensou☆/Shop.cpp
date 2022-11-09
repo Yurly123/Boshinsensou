@@ -57,7 +57,7 @@ void Shop()
 		{
 		case 100:	// 훈련
 			Train(OwnCharaList[CurrentCharaIndex]);
-			ProgressTime(OwnCharaList[CurrentCharaIndex]);
+			ProgressTime(CurrentCharaIndex);
 			break;
 
 		case 101:	// 캐릭터 정보 확인
@@ -141,7 +141,7 @@ void Shop()
 					cout << "[1] 아니요" << endl;
 					if (!GetInput({ 0,1 }))
 					{
-						Save(select, OwnCharaList[CurrentCharaIndex], dayTime);	// 저장
+						Save(select, CurrentCharaIndex, dayTime);	// 저장
 						break;
 					}
 				}
@@ -181,7 +181,7 @@ void Shop()
 					cout << "[1] 아니요" << endl;
 					if (!GetInput({ 0,1 }))
 					{
-						Load(select, OwnCharaList[CurrentCharaIndex], dayTime);	// 불러오기
+						Load(select, CurrentCharaIndex, dayTime);	// 불러오기
 						break;
 					}
 				}
@@ -191,13 +191,13 @@ void Shop()
 
 		case 500:	// 전투
 			Battle(OwnCharaList);
-			ProgressTime(OwnCharaList[CurrentCharaIndex]);
+			ProgressTime(CurrentCharaIndex);
 			break;
 		}
 	}
 }
 
-void ProgressTime(Character& currentChara)
+void ProgressTime(int currentCharaIndex)
 {
 	++dayTime;	// 시간 가감
 
@@ -213,7 +213,7 @@ void ProgressTime(Character& currentChara)
 			chara.SetCflag("현재기력", chara.GetCflag("최대기력"));
 	}
 
-	AutoSave(currentChara, dayTime);
+	AutoSave(currentCharaIndex, dayTime);
 
 	PrintLine();
 	cout << endl;

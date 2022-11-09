@@ -7,7 +7,7 @@
 void Shop();
 
 // 낮밤 바뀔때 처리
-void ProgressTime(Character&);
+void ProgressTime(int);
 
 // 캐릭터 리스트중 캐릭터 하나 선택
 // charaList : 선택할 캐릭터들의 리스트
