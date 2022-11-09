@@ -45,7 +45,7 @@ void Shop()
 		AddInput(ShopList, 109, "캐릭터 변경", space);
 		AddInput(ShopList, 200, "저장하기", space);
 		AddInput(ShopList, 300, "불러오기", space);
-		AddInput(ShopList, 500, "전투", space);
+		AddInput(ShopList, 500, "전장으로", space);
 		cout << endl;
 
 		cout << endl;
