@@ -48,3 +48,9 @@ void Restart()
 {
 	system(programPath);
 }
+
+void AddInput(vector<int>& InputList, int input, string name, string space)
+{
+	cout << space << "[" << input << "] " << name;
+	InputList.push_back(input);
+}

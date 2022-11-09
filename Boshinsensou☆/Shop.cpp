@@ -40,12 +40,12 @@ void Shop()
 		//	Shop 커맨드 출력
 		vector<int> ShopList;
 		string space = "    ";
-		cout << space << "[100] 훈련하기"; ShopList.push_back(100);
-		cout << space << "[101] 캐릭터 정보"; ShopList.push_back(101);
-		cout << space << "[109] 캐릭터 변경"; ShopList.push_back(109);
-		cout << space << "[200] 저장하기"; ShopList.push_back(200);
-		cout << space << "[300] 불러오기"; ShopList.push_back(300);
-		cout << space << "[500] 전투"; ShopList.push_back(500);
+		AddInput(ShopList, 100, "훈련하기", space);
+		AddInput(ShopList, 101, "캐릭터 정보", space);
+		AddInput(ShopList, 109, "캐릭터 변경", space);
+		AddInput(ShopList, 200, "저장하기", space);
+		AddInput(ShopList, 300, "불러오기", space);
+		AddInput(ShopList, 500, "전투", space);
 		cout << endl;
 
 		cout << endl;
@@ -241,8 +241,9 @@ Character SelectCharactor(vector<Character>& charaList)
 	cout << endl;
 	PrintLine();
 
-	cout << endl << "\t[1000] 돌아가기" << endl;
-	IDList.push_back(1000);
+	cout << endl;
+	AddInput(IDList, 1000, "돌아가기", "\n");
+	cout << endl;
 
 	int SelectID = GetInput(IDList);	// 입력 받기
 	if (SelectID == 1000) return Character();	// 돌아가기면 무효값 반환
@@ -306,16 +307,12 @@ void ShowCharaInfo(Character& Chara)
 		vector<int> inputList;
 		cout << endl;
 		if (index > 0)
-		{
-			cout << "\t[101] 이전 페이지"; inputList.push_back(101);
-		}
+			AddInput(inputList, 101, "이전 페이지", "\t");
 		else
 			cout << "\t\t";
-		cout << "\t[1000] 돌아가기"; inputList.push_back(1000);
+		AddInput(inputList, 1000, "돌아가기", "\t");
 		if (index < 1)
-		{
-			cout << "\t[109] 이전 페이지"; inputList.push_back(109);
-		}
+			AddInput(inputList, 109, "다음 페이지", "\t");
 		cout << endl;
 
 		int input = GetInput(inputList);

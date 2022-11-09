@@ -70,8 +70,7 @@ map<int, int> TrainLoop(Character& TrainChara)
 		vector<int> inputList;
 		for (auto& com : Command::ComList)
 		{
-			cout << "   [" << com.first << "] " << com.second.Name;
-			inputList.push_back(com.first);
+			AddInput(inputList, com.first, com.second.Name, "   ");
 		}
 		cout << endl << endl;
 		PrintLine();
@@ -170,13 +169,13 @@ void ImproveCharaStat(Character& chara, map<int, int>& parameter)
 				bool isSatisfied;
 				StatRequirement(flag.first - 20, chara, parameter, isSatisfied);
 				if (!isSatisfied) SetColor(8);
-				cout << "   [ " << flag.first - 20 << "] " << flag.second << chara.Cflag[flag.first] + 1 << endl;
+				AddInput(inputList, flag.first - 20,
+					flag.second + " " + to_string(chara.Cflag[flag.first] + 1) + "\n",
+					"   ");
 				SetColor(7);
-				inputList.push_back(flag.first - 20);
 			}
 		}
-		cout << endl << "   [100] 능력상승 종료" << endl;
-		inputList.push_back(100);
+		AddInput(inputList, 100, "능력상승 종료\n", "   ");
 
 		cout << endl;
 		PrintLine();
