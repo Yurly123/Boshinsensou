@@ -17,7 +17,7 @@ void BattleMap(vector<Character>& ownCharaList)
 		cout << endl;
 
 		vector<int> inputLIst;
-		PrintMap(0, inputLIst, 0);
+		PrintMap(Enemy::Progression);
 
 		cout << endl;
 		PrintLine();
@@ -35,7 +35,7 @@ void BattleMap(vector<Character>& ownCharaList)
 }
 
 
-void PrintMap(int index, vector<int>& inputList, int select)
+void PrintMap(int index)
 {
 	switch (index)
 	{
@@ -45,7 +45,7 @@ void PrintMap(int index, vector<int>& inputList, int select)
 		printf("                                                                                                 \n");
 		printf("                                                                                                 \n");
 		printf("                                                                                                 \n");
-		printf("           %3s 히데                                                                              \n", (select == 0 ? " ▶" : "[0]")); if (select != 0) inputList.push_back(0);
+		printf("           %s 히데                                                                               \n", (index == 0 ? "▶" : "  "));
 		printf("                                                                                                 \n");
 		printf("                                                                                                 \n");
 		
@@ -62,7 +62,6 @@ void PrintMap(int index, vector<int>& inputList, int select)
 		printf("hweafjuizrena3kwfopxrjine43mkwefopixerj.4ewkfrceqxwefiswrmjekopferwmzfkdjiowekfisodefkdiseijoiedj\n");
 		printf("                                                                                                 \n");
 		printf("index : %d\n", index);
-		printf("selection : %d\n", select);
 		break;
 	}
 }

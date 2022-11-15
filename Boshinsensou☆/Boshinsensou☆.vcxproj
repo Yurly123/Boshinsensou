@@ -136,6 +136,7 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CData.cpp" />
     <ClCompile Include="Command.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SaveLoad.cpp" />
     <ClCompile Include="Shop.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="CData.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Command.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="SaveLoad.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="System.h" />
@@ -166,6 +168,7 @@
     <None Include="CSV\CStr.csv" />
     <None Include="CSV\CTalent.csv" />
     <None Include="CSV\Param.csv" />
+    <None Include="Enemy.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

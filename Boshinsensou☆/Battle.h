@@ -3,4 +3,4 @@
 
 void Battle(vector<Character>&);
 void BattleMap(vector<Character>&);
-void PrintMap(int, vector<int>&, int);
+void PrintMap(int);

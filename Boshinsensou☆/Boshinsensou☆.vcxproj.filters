@@ -63,6 +63,9 @@
     <ClCompile Include="Battle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System.h">
@@ -101,6 +104,9 @@
     <ClInclude Include="Battle.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="CSV\CFlag.csv">
@@ -128,6 +134,9 @@
       <Filter>리소스 파일\Chara</Filter>
     </None>
     <None Include="CSV\Param.csv">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Enemy.csv">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>

@@ -17,20 +17,20 @@ Command::Command(int ID, string Name, void Commit (Character&, map<int, int>&))
 void Parameter::LoadParam()
 {
 	ifstream paramStream("CSV\\Param.csv");
-	string Buffer;
+	string buffer;
 
 	while (!paramStream.eof())
 	{
-		getline(paramStream, Buffer, ',');
-		int id = stoi(Buffer);
+		getline(paramStream, buffer, ',');
+		int id = stoi(buffer);
 
-		getline(paramStream, Buffer, ',');
-		string name = Buffer;
+		getline(paramStream, buffer, ',');
+		string name = buffer;
 
 		Param_ID[name] = id;
 		ParamList[id] = name;
 
-		getline(paramStream, Buffer);
+		getline(paramStream, buffer);
 	}
 
 	paramStream.close();

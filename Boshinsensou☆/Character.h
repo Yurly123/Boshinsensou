@@ -140,8 +140,7 @@ public:
 };
 
 // 캐릭터 설명 받기
-// chara : 설명을 받을 캐릭터
-string GetCharaDescription(Character&);
+string GetCharaDescription(int);
 
 // 캐릭터 체력/기력 표시
 // chara : 표시할 캐릭터

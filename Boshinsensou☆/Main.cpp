@@ -20,6 +20,8 @@ void Initialize()
 	Command::LoadCommands();	// 커맨드 내용 로딩
 	cout << "Loading Parameters..." << endl;
 	Parameter::LoadParam();	// 패러미터 정보 로딩
+	cout << "Loading Enemies..." << endl;
+	Enemy::LoadEnemy();	// 적 정보 로딩
 
 	// 맨 밑으로 내리기
 	for (int i = 0; i < 100; ++i)

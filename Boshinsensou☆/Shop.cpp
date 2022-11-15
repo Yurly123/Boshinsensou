@@ -299,7 +299,7 @@ void ShowCharaInfo(Character& Chara)
 			cout << endl << " " << Chara.GetCstr("이름") << endl;
 
 			// 캐릭터 설명 표시
-			cout << endl << GetCharaDescription(Chara) << endl;
+			cout << endl << GetCharaDescription(Chara.ID) << endl;
 		} break;
 		}
 

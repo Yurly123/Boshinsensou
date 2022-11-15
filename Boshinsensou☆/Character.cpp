@@ -1,5 +1,8 @@
 #include "Character.h"
 
+#pragma region 클래스 멤버
+
+#pragma region Character
 vector<Character> Character::CharaList = vector<Character>();
 
 void Character::LoadCData()
@@ -44,16 +47,16 @@ void Character::LoadCharaList()
 	ifstream FileStream("CSV\\Character.csv");
 	while (!FileStream.eof())
 	{
-		string Buffer;
+		string buffer;
 
-		getline(FileStream, Buffer, ',');
-		int id = stoi(Buffer);
+		getline(FileStream, buffer, ',');
+		int id = stoi(buffer);
 
-		getline(FileStream, Buffer, ',');
-		string name = Buffer;
+		getline(FileStream, buffer, ',');
+		string name = buffer;
 
-		getline(FileStream, Buffer);
-		bool IsAlt = Buffer == "true";
+		getline(FileStream, buffer);
+		bool IsAlt = buffer == "true";
 
 		Character chara = Character(name, IsAlt, id);
 		CharaList.push_back(chara);
@@ -69,7 +72,9 @@ Character::Character(string name, bool IsAlt, int ID)
 	Cstr = map<int, string>();
 	LoadCData();
 }
+#pragma endregion
 
+#pragma region Name
 Name::Name(string text, bool isalt)
 {
 	Text = text;
@@ -108,10 +113,14 @@ string Name::WithPP(string PP)
 	string text = Text;
 	return text.append(GetPP(PP));
 }
-string GetCharaDescription(Character& chara)
+#pragma endregion
+
+#pragma endregion
+
+string GetCharaDescription(int id)
 {
 	string Description;
-	switch (chara.ID)
+	switch (id)
 	{
 	case 1:
 		Description.append("쿠키☆의 초창기 멤버로써, 인터넷에서 평생동안 떠드는 누님이다. 별명은 마리나\n");

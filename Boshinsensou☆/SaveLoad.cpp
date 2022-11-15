@@ -105,6 +105,8 @@ void Save(int index, int currentCharaIndex, int dayTime)
 	// 선택 캐릭터 저장
 	out << currentCharaIndex << endl;
 
+	out << Enemy::Progression << endl;
+
 	out = Encode(out);
 	string path = "sav\\";
 	if (!(index / 10)) path.append("0");
@@ -132,19 +134,19 @@ void Load(int index, int& currentCharaIndex, int& dayTime)
 	}
 	in = Decode(in);
 
-	string Buffer;
-	getline(in, Buffer);
-	getline(in, Buffer);
-	dayTime = stoi(Buffer);
-	getline(in, Buffer);
+	string buffer;
+	getline(in, buffer);
+	getline(in, buffer);
+	dayTime = stoi(buffer);
+	getline(in, buffer);
 
-	getline(in, Buffer);
-	int charaCount = stoi(Buffer);
+	getline(in, buffer);
+	int charaCount = stoi(buffer);
 
 	for (int i = 0; i < charaCount; ++i)
 	{
-		getline(in, Buffer);
-		int charaID = stoi(Buffer);
+		getline(in, buffer);
+		int charaID = stoi(buffer);
 
 		Character loadChara;
 		for (auto& chara : Character::CharaList)
@@ -156,44 +158,44 @@ void Load(int index, int& currentCharaIndex, int& dayTime)
 		
 		while (true)
 		{
-			getline(in, Buffer, ',');
-			if (Buffer == "flag")
+			getline(in, buffer, ',');
+			if (buffer == "flag")
 			{
-				getline(in, Buffer, ',');
-				int index = stoi(Buffer);
+				getline(in, buffer, ',');
+				int index = stoi(buffer);
 
-				getline(in, Buffer, ',');
-				int value = stoi(Buffer);
+				getline(in, buffer, ',');
+				int value = stoi(buffer);
 
 				loadChara.Cflag[index] = value;
 			}
-			else if (Buffer == "talent")
+			else if (buffer == "talent")
 			{
-				getline(in, Buffer, ',');
-				int index = stoi(Buffer);
+				getline(in, buffer, ',');
+				int index = stoi(buffer);
 
-				getline(in, Buffer, ',');
-				bool value = stoi(Buffer);
+				getline(in, buffer, ',');
+				bool value = stoi(buffer);
 
 				loadChara.Ctalent[index] = value;
 			}
-			else if (Buffer == "str")
+			else if (buffer == "str")
 			{
-				getline(in, Buffer, ',');
-				int index = stoi(Buffer);
+				getline(in, buffer, ',');
+				int index = stoi(buffer);
 
-				getline(in, Buffer, ',');
-				string value = Buffer;
+				getline(in, buffer, ',');
+				string value = buffer;
 
 				loadChara.Cstr[index] = value;
 			}
 			else
 			{
-				getline(in, Buffer);
+				getline(in, buffer);
 				break;
 			}
 
-			getline(in, Buffer);
+			getline(in, buffer);
 		}
 
 		for (auto& chara : Character::CharaList)
@@ -204,8 +206,8 @@ void Load(int index, int& currentCharaIndex, int& dayTime)
 			}
 	}
 
-	getline(in, Buffer);
-	int charaIndex = stoi(Buffer);
+	getline(in, buffer);
+	int charaIndex = stoi(buffer);
 	int count = 0;
 	for (auto& chara : Character::CharaList)
 		if (chara.GetCtalent("보유중"))
@@ -215,6 +217,9 @@ void Load(int index, int& currentCharaIndex, int& dayTime)
 				break;
 			}
 			else count++;
+
+	getline(in, buffer);
+	Enemy::Progression = stoi(buffer);
 
 }
 
