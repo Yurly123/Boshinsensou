@@ -47,6 +47,7 @@ extern char* programPath;
 void Restart()
 {
 	system(programPath);
+	exit(0);
 }
 
 void AddInput(vector<int>& InputList, int input, string name, string space)

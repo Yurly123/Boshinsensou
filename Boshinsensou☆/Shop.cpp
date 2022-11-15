@@ -48,6 +48,7 @@ void Shop()
 		AddInput(ShopList, 200, "저장하기", space);
 		AddInput(ShopList, 300, "불러오기", space);
 		AddInput(ShopList, 500, "전장으로", space);
+		ShopList.push_back(114514);
 		cout << endl;
 
 		cout << endl;
@@ -194,6 +195,12 @@ void Shop()
 		case 500:	// 전투
 			Battle(OwnCharaList);
 			ProgressTime(CurrentCharaIndex);
+			break;
+
+		case 114514:
+			for (int i = 0; i < 114514; ++i)
+				cout << "GO IS GOD";
+			Restart();
 			break;
 		}
 	}

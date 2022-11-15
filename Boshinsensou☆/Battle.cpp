@@ -27,13 +27,28 @@ void BattleMap(vector<Character>& ownCharaList)
 
 		string space = "    ";
 		AddInput(inputLIst, 100, "전투 개시", space);
-		AddInput(inputLIst, 101, "적의 정보", space);
+		AddInput(inputLIst, 101, "아군 정보", space);
+		AddInput(inputLIst, 200, "적의 정보", space);
 		AddInput(inputLIst, 999, "나가기", space);
 		cout << endl;
 
 		int input = GetInput(inputLIst);
 		if (input == 999) break;
-		else if (input == 101) ShowEnemyInfo(Enemy::EnemyList[Enemy::Progression]);
+		else switch (input)
+		{
+		case 101:
+			while (true)
+			{
+				cout << endl << "정보를 보고싶은 캐릭터를 고르십시오" << endl << endl;
+				Character selectChara = SelectCharactor(ownCharaList);	// 캐릭터 받기
+				if (selectChara.ID == -1) break;	// 무효값이면 반복 종료
+				ShowCharaInfo(selectChara);	// 캐릭터 정보 표시
+			}
+			break;
+		case 200:
+			ShowEnemyInfo(Enemy::EnemyList[Enemy::Progression]);
+			break;
+		}
 	}
 }
 
@@ -66,6 +81,11 @@ void PrintMap(int index)
 		printf("index : %d\n", index);
 		break;
 	}
+}
+
+void Fight(vector<Character>& ownCharaList, int index)
+{
+
 }
 
 #pragma endregion
