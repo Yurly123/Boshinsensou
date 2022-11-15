@@ -167,8 +167,8 @@
     <None Include="CSV\Chara\4 YMN.csv" />
     <None Include="CSV\CStr.csv" />
     <None Include="CSV\CTalent.csv" />
+    <None Include="CSV\Enemy.csv" />
     <None Include="CSV\Param.csv" />
-    <None Include="Enemy.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

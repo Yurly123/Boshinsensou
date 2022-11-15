@@ -1,8 +1,9 @@
 #include "Command.h"
 
+#pragma region 클래스 멤버
+
+#pragma region Command
 map<int, Command> Command::ComList = map<int, Command>();
-map<string, int> Parameter::Param_ID = map<string, int>();
-map<int, string> Parameter::ParamList = map<int, string>();
 
 Command::Command()
 {
@@ -14,6 +15,12 @@ Command::Command(int ID, string Name, void Commit (Character&, map<int, int>&))
 	this->Name = Name;
 	this->Commit = Commit;
 }
+#pragma endregion
+
+#pragma region Parameter
+map<string, int> Parameter::Param_ID = map<string, int>();
+map<int, string> Parameter::ParamList = map<int, string>();
+
 void Parameter::LoadParam()
 {
 	ifstream paramStream("CSV\\Param.csv");
@@ -51,3 +58,6 @@ void Command::LoadCommands()
 	Loadcom010();
 	Loadcom999();
 }
+#pragma endregion
+
+#pragma endregion

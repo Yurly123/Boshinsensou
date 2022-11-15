@@ -1,5 +1,7 @@
 #include "Battle.h"
 
+#pragma region 전역 함수
+
 void Battle(vector<Character>& ownCharaList)
 {
 	PrintLine();
@@ -29,11 +31,11 @@ void BattleMap(vector<Character>& ownCharaList)
 		AddInput(inputLIst, 999, "나가기", space);
 		cout << endl;
 
-		int Input = GetInput(inputLIst);
-		if (Input == 999) break;
+		int input = GetInput(inputLIst);
+		if (input == 999) break;
+		else if (input == 101) ShowEnemyInfo(Enemy::EnemyList[Enemy::Progression]);
 	}
 }
-
 
 void PrintMap(int index)
 {
@@ -65,3 +67,5 @@ void PrintMap(int index)
 		break;
 	}
 }
+
+#pragma endregion

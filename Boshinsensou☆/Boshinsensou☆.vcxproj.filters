@@ -136,7 +136,7 @@
     <None Include="CSV\Param.csv">
       <Filter>리소스 파일</Filter>
     </None>
-    <None Include="Enemy.csv">
+    <None Include="CSV\Enemy.csv">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>

@@ -145,3 +145,7 @@ string GetCharaDescription(int);
 // 캐릭터 체력/기력 표시
 // chara : 표시할 캐릭터
 void PrintCharaHPEP(Character&);
+
+// 캐릭터 정보 표시
+// Chara : 정보를 표시할 캐릭터
+void ShowCharaInfo(Character&);

@@ -15,4 +15,5 @@ public:
 	Enemy(int = -1, string = "");
 };
 
+void ShowEnemyInfo(Enemy&);
 string GetEnemyDescription(int);

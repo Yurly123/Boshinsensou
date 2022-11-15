@@ -1,5 +1,7 @@
 #include "SaveLoad.h"
 
+#pragma region 전역 함수
+
 int SelectSaveSlot(int index)
 {
 	vector<int> InputLIst;
@@ -278,3 +280,5 @@ void AutoSave(int currentCharaIndex, int dayTime)
 		slot.close();
 	}
 }
+
+#pragma endregion

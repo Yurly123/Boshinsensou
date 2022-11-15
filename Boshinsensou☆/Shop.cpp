@@ -2,6 +2,8 @@
 
 int dayTime = 0;	// 현재 게임 시간
 
+#pragma region 전역 함수
+
 void Shop()
 {
 	int CurrentCharaIndex = -1;	// 현재 선택된 캐릭터의 인덱스
@@ -257,68 +259,4 @@ Character SelectCharactor(vector<Character>& charaList)
 	return Character();	// 맞는거 없으면 무효값 반환
 }
 
-void ShowCharaInfo(Character& Chara)
-{
-	int index = 0;
-	while (true)
-	{
-		cout << endl;
-		PrintLine();
-		cout << endl;
-
-		switch (index)
-		{
-		case 0:
-		{
-			// 소질 표시
-			cout << "  소질 : ";
-			for (auto& talent : CData::CTalentList)
-			{
-				if (talent.first == 0) continue;
-				if (Chara.Ctalent[talent.first])
-					cout << "[" << talent.second << "] ";
-			}
-			cout << endl << endl;
-
-			PrintLine();
-			cout << endl;
-			cout << "  능력 : " << endl;
-			for (auto& flag : CData::CFlagList)
-			{
-				if (20 <= flag.first && flag.first < 30)
-				{
-					cout << "   " << flag.second << " : " << Chara.Cflag[flag.first];
-				}
-			}
-			cout << endl << endl;
-		} break;
-		case 1:
-		{
-			// 이름 표시
-			cout << "   -" << Chara.ID << "-\t" << Chara.Name << endl;
-			cout << endl << " " << Chara.GetCstr("이름") << endl;
-
-			// 캐릭터 설명 표시
-			cout << endl << GetCharaDescription(Chara.ID) << endl;
-		} break;
-		}
-
-		PrintLine();
-		vector<int> inputList;
-		cout << endl;
-		if (index > 0)
-			AddInput(inputList, 101, "이전 페이지", "\t");
-		else
-			cout << "\t\t";
-		AddInput(inputList, 1000, "돌아가기", "\t");
-		if (index < 1)
-			AddInput(inputList, 109, "다음 페이지", "\t");
-		cout << endl;
-
-		int input = GetInput(inputList);
-
-		if (input == 1000) break;
-		else if (input == 101) --index;
-		else if (input == 109) ++index;
-	}
-}
+#pragma endregion

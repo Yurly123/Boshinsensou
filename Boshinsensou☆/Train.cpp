@@ -1,9 +1,11 @@
 #include "Train.h"
 
+#pragma region 전역 함수
+
 void Train(Character& TrainChara)
 {
 	PrintLine();
-	cout << endl << "훈련을 시작합니다." << endl;
+	cout << endl << TrainChara.Name << "의 훈련을 시작합니다." << endl;
 	Wait;
 
 	map<int, int> parameter = TrainLoop(TrainChara);
@@ -250,3 +252,5 @@ map<int, int> StatRequirement(int index, Character& chara, map<int, int>& parame
 	isSatisfied = true;
 	return require;
 }
+
+#pragma endregion

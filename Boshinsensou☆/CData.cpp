@@ -1,5 +1,8 @@
 #include "CData.h"
 
+#pragma region 클래스 멤버
+
+#pragma region CData
 map<int, string> CData::CFlagList = map<int, string>();
 map<int, string> CData::CTalentList = map<int, string>();
 map<int, string> CData::CStrList = map<int, string>();
@@ -78,6 +81,11 @@ string CData::GetStr(int id)
 {
 	return CStrList[id];
 }
+#pragma endregion
+
+#pragma endregion
+
+#pragma region 전역 함수
 
 void LoadDefaultCData(string filepath, Character& chara)
 {
@@ -132,3 +140,5 @@ void AbstractEP(Character& chara, int amount)
 	else
 		chara.AddCflag("현재체력", -amount);
 }
+
+#pragma endregion
