@@ -23,15 +23,15 @@ void Train(Character& TrainChara)
 	}
 	Wait;
 
-	if (parameter[Parameter::GetParam("피로")] > 0)
+	if (parameter[Parameter::Get("피로")] > 0)
 	{
-		cout << "피로도 " << parameter[Parameter::GetParam("피로")] << "에서 감소한 포인트 : " << endl;
+		cout << "피로도 " << parameter[Parameter::Get("피로")] << "에서 감소한 포인트 : " << endl;
 		cout << endl;
 		for (auto& param : Parameter::ParamList)
 		{
 			if (param.second != "피로")
 			{
-				parameter[param.first] -= parameter[Parameter::GetParam("피로")];
+				parameter[param.first] -= parameter[Parameter::Get("피로")];
 
 				if (parameter[param.first] > 0)
 					cout << " - " << param.second << " : " << parameter[param.first] << endl;
@@ -57,7 +57,7 @@ map<int, int> TrainLoop(Character& TrainChara)
 	{
 		PrintLine();
 		cout << endl;
-		cout << "\t" << TrainChara.GetCstr("이름") << endl;
+		cout << "\t" << TrainChara.GetStr("이름") << endl;
 		PrintCharaHPEP(TrainChara);
 		cout << endl;
 
@@ -82,8 +82,8 @@ map<int, int> TrainLoop(Character& TrainChara)
 		cout << endl << Command::ComList[selectCom].Name << endl << endl;
 
 		map<int, int> temp(parameter);
-		int hp = TrainChara.GetCflag("현재체력");
-		int ep = TrainChara.GetCflag("현재기력");
+		int hp = TrainChara.GetFlag("현재체력");
+		int ep = TrainChara.GetFlag("현재기력");
 		Command::ComList[selectCom].Commit(TrainChara, parameter);
 		if (selectCom == 999) break;
 
@@ -92,29 +92,29 @@ map<int, int> TrainLoop(Character& TrainChara)
 			if (parameter[param.first] != temp[param.first])
 			{
 				if (param.second == "유산소" || param.second == "무산소")
-					parameter[Parameter::GetParam("피로")] += (parameter[param.first] - temp[param.first]) / 2;
+					parameter[Parameter::Get("피로")] += (parameter[param.first] - temp[param.first]) / 2;
 
 				if (param.second != "피로" && param.second != "의욕")
-					parameter[param.first] += (parameter[param.first] - temp[param.first]) * parameter[Parameter::GetParam("의욕")] / 100;
+					parameter[param.first] += (parameter[param.first] - temp[param.first]) * parameter[Parameter::Get("의욕")] / 100;
 			}
 
 			if (parameter[param.first] < 0)
 				parameter[param.first] = 0;
 		}
-		if (TrainChara.GetCflag("현재체력") != hp)
-			TrainChara.AddCflag("현재체력", -(hp - TrainChara.GetCflag("현재체력")) * parameter[Parameter::GetParam("피로")] / 200);
-		if (TrainChara.GetCflag("현재기력") != ep)
-			TrainChara.AddCflag("현재기력", -(ep - TrainChara.GetCflag("현재기력")) * parameter[Parameter::GetParam("피로")] / 200);
-		if (TrainChara.GetCflag("현재기력") < 0)
-			TrainChara.SetCflag("현재기력", 0);
+		if (TrainChara.GetFlag("현재체력") != hp)
+			TrainChara.AddFlag("현재체력", -(hp - TrainChara.GetFlag("현재체력")) * parameter[Parameter::Get("피로")] / 200);
+		if (TrainChara.GetFlag("현재기력") != ep)
+			TrainChara.AddFlag("현재기력", -(ep - TrainChara.GetFlag("현재기력")) * parameter[Parameter::Get("피로")] / 200);
+		if (TrainChara.GetFlag("현재기력") < 0)
+			TrainChara.SetFlag("현재기력", 0);
 
 		cout << endl;
 		Wait;
 		
-		if (TrainChara.GetCflag("현재체력") != hp)
-			cout << "체력 : " << hp << " → " << TrainChara.GetCflag("현재체력") << endl;
-		if (TrainChara.GetCflag("현재기력") != ep)
-			cout << "기력 : " << ep << " → " << TrainChara.GetCflag("현재기력") << endl;
+		if (TrainChara.GetFlag("현재체력") != hp)
+			cout << "체력 : " << hp << " → " << TrainChara.GetFlag("현재체력") << endl;
+		if (TrainChara.GetFlag("현재기력") != ep)
+			cout << "기력 : " << ep << " → " << TrainChara.GetFlag("현재기력") << endl;
 		cout << endl;
 
 		for (auto& param : Parameter::ParamList)
@@ -125,7 +125,7 @@ map<int, int> TrainLoop(Character& TrainChara)
 			}
 		}
 
-		if (TrainChara.GetCflag("현재체력") <= 20)
+		if (TrainChara.GetFlag("현재체력") <= 20)
 		{
 			cout << endl << "**" << TrainChara.Name.WithPP("가") << " 너무 지쳤으므로 훈련을 종료합니다**" << endl;
 			break;
@@ -196,10 +196,10 @@ void UpCStat(Character& chara, map<int, int>& parameter, int index)
 		PrintLine();
 		cout << endl;
 
-		cout << "   [0] " << CData::GetFlag(index + 20) << chara.Cflag[index + 20] + 1;
+		cout << "   [0] " << CData::Flag(index + 20) << chara.Cflag[index + 20] + 1;
 		for (auto& req : require)
 		{
-			cout << "\t" << Parameter::GetParam(req.first) << " 포인트 " << req.second;
+			cout << "\t" << Parameter::Get(req.first) << " 포인트 " << req.second;
 		}
 		cout << " 필요" << endl;
 		cout << "   [1] 돌아가기" << endl;
@@ -233,10 +233,10 @@ map<int, int> StatRequirement(int index, Character& chara, map<int, int>& parame
 	switch (index)
 	{
 	case 0: // 지구력
-		require[Parameter::GetParam("유산소")] = 500 * (chara.GetCflag("지구력") + 1);
+		require[Parameter::Get("유산소")] = 500 * (chara.GetFlag("지구력") + 1);
 		break;
 	case 1: // 근력
-		require[Parameter::GetParam("무산소")] = 500 * (chara.GetCflag("근력") + 1);
+		require[Parameter::Get("무산소")] = 500 * (chara.GetFlag("근력") + 1);
 		break;
 	}
 

@@ -2,16 +2,16 @@
 
 #pragma region 전역 함수
 
-void Battle(vector<Character>& ownCharaList)
+void Battle(Character& currentChara)
 {
 	PrintLine();
 	cout << endl << "전장으로 진입합니다." << endl;
 	Wait;
 	
-	BattleMap(ownCharaList);
+	BattleMap(currentChara);
 }
 
-void BattleMap(vector<Character>& ownCharaList)
+void BattleMap(Character& currentChara)
 {
 	while (true)
 	{
@@ -19,7 +19,7 @@ void BattleMap(vector<Character>& ownCharaList)
 		cout << endl;
 
 		vector<int> inputLIst;
-		PrintMap(Local::GetLocal("진행도"));
+		PrintMap(Local::Get("진행도"));
 
 		cout << endl;
 		PrintLine();
@@ -33,26 +33,27 @@ void BattleMap(vector<Character>& ownCharaList)
 		cout << endl;
 
 		int input = GetInput(inputLIst);
-		if (input == 999) break;
+		if (input == 999) break;	// 나가기
 		else switch (input)
 		{
-		case 100:
-			Fight(ownCharaList);
+		case 100:	// 전투 개시
+			Fight(currentChara);
 			break;
-		case 101:
-			while (true)
-			{
-				cout << endl << "정보를 보고싶은 캐릭터를 고르십시오" << endl << endl;
-				Character selectChara = SelectCharactor(ownCharaList);	// 캐릭터 받기
-				if (selectChara.ID == -1) break;	// 무효값이면 반복 종료
-				ShowCharaInfo(selectChara);	// 캐릭터 정보 표시
-			}
+		case 101:	// 아군 정보
+			ShowCharaInfo(currentChara);
 			break;
-		case 200:
-			ShowCharaInfo(Character::EnemyList[Local::GetLocal("진행도")]);
+		case 200:	// 적의 정보
+			ShowCharaInfo(Character::EnemyList[Local::Get("진행도")]);
 			break;
 		}
 	}
+}
+
+void Fight(Character& currentChara)
+{
+	PrintLine();
+	Wait;
+	PrintLine();
 }
 
 void PrintMap(int index)
@@ -84,13 +85,6 @@ void PrintMap(int index)
 		printf("index : %d\n", index);
 		break;
 	}
-}
-
-void Fight(vector<Character>& ownCharaList)
-{
-	PrintLine();
-	Wait;
-	PrintLine();
 }
 
 #pragma endregion

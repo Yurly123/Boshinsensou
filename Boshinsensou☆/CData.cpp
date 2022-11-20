@@ -10,7 +10,7 @@ map<string, int> CData::CFlag_ID = map<string, int>();
 map<string, int> CData::CTalent_ID = map<string, int>();
 map<string, int> CData::CStr_ID = map<string, int>();
 
-void CData::LoadCDatas()
+void CData::Load()
 {
 	ifstream flagStream("CSV\\CFlag.csv");
 	ifstream talentStream("CSV\\CTalent.csv");
@@ -57,27 +57,27 @@ void CData::LoadCDatas()
 		getline(strStream, Buffer);
 	}
 }
-int CData::GetFlag(string name)
+int CData::Flag(string name)
 {
 	return CFlag_ID[name];
 }
-string CData::GetFlag(int id)
+string CData::Flag(int id)
 {
 	return CFlagList[id];
 }
-int CData::GetTalent(string name)
+int CData::Talent(string name)
 {
 	return CTalent_ID[name];
 }
-string CData::GetTalent(int id)
+string CData::Talent(int id)
 {
 	return CTalentList[id];
 }
-int CData::GetStr(string name)
+int CData::Str(string name)
 {
 	return CStr_ID[name];
 }
-string CData::GetStr(int id)
+string CData::Str(int id)
 {
 	return CStrList[id];
 }
@@ -133,12 +133,12 @@ void LoadDefaultCData(string filepath, Character& chara)
 
 void AbstractEP(Character& chara, int amount)
 {
-	if (chara.GetCflag("현재기력") - amount >= 0)
-		chara.AddCflag("현재기력", -amount);
-	else if (chara.GetCflag("현재기력") > 0)
-		chara.SetCflag("현재기력", 0);
+	if (chara.GetFlag("현재기력") - amount >= 0)
+		chara.AddFlag("현재기력", -amount);
+	else if (chara.GetFlag("현재기력") > 0)
+		chara.SetFlag("현재기력", 0);
 	else
-		chara.AddCflag("현재체력", -amount);
+		chara.AddFlag("현재체력", -amount);
 }
 
 #pragma endregion

@@ -37,7 +37,7 @@ class Command;
 #include "SaveLoad.h"
 #include "Command.h"
 #include "Battle.h"
-#include "Local.h"
+#include "Glocal.h"
 
 // 공용 함수 정의
 

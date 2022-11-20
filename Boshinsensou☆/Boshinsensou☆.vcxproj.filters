@@ -63,7 +63,7 @@
     <ClCompile Include="Battle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Local.cpp">
+    <ClCompile Include="Glocal.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,7 +104,7 @@
     <ClInclude Include="Battle.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Local.h">
+    <ClInclude Include="Glocal.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -140,6 +140,9 @@
       <Filter>리소스 파일\Chara</Filter>
     </None>
     <None Include="CSV\Local.csv">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="CSV\Global.csv">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>

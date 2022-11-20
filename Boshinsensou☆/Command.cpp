@@ -21,7 +21,7 @@ Command::Command(int ID, string Name, void Commit (Character&, map<int, int>&))
 map<string, int> Parameter::Param_ID = map<string, int>();
 map<int, string> Parameter::ParamList = map<int, string>();
 
-void Parameter::LoadParam()
+void Parameter::Load()
 {
 	ifstream paramStream("CSV\\Param.csv");
 	string buffer;
@@ -42,16 +42,16 @@ void Parameter::LoadParam()
 
 	paramStream.close();
 }
-int Parameter::GetParam(string name)
+int Parameter::Get(string name)
 {
 	return Param_ID[name];
 }
-string Parameter::GetParam(int id)
+string Parameter::Get(int id)
 {
 	return ParamList[id];
 }
 
-void Command::LoadCommands()
+void Command::Load()
 {
 	Loadcom000();
 	Loadcom009();

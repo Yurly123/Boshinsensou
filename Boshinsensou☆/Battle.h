@@ -1,7 +1,7 @@
 #pragma once
 #include "System.h"
 
-void Battle(vector<Character>&);
-void BattleMap(vector<Character>&);
+void Battle(Character&);
+void BattleMap(Character&);
 void PrintMap(int);
-void Fight(vector<Character>&);
+void Fight(Character&);

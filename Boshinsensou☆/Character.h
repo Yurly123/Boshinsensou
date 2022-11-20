@@ -16,34 +16,34 @@ public:
 	
 	// Flag ID 받기
 	// name : 받을 Flag의 이름
-	static int GetFlag(string);
+	static int Flag(string);
 	
 	// Talent ID 받기
 	// name : 받을 Talent의 이름 
-	static int GetTalent(string);
+	static int Talent(string);
 
-	// tStr ID 받기
+	// Str ID 받기
 	// name : 받을 tStr의 이름
-	static int GetStr(string);
+	static int Str(string);
 	
-	// Flag이름 받기
+	// Flag 이름 받기
 	// id : 받을 Flag의 ID
-	static string GetFlag(int);
+	static string Flag(int);
 
-	// Talent이름 받기
+	// Talent 이름 받기
 	// id : 받을 Talent의 ID
-	static string GetTalent(int);
+	static string Talent(int);
 
-	// Str이름 받기
+	// Str 이름 받기
 	// id : 받을 Str의 ID
-	static string GetStr(int);
+	static string Str(int);
 
 	static map<int, string> CFlagList;	// Flag 이름
 	static map<int, string> CTalentList;	// Talent 이름
 	static map<int, string> CStrList;	// Str 이름
 
 	// CFlag, CTalent, CStr 정보 로딩
-	static void LoadCDatas();
+	static void Load();
 };
 
 // 캐릭터 이름 처리(조사) 클래스
@@ -97,35 +97,35 @@ public:
 	
 	// Flag 받기
 	// name : 받을 Flag의 이름
-	int GetCflag(string);
+	int GetFlag(string);
 	
 	// Talent 받기
 	// name : 받을 Talent의 이름
-	bool GetCtalent(string);
+	bool GetTalent(string);
 	
 	// Str 받기
 	// name : 받을 Str의 이름
-	string GetCstr(string);
+	string GetStr(string);
 	
 	// Flag 설정하기
 	// name : 설정할 Flag의 이름
 	// value : 설정할 값
-	void SetCflag(string, int);
+	void SetFlag(string, int);
 	
 	// Talent 설정하기
 	// name : 설정할 Talent의 이름
 	// value : 설정할 값
-	void SetCtalent(string, bool);
+	void SetTalent(string, bool);
 	
 	// Str 설정하기
 	// name : 설정할 Str의 이름
 	// value : 설정할 값
-	void SetCstr(string, string);
+	void SetStr(string, string);
 
 	// Flag 가감
 	// name : 조정할 Flag의 이름
 	// value : 가감할 값
-	void AddCflag(string, int);
+	void AddFlag(string, int);
 
 	static vector<Character> CharaList;	// 모든 캐릭터
 	static vector<Character> EnemyList;

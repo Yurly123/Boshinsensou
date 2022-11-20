@@ -12,10 +12,10 @@ class Parameter
 private:
 	static map<string, int> Param_ID;
 public:
-	static int GetParam(string);
-	static string GetParam(int);
+	static int Get(string);
+	static string Get(int);
 	static map<int, string> ParamList;
-	static void LoadParam();
+	static void Load();
 };
 
 class Command
@@ -24,7 +24,7 @@ public:
 	string Name;
 	int ID;
 	void (*Commit)(Character&, map<int, int>&);
-	static void LoadCommands();
+	static void Load();
 	static map<int, Command> ComList;
 
 	Command();

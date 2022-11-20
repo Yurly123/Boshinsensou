@@ -13,15 +13,15 @@ void Initialize()
 	// 데이터 로딩
 	SetColor(7);
 	cout << "Loading CDatas..." << endl;
-	CData::LoadCDatas();	// 캐릭터 데이터 로딩
+	CData::Load();	// 캐릭터 데이터 로딩
 	cout << "Loading Charactors..." << endl;
 	Character::LoadCharaList();	// 캐릭터 로딩
 	cout << "Loading Commands..." << endl;
-	Command::LoadCommands();	// 커맨드 내용 로딩
+	Command::Load();	// 커맨드 내용 로딩
 	cout << "Loading Parameters..." << endl;
-	Parameter::LoadParam();	// 패러미터 정보 로딩
+	Parameter::Load();	// 패러미터 정보 로딩
 	cout << "Loading Locals..." << endl;
-	Local::LoadLocal();	// 로컬 정보 로딩
+	Local::Load();	// 로컬 정보 로딩
 
 	// 맨 밑으로 내리기
 	for (int i = 0; i < 100; ++i)

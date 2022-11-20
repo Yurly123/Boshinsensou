@@ -15,33 +15,33 @@ void Character::LoadCData()
 	filepath.append(".csv");
 	LoadDefaultCData(filepath, *this);
 }
-int Character::GetCflag(string name)
+int Character::GetFlag(string name)
 {
-	return Cflag[CData::GetFlag(name)];
+	return Cflag[CData::Flag(name)];
 }
-bool Character::GetCtalent(string name)
+bool Character::GetTalent(string name)
 {
-	return Ctalent[CData::GetTalent(name)];
+	return Ctalent[CData::Talent(name)];
 }
-string Character::GetCstr(string name)
+string Character::GetStr(string name)
 {
-	return Cstr[CData::GetStr(name)];
+	return Cstr[CData::Str(name)];
 }
-void Character::SetCflag(string name, int value)
+void Character::SetFlag(string name, int value)
 {
-	Cflag[CData::GetFlag(name)] = value;
+	Cflag[CData::Flag(name)] = value;
 }
-void Character::SetCtalent(string name, bool value)
+void Character::SetTalent(string name, bool value)
 {
-	Ctalent[CData::GetTalent(name)] = value;
+	Ctalent[CData::Talent(name)] = value;
 }
-void Character::SetCstr(string name, string value)
+void Character::SetStr(string name, string value)
 {
-	Cstr[CData::GetStr(name)] = value;
+	Cstr[CData::Str(name)] = value;
 }
-void Character::AddCflag(string name, int value)
+void Character::AddFlag(string name, int value)
 {
-	Cflag[CData::GetFlag(name)] += value;
+	Cflag[CData::Flag(name)] += value;
 }
 void Character::LoadCharaList()
 {
@@ -60,7 +60,7 @@ void Character::LoadCharaList()
 		bool IsAlt = buffer == "true";
 
 		Character chara = Character(name, IsAlt, id);
-		if (chara.GetCtalent("적"))
+		if (chara.GetTalent("적"))
 			EnemyList.push_back(chara);
 		else
 			CharaList.push_back(chara);
@@ -169,19 +169,19 @@ string GetCharaDescription(int id)
 
 void PrintCharaHPEP(Character& chara)
 {
-	double ratio = (double)chara.GetCflag("현재체력") / (double)chara.GetCflag("최대체력");
+	double ratio = (double)chara.GetFlag("현재체력") / (double)chara.GetFlag("최대체력");
 	if (ratio > 2.0 / 3.0) SetColor(10);
 	else if (ratio > 1.0 / 3.0) SetColor(6);
 	else SetColor(4);
-	cout << "   체력 " << chara.GetCflag("현재체력") << " / " << chara.GetCflag("최대체력");
+	cout << "   체력 " << chara.GetFlag("현재체력") << " / " << chara.GetFlag("최대체력");
 
-	if (chara.GetCflag("현재기력") > 0) SetColor(9);
+	if (chara.GetFlag("현재기력") > 0) SetColor(9);
 	else SetColor(8);
-	cout << "   기력 " << chara.GetCflag("현재기력") << " / " << chara.GetCflag("최대기력");
+	cout << "   기력 " << chara.GetFlag("현재기력") << " / " << chara.GetFlag("최대기력");
 	SetColor(7);
 }
 
-void ShowCharaInfo(Character& Chara)
+void ShowCharaInfo(Character& chara)
 {
 	int index = 0;
 	while (true)
@@ -199,19 +199,26 @@ void ShowCharaInfo(Character& Chara)
 			for (auto& talent : CData::CTalentList)
 			{
 				if (talent.first == 0) continue;
-				if (Chara.Ctalent[talent.first])
+				if (chara.Ctalent[talent.first])
 					cout << "[" << talent.second << "] ";
 			}
 			cout << endl << endl;
 
 			PrintLine();
 			cout << endl;
+
+			// 이름 표시
+			cout << "   -" << chara.ID << "-\t" << chara.Name << "   ";
+			PrintCharaHPEP(chara);
+			cout << endl << endl;
+
+			// 능력 표시
 			cout << "  능력 : " << endl;
 			for (auto& flag : CData::CFlagList)
 			{
 				if (20 <= flag.first && flag.first < 30)
 				{
-					cout << "   " << flag.second << " : " << Chara.Cflag[flag.first];
+					cout << "   " << flag.second << " : " << chara.Cflag[flag.first];
 				}
 			}
 			cout << endl << endl;
@@ -219,11 +226,10 @@ void ShowCharaInfo(Character& Chara)
 		case 1:
 		{
 			// 이름 표시
-			cout << "   -" << Chara.ID << "-\t" << Chara.Name << endl;
-			cout << endl << " " << Chara.GetCstr("이름") << endl;
+			cout << endl << " " << chara.GetStr("이름") << endl;
 
 			// 캐릭터 설명 표시
-			cout << endl << GetCharaDescription(Chara.ID) << endl;
+			cout << endl << GetCharaDescription(chara.ID) << endl;
 		} break;
 		}
 

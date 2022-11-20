@@ -4,30 +4,24 @@
 
 void Shop()
 {
-	Local::SetLocal("선택 캐릭터", 0);
+	Local::Set("선택 캐릭터", 0);
 
 	// 반복
 	while (true)
 	{
-		vector<Character> OwnCharaList;	// 소유중인 캐릭터의 리스트
-		for (auto& ownChara : Character::CharaList)
-		{
-			// 보유중인 캐릭터 리스트에 추가
-			if (ownChara.GetCtalent("보유중"))
-				OwnCharaList.push_back(ownChara);
-		}
+		Character currentChara = Character::CharaList[Local::Get("선택 캐릭터")];
 
 		cout << endl;
 		PrintLine();
 		cout << endl;
 
 		// Shop 정보 출력
-		if (Local::GetLocal("현재 시간") % 2) SetColor(9);
+		if (Local::Get("현재 시간") % 2) SetColor(9);
 		else SetColor(14);
-		cout << "\t" << Local::GetLocal("현재 시간") / 2 + 1 << "일째 " << (Local::GetLocal("현재 시간") % 2 ? "밤" : "낮") << endl;	// 밤낮일수
+		cout << "\t" << Local::Get("현재 시간") / 2 + 1 << "일째 " << (Local::Get("현재 시간") % 2 ? "밤" : "낮") << endl;	// 밤낮일수
 		SetColor(7);
-		cout << "\t- " << OwnCharaList[Local::GetLocal("선택 캐릭터")].Name << " - " << endl;	// 캐릭터 이름
-		PrintCharaHPEP(OwnCharaList[Local::GetLocal("선택 캐릭터")]);	// 체력 기력
+		cout << "\t- " << currentChara.Name << " - " << endl;	// 캐릭터 이름
+		PrintCharaHPEP(currentChara);	// 체력 기력
 		cout << endl;
 
 		cout << endl;
@@ -54,7 +48,7 @@ void Shop()
 		switch (Input)
 		{
 		case 100:	// 훈련
-			Train(OwnCharaList[Local::GetLocal("선택 캐릭터")]);
+			Train(currentChara);
 			ProgressTime();
 			break;
 
@@ -62,7 +56,7 @@ void Shop()
 			while (true)
 			{
 				cout << endl << "정보를 보고싶은 캐릭터를 고르십시오" << endl << endl;
-				Character selectChara = SelectCharactor(OwnCharaList);	// 캐릭터 받기
+				Character selectChara = SelectCharactor(Character::CharaList);	// 캐릭터 받기
 				if (selectChara.ID == -1) break;	// 무효값이면 반복 종료
 				ShowCharaInfo(selectChara);	// 캐릭터 정보 표시
 			}
@@ -72,7 +66,7 @@ void Shop()
 			while (true)
 			{
 				cout << endl << "선택하려는 캐릭터를 고르십시오" << endl << endl;
-				Character selectChara = SelectCharactor(OwnCharaList);	// 캐릭터 받기
+				Character selectChara = SelectCharactor(Character::CharaList);	// 캐릭터 받기
 				if (selectChara.ID == -1) break;	// 무효값이면 반복 종료
 
 				// 선택 재확인
@@ -80,15 +74,20 @@ void Shop()
 				cout << "[0] 예\t[1] 아니오" << endl;
 				if (!GetInput({ 0,1 }))
 				{
-					int index = 0;	// 리스트 인덱스 저장
-					for (auto& chara : OwnCharaList)
+					Character::CharaList[Local::Get("현재 캐릭터")] = currentChara;
+					
+					int index = 0;
+					for (auto& chara : Character::CharaList)
 					{
 						if (chara.ID == selectChara.ID)
-							break;	// 받은 캐릭터랑 같으면 종료
-						else
-							++index;	// 다르면 인덱스 다음으로
+						{
+							Local::Set("현재 캐릭터", index);
+							break;
+						}
+						else index++;
 					}
-					Local::SetLocal("선택 캐릭터", index);
+
+					currentChara = selectChara;
 					break;
 				}
 			}
@@ -185,6 +184,7 @@ void Shop()
 					if (!GetInput({ 0,1 }))
 					{
 						Load(select);	// 불러오기
+						currentChara = Character::CharaList[Local::Get("현재 캐릭터")];
 						break;
 					}
 				}
@@ -193,33 +193,37 @@ void Shop()
 		break;
 
 		case 500:	// 전투
-			Battle(OwnCharaList);
+			Battle(currentChara);
 			ProgressTime();
 			break;
 
-		case 114514:
+		case 114514:	// ???
 			for (int i = 0; i < 114514; ++i)
 				cout << "GO IS GOD";
 			Restart();
 			break;
 		}
+
+		Character::CharaList[Local::Get("선택 캐릭터")] = currentChara;
 	}
 }
 
 void ProgressTime()
 {
-	Local::AddLocal("현재 시간", 1);	// 시간 가감
+	Local::Add("현재 시간", 1);	// 시간 가감
 
 	// 캐릭터들 체력/기력 회복
 	for (auto& chara : Character::CharaList)
 	{
-		chara.AddCflag("현재체력", chara.GetCflag("최대체력") * 0.25);
-		chara.AddCflag("현재기력", chara.GetCflag("최대기력") * 0.375);
+		int maxHp = chara.GetFlag("최대체력");
+		int maxEp = chara.GetFlag("최대기력");
+		chara.AddFlag("현재체력", maxHp * 0.25);
+		chara.AddFlag("현재기력", maxEp * 0.375);
 		// 최대치 넘은값 평탄화
-		if (chara.GetCflag("현재체력") > chara.GetCflag("최대체력"))
-			chara.SetCflag("현재체력", chara.GetCflag("최대체력"));
-		if (chara.GetCflag("현재기력") > chara.GetCflag("최대기력"))
-			chara.SetCflag("현재기력", chara.GetCflag("최대기력"));
+		if (chara.GetFlag("현재체력") > maxHp)
+			chara.SetFlag("현재체력", maxHp);
+		if (chara.GetFlag("현재기력") > maxEp)
+			chara.SetFlag("현재기력", maxEp);
 	}
 
 	AutoSave();
@@ -227,7 +231,7 @@ void ProgressTime()
 	PrintLine();
 	cout << endl;
 	// 밤낮 표시
-	cout << (Local::GetLocal("현재 시간") % 2 ? "밤" : "낮") << "이 되었습니다." << endl;
+	cout << (Local::Get("현재 시간") % 2 ? "밤" : "낮") << "이 되었습니다." << endl;
 	Wait;
 	PrintLine();
 }
@@ -241,11 +245,14 @@ Character SelectCharactor(vector<Character>& charaList)
 
 	for (Character& chara : charaList)
 	{
-		// 캐릭터 정보 간략히 표시
-		cout << "  [" << setw(3) << chara.ID << "] " << chara.Name << "\t";
-		PrintCharaHPEP(chara);
-		cout << endl;
-		IDList.push_back(chara.ID);
+		if (chara.GetTalent("보유중"))
+		{
+			// 캐릭터 정보 간략히 표시
+			cout << "  [" << setw(3) << chara.ID << "] " << chara.Name << "\t";
+			PrintCharaHPEP(chara);
+			cout << endl;
+			IDList.push_back(chara.ID);
+		}
 	}
 	cout << endl;
 	PrintLine();

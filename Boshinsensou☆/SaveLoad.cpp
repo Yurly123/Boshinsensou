@@ -79,11 +79,11 @@ void Save(int index)
 	out << setfill('0') << setw(2) << t->tm_min << ":";
 	out << setfill('0') << setw(2) << t->tm_sec << endl;
 	
-	out << Local::GetLocal("현재 시간") << endl;
+	out << Local::Get("현재 시간") << endl;
 	int count = 0;
 	for (auto& chara : Character::CharaList)
-		if (chara.GetCtalent("보유중"))
-			if (Local::GetLocal("선택 캐릭터") == count)
+		if (chara.GetTalent("보유중"))
+			if (Local::Get("선택 캐릭터") == count)
 			{
 				out << chara.Name << endl;
 				break;

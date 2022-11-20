@@ -136,7 +136,7 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CData.cpp" />
     <ClCompile Include="Command.cpp" />
-    <ClCompile Include="Local.cpp" />
+    <ClCompile Include="Glocal.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SaveLoad.cpp" />
     <ClCompile Include="Shop.cpp" />
@@ -152,7 +152,7 @@
     <ClInclude Include="CData.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Command.h" />
-    <ClInclude Include="Local.h" />
+    <ClInclude Include="Glocal.h" />
     <ClInclude Include="SaveLoad.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="System.h" />
@@ -168,6 +168,7 @@
     <None Include="CSV\Chara\4 YMN.csv" />
     <None Include="CSV\CStr.csv" />
     <None Include="CSV\CTalent.csv" />
+    <None Include="CSV\Global.csv" />
     <None Include="CSV\Local.csv" />
     <None Include="CSV\Param.csv" />
   </ItemGroup>
