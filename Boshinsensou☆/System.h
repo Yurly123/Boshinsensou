@@ -28,6 +28,8 @@ class CData;
 class Name;
 class Character;
 class Command;
+class Local;
+class Global;
 
 // 사용자 정의 헤더파일 사용
 #include "CData.h"

@@ -23,6 +23,8 @@ void Initialize()
 	cout << "Loading Locals..." << endl;
 	Local::Load();	// 로컬 정보 로딩
 
+	GlobalLoad();
+
 	// 맨 밑으로 내리기
 	for (int i = 0; i < 100; ++i)
 		cout << endl;

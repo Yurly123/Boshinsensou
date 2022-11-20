@@ -18,10 +18,11 @@ string Global::Get(int id)
 void Global::Set(string name, int value)
 {
 	GlobalList[Global_ID[name]] = value;
+	GlobalSave();
 }
 void Global::Add(string name, int value)
 {
-	GlobalList[Global_ID[name]] += value;
+	Set(name, GlobalList[Global_ID[name]] + value);
 }
 void Global::Load()
 {

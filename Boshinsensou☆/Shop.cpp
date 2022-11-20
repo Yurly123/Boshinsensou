@@ -9,6 +9,7 @@ void Shop()
 	// 반복
 	while (true)
 	{
+		int currentTime = Local::Get("현재 시간");
 		Character currentChara = Character::CharaList[Local::Get("선택 캐릭터")];
 
 		cout << endl;
@@ -16,9 +17,9 @@ void Shop()
 		cout << endl;
 
 		// Shop 정보 출력
-		if (Local::Get("현재 시간") % 2) SetColor(9);
+		if (currentTime % 2) SetColor(9);
 		else SetColor(14);
-		cout << "\t" << Local::Get("현재 시간") / 2 + 1 << "일째 " << (Local::Get("현재 시간") % 2 ? "밤" : "낮") << endl;	// 밤낮일수
+		cout << "\t" << currentTime / 2 + 1 << "일째 " << (currentTime % 2 ? "밤" : "낮") << endl;	// 밤낮일수
 		SetColor(7);
 		cout << "\t- " << currentChara.Name << " - " << endl;	// 캐릭터 이름
 		PrintCharaHPEP(currentChara);	// 체력 기력
@@ -227,6 +228,7 @@ void ProgressTime()
 	}
 
 	AutoSave();
+	GlobalLoad();
 
 	PrintLine();
 	cout << endl;

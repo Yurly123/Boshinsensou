@@ -1,16 +1,2 @@
-﻿  Battle.cpp
-  com000.cpp
-  com009.cpp
-  com010.cpp
-  com999.cpp
-  Character.cpp
-  CData.cpp
-  Command.cpp
-  Glocal.cpp
-  Main.cpp
-  SaveLoad.cpp
-  Shop.cpp
-  System.cpp
-  Train.cpp
-  코드를 생성하고 있습니다...
+﻿  SaveLoad.cpp
   Boshinsensou☆.vcxproj -> C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\x64\Debug\Boshinsensou☆.exe

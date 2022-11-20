@@ -116,9 +116,7 @@ void Save(int index)
 	path.append(".sav");
 	ofstream saveStream(path);
 	while (!out.eof())
-	{
 		saveStream << (char)out.get();
-	}
 	saveStream.close();
 }
 
@@ -131,9 +129,8 @@ void Load(int index)
 	ifstream loadStream(path);
 	stringstream in;
 	while (!loadStream.eof())
-	{
 		in << (char)loadStream.get();
-	}
+	loadStream.close();
 	in = Decode(in);
 
 	string buffer;
@@ -274,6 +271,45 @@ void AutoSave()
 			break;
 		}
 		slot.close();
+	}
+}
+
+void GlobalSave()
+{
+	stringstream out;
+
+	for (auto& global : Global::GlobalList)
+		out << global.first << "," << global.second << ",";
+
+	out = Encode(out);
+	ofstream saveStream("sav\\global.sav");
+	while (!out.eof())
+		saveStream << (char)out.get();
+	saveStream.close();
+}
+
+void GlobalLoad()
+{
+	ifstream loadStream("sav\\global.sav");
+	if (!loadStream.good()) return;
+	stringstream in;
+	while (!loadStream.eof())
+		in << (char)loadStream.get();
+	loadStream.close();
+	in = Decode(in);
+
+	string buffer;
+	while (!in.eof())
+	{
+		getline(in, buffer, ',');
+		int id = stoi(buffer);
+
+		getline(in, buffer, ',');
+		int value = stoi(buffer);
+
+		Global::GlobalList[id] = value;
+
+		getline(in, buffer);
 	}
 }
 

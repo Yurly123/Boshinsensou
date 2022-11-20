@@ -13,3 +13,5 @@ void Load(int);
 stringstream Encode(stringstream&);
 stringstream Decode(stringstream&);
 void AutoSave();
+void GlobalSave();
+void GlobalLoad();

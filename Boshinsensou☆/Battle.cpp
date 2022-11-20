@@ -13,13 +13,15 @@ void Battle(Character& currentChara)
 
 void BattleMap(Character& currentChara)
 {
+	int progression = Local::Get("진행도");
+
 	while (true)
 	{
 		PrintLine();
 		cout << endl;
 
 		vector<int> inputLIst;
-		PrintMap(Local::Get("진행도"));
+		PrintMap(progression);
 
 		cout << endl;
 		PrintLine();
@@ -43,7 +45,7 @@ void BattleMap(Character& currentChara)
 			ShowCharaInfo(currentChara);
 			break;
 		case 200:	// 적의 정보
-			ShowCharaInfo(Character::EnemyList[Local::Get("진행도")]);
+			ShowCharaInfo(Character::EnemyList[progression]);
 			break;
 		}
 	}
