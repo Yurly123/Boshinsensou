@@ -1,7 +1,5 @@
 #include "Shop.h"
 
-int dayTime = 0;	// 현재 게임 시간
-
 #pragma region 전역 함수
 
 void Shop()
@@ -27,9 +25,9 @@ void Shop()
 		cout << endl;
 
 		// Shop 정보 출력
-		if (dayTime % 2) SetColor(9);
+		if (Local::GetLocal("현재 시간") % 2) SetColor(9);
 		else SetColor(14);
-		cout << "\t" << dayTime / 2 + 1 << "일째 " << (dayTime % 2 ? "밤" : "낮") << endl;	// 밤낮일수
+		cout << "\t" << Local::GetLocal("현재 시간") / 2 + 1 << "일째 " << (Local::GetLocal("현재 시간") % 2 ? "밤" : "낮") << endl;	// 밤낮일수
 		SetColor(7);
 		cout << "\t- " << OwnCharaList[CurrentCharaIndex].Name << " - " << endl;	// 캐릭터 이름
 		PrintCharaHPEP(OwnCharaList[CurrentCharaIndex]);	// 체력 기력
@@ -115,6 +113,11 @@ void Shop()
 				{
 					if (++index > 9) index -= 10;
 				}
+				else if (select >= 90)
+				{
+					cout << endl << "자동 저장 슬롯입니다." << endl;
+					Wait;
+				}
 				else	// 저장
 				{
 					bool IsExisting = GetSlotStream(select).good();	// 저장 슬롯에 이미 파일이 존재하는가
@@ -144,7 +147,7 @@ void Shop()
 					cout << "[1] 아니요" << endl;
 					if (!GetInput({ 0,1 }))
 					{
-						Save(select, CurrentCharaIndex, dayTime);	// 저장
+						Save(select, CurrentCharaIndex);	// 저장
 						break;
 					}
 				}
@@ -184,7 +187,7 @@ void Shop()
 					cout << "[1] 아니요" << endl;
 					if (!GetInput({ 0,1 }))
 					{
-						Load(select, CurrentCharaIndex, dayTime);	// 불러오기
+						Load(select, CurrentCharaIndex);	// 불러오기
 						break;
 					}
 				}
@@ -208,7 +211,7 @@ void Shop()
 
 void ProgressTime(int currentCharaIndex)
 {
-	++dayTime;	// 시간 가감
+	Local::AddLocal("현재 시간", 1);	// 시간 가감
 
 	// 캐릭터들 체력/기력 회복
 	for (auto& chara : Character::CharaList)
@@ -222,12 +225,12 @@ void ProgressTime(int currentCharaIndex)
 			chara.SetCflag("현재기력", chara.GetCflag("최대기력"));
 	}
 
-	AutoSave(currentCharaIndex, dayTime);
+	AutoSave(currentCharaIndex);
 
 	PrintLine();
 	cout << endl;
 	// 밤낮 표시
-	cout << (dayTime % 2 ? "밤" : "낮") << "이 되었습니다." << endl;
+	cout << (Local::GetLocal("현재 시간") % 2 ? "밤" : "낮") << "이 되었습니다." << endl;
 	Wait;
 	PrintLine();
 }

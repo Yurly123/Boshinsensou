@@ -28,7 +28,6 @@ class CData;
 class Name;
 class Character;
 class Command;
-class Enemy;
 
 // 사용자 정의 헤더파일 사용
 #include "CData.h"

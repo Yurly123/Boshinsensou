@@ -31,7 +31,7 @@ int SelectSaveSlot(int index)
 			cout << dayTime / 2 + 1 << "일째 " << (dayTime % 2 ? "밤" : "낮");
 
 			getline(readStream, buff);
-			cout << "   " << buff << " 선택중";
+			cout << "   " << buff << " 선택";
 		}
 		else
 		{
@@ -65,7 +65,7 @@ ifstream GetSlotStream(int index)
 	return ifstream(path);
 }
 
-void Save(int index, int currentCharaIndex, int dayTime)
+void Save(int index, int currentCharaIndex)
 {
 	stringstream out;
 
@@ -79,7 +79,7 @@ void Save(int index, int currentCharaIndex, int dayTime)
 	out << setfill('0') << setw(2) << t->tm_min << ":";
 	out << setfill('0') << setw(2) << t->tm_sec << endl;
 	
-	out << dayTime << endl;
+	out << Local::GetLocal("현재 시간") << endl;
 	int count = 0;
 	for (auto& chara : Character::CharaList)
 		if (chara.GetCtalent("보유중"))
@@ -107,7 +107,10 @@ void Save(int index, int currentCharaIndex, int dayTime)
 	// 선택 캐릭터 저장
 	out << currentCharaIndex << endl;
 
-	out << Enemy::Progression << endl;
+	for (auto& local : Local::LocalList)
+	{
+		out << local.first << "," << local.second << "," << endl;
+	}
 
 	out = Encode(out);
 	string path = "sav\\";
@@ -122,7 +125,7 @@ void Save(int index, int currentCharaIndex, int dayTime)
 	saveStream.close();
 }
 
-void Load(int index, int& currentCharaIndex, int& dayTime)
+void Load(int index, int& currentCharaIndex)
 {
 	string path = "sav\\";
 	if (!(index / 10)) path.append("0");
@@ -139,7 +142,6 @@ void Load(int index, int& currentCharaIndex, int& dayTime)
 	string buffer;
 	getline(in, buffer);
 	getline(in, buffer);
-	dayTime = stoi(buffer);
 	getline(in, buffer);
 
 	getline(in, buffer);
@@ -220,9 +222,18 @@ void Load(int index, int& currentCharaIndex, int& dayTime)
 			}
 			else count++;
 
-	getline(in, buffer);
-	Enemy::Progression = stoi(buffer);
+	for (auto& local : Local::LocalList)
+	{
+		getline(in, buffer);
+		int id = stoi(buffer);
 
+		getline(in, buffer);
+		int value = stoi(buffer);
+
+		Local::LocalList[id] = value;
+
+		getline(in, buffer);
+	}
 }
 
 stringstream Encode(stringstream& stream)
@@ -262,14 +273,14 @@ stringstream Decode(stringstream& stream)
 	return code;
 }
 
-void AutoSave(int currentCharaIndex, int dayTime)
+void AutoSave(int currentCharaIndex)
 {
 	for (int i = 0; i < 10; ++i)
 	{
 		auto slot = GetSlotStream(90 + i);
 		if (slot.fail())
 		{
-			Save(90 + i, currentCharaIndex, dayTime);
+			Save(90 + i, currentCharaIndex);
 			string path = "sav\\";
 			path.append(to_string(i < 9 ? 90 + i + 1 : 90));
 			path.append(".sav");

@@ -137,6 +137,7 @@
     <ClCompile Include="CData.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Local.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SaveLoad.cpp" />
     <ClCompile Include="Shop.cpp" />

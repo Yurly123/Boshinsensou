@@ -4,6 +4,7 @@
 
 #pragma region Character
 vector<Character> Character::CharaList = vector<Character>();
+vector<Character> Character::EnemyList = vector<Character>();
 
 void Character::LoadCData()
 {
@@ -60,9 +61,9 @@ void Character::LoadCharaList()
 
 		Character chara = Character(name, IsAlt, id);
 		if (chara.GetCtalent("적"))
-			CharaList.push_back(chara);
-		else
 			EnemyList.push_back(chara);
+		else
+			CharaList.push_back(chara);
 	}
 	FileStream.close();
 }

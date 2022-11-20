@@ -19,7 +19,7 @@ void BattleMap(vector<Character>& ownCharaList)
 		cout << endl;
 
 		vector<int> inputLIst;
-		PrintMap(Enemy::Progression);
+		PrintMap(Local::GetLocal("진행도"));
 
 		cout << endl;
 		PrintLine();
@@ -37,7 +37,7 @@ void BattleMap(vector<Character>& ownCharaList)
 		else switch (input)
 		{
 		case 100:
-			Fight(ownCharaList, Enemy::EnemyList[Enemy::Progression]);
+			Fight(ownCharaList);
 			break;
 		case 101:
 			while (true)
@@ -49,7 +49,6 @@ void BattleMap(vector<Character>& ownCharaList)
 			}
 			break;
 		case 200:
-			ShowEnemyInfo(Enemy::EnemyList[Enemy::Progression]);
 			break;
 		}
 	}
@@ -86,7 +85,7 @@ void PrintMap(int index)
 	}
 }
 
-void Fight(vector<Character>& ownCharaList, Enemy& enemy)
+void Fight(vector<Character>& ownCharaList)
 {
 	PrintLine();
 	Wait;

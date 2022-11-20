@@ -8,8 +8,8 @@
 
 int SelectSaveSlot(int);
 ifstream GetSlotStream(int);
-void Save(int, int, int);
-void Load(int, int&, int&);
+void Save(int, int);
+void Load(int, int&);
 stringstream Encode(stringstream&);
 stringstream Decode(stringstream&);
-void AutoSave(int, int);
+void AutoSave(int);
