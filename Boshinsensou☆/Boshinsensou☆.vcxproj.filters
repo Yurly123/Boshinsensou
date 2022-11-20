@@ -107,6 +107,9 @@
     <ClInclude Include="Enemy.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Local.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="CSV\CFlag.csv">
@@ -136,7 +139,10 @@
     <None Include="CSV\Param.csv">
       <Filter>리소스 파일</Filter>
     </None>
-    <None Include="CSV\Enemy.csv">
+    <None Include="CSV\Chara\100 히데.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Local.csv">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>

@@ -153,6 +153,7 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Local.h" />
     <ClInclude Include="SaveLoad.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="System.h" />
@@ -162,12 +163,13 @@
     <None Include="CSV\CFlag.csv" />
     <None Include="CSV\Character.csv" />
     <None Include="CSV\Chara\1 UDK.csv" />
+    <None Include="CSV\Chara\100 히데.csv" />
     <None Include="CSV\Chara\2 RU.csv" />
     <None Include="CSV\Chara\3 HNS.csv" />
     <None Include="CSV\Chara\4 YMN.csv" />
     <None Include="CSV\CStr.csv" />
     <None Include="CSV\CTalent.csv" />
-    <None Include="CSV\Enemy.csv" />
+    <None Include="CSV\Local.csv" />
     <None Include="CSV\Param.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

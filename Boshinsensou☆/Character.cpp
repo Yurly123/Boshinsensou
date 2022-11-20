@@ -59,7 +59,10 @@ void Character::LoadCharaList()
 		bool IsAlt = buffer == "true";
 
 		Character chara = Character(name, IsAlt, id);
-		CharaList.push_back(chara);
+		if (chara.GetCtalent("적"))
+			CharaList.push_back(chara);
+		else
+			EnemyList.push_back(chara);
 	}
 	FileStream.close();
 }

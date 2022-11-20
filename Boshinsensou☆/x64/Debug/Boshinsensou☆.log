@@ -1,4 +1,355 @@
 ﻿  Battle.cpp
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(22,19): error C2027: 정의되지 않은 형식 'Enemy'을(를) 사용했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\System.h(31,7): message : 'Enemy' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(22,30): error C2065: 'Progression': 선언되지 않은 식별자입니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(40,31): error C2027: 정의되지 않은 형식 'Enemy'을(를) 사용했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\System.h(31,7): message : 'Enemy' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(40,40): error C2065: 'EnemyList': 선언되지 않은 식별자입니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(40,48): error C2027: 정의되지 않은 형식 'Enemy'을(를) 사용했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\System.h(31,7): message : 'Enemy' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(40,59): error C2065: 'Progression': 선언되지 않은 식별자입니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(40,4): error C2660: 'Fight': 함수는 1개의 인수를 사용하지 않습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.h(7,6): message : 'Fight' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(40,4): message : 인수 목록 '(std::vector<Character,std::allocator<Character>>)'을(를) 일치시키는 동안
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(52,25): error C2027: 정의되지 않은 형식 'Enemy'을(를) 사용했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\System.h(31,7): message : 'Enemy' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(52,34): error C2065: 'EnemyList': 선언되지 않은 식별자입니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(52,42): error C2027: 정의되지 않은 형식 'Enemy'을(를) 사용했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\System.h(31,7): message : 'Enemy' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(52,53): error C2065: 'Progression': 선언되지 않은 식별자입니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Battle.cpp(52,4): error C3861: 'ShowEnemyInfo': 식별자를 찾을 수 없습니다.
+  com000.cpp
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\com000.cpp(17,20): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\com000.cpp(18,20): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\com000.cpp(22,20): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\com000.cpp(23,20): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\com000.cpp(27,20): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\com000.cpp(28,20): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\com000.cpp(31,19): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+  com009.cpp
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\com009.cpp(11,19): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\com009.cpp(12,19): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+  com010.cpp
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\com010.cpp(11,19): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\com010.cpp(12,19): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
   com999.cpp
+  Character.cpp
+  CData.cpp
+  Command.cpp
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.cpp(21,40): error C2761: 'std::map<std::string,int,std::less<std::string>,std::allocator<std::pair<const std::string,int>>> Parameter::Param_ID': 멤버를 재선언할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.cpp(22,41): error C2761: 'std::map<int,std::string,std::less<int>,std::allocator<std::pair<const int,std::string>>> Parameter::ParamList': 멤버를 재선언할 수 없습니다.
+  Enemy.cpp
+  Main.cpp
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Main.cpp(22,13): error C2352: 'Parameter::LoadParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(18,7): message : 'Parameter::LoadParam' 선언을 참조하십시오.
+  SaveLoad.cpp
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\SaveLoad.cpp(110,16): error C2027: 정의되지 않은 형식 'Enemy'을(를) 사용했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\System.h(31,7): message : 'Enemy' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\SaveLoad.cpp(110,28): error C2065: 'Progression': 선언되지 않은 식별자입니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\SaveLoad.cpp(224,9): error C2027: 정의되지 않은 형식 'Enemy'을(를) 사용했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\System.h(31,7): message : 'Enemy' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\SaveLoad.cpp(224,21): error C2065: 'Progression': 선언되지 않은 식별자입니다.
+  Shop.cpp
+  System.cpp
+  Train.cpp
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,32): error C2597: 비정적 멤버 'Parameter::ParamList'에 대한 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(17,19): message : 'Parameter::ParamList' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): error C3535: 'auto &&'의 형식을 'unknown'에서 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): error C2440: '초기화 중': 'unknown'에서 'int &&'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 원인: 'unknown'에서 'int'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 이 변환이 가능한 컨텍스트가 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): error C2672: 'begin': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1534,27): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1516,30): message : 또는       'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 함수 템플릿 'unknown-type std::begin(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1510,30): message : 또는       'unknown-type std::begin(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 함수 템플릿 'unknown-type std::begin(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(55,35): message : 또는       'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): error C2672: 'end': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1539,27): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1528,30): message : 또는       'unknown-type std::end(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 함수 템플릿 'unknown-type std::end(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1522,30): message : 또는       'unknown-type std::end(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 함수 템플릿 'unknown-type std::end(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(60,35): message : 또는       'const _Elem *std::end(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,21): message : 'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(18,2): error C3536: '<begin>$L0': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(18,2): error C3536: '<end>$L0': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(17,41): error C2100: 간접 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(26,27): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(28,48): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,33): error C2597: 비정적 멤버 'Parameter::ParamList'에 대한 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(17,19): message : 'Parameter::ParamList' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): error C3535: 'auto &&'의 형식을 'unknown'에서 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): error C2440: '초기화 중': 'unknown'에서 'int &&'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 원인: 'unknown'에서 'int'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 이 변환이 가능한 컨텍스트가 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): error C2672: 'begin': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1534,27): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1516,30): message : 또는       'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 함수 템플릿 'unknown-type std::begin(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1510,30): message : 또는       'unknown-type std::begin(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 함수 템플릿 'unknown-type std::begin(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(55,35): message : 또는       'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): error C2672: 'end': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1539,27): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1528,30): message : 또는       'unknown-type std::end(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 함수 템플릿 'unknown-type std::end(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1522,30): message : 또는       'unknown-type std::end(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 함수 템플릿 'unknown-type std::end(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(60,35): message : 또는       'const _Elem *std::end(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,22): message : 'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(31,3): error C3536: '<begin>$L1': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(31,3): error C3536: '<end>$L1': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(30,42): error C2100: 간접 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(34,52): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,32): error C2597: 비정적 멤버 'Parameter::ParamList'에 대한 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(17,19): message : 'Parameter::ParamList' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): error C3535: 'auto &&'의 형식을 'unknown'에서 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): error C2440: '초기화 중': 'unknown'에서 'int &&'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 원인: 'unknown'에서 'int'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 이 변환이 가능한 컨텍스트가 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): error C2672: 'begin': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1534,27): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1516,30): message : 또는       'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 함수 템플릿 'unknown-type std::begin(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1510,30): message : 또는       'unknown-type std::begin(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 함수 템플릿 'unknown-type std::begin(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(55,35): message : 또는       'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): error C2672: 'end': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1539,27): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1528,30): message : 또는       'unknown-type std::end(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 함수 템플릿 'unknown-type std::end(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1522,30): message : 또는       'unknown-type std::end(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 함수 템플릿 'unknown-type std::end(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(60,35): message : 또는       'const _Elem *std::end(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,21): message : 'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(52,2): error C3536: '<begin>$L0': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(52,2): error C3536: '<end>$L0': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(51,41): error C2100: 간접 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(53,21): error C2672: 'std::make_pair': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\utility(441,67): message : 'std::pair<_Unrefwrap_helper<decay<_Ty>::type>::type,_Unrefwrap_helper<decay<_Ty2>::type>::type> std::make_pair(_Ty1 &&,_Ty2 &&) noexcept(<expr>)'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(53,12): error C2672: 'std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::emplace': 일치하는 오버로드된 함수가 없습니다.
+          with
+          [
+              _Kty=int,
+              _Ty=int,
+              _Pr=std::less<int>,
+              _Alloc=std::allocator<std::pair<const int,int>>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xtree(1031,26): message : 'std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,int>>>>,bool> std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::emplace(_Valtys &&...)'일 수 있습니다.
+          with
+          [
+              _Kty=int,
+              _Ty=int,
+              _Pr=std::less<int>,
+              _Alloc=std::allocator<std::pair<const int,int>>
+          ]
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,33): error C2597: 비정적 멤버 'Parameter::ParamList'에 대한 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(17,19): message : 'Parameter::ParamList' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): error C3535: 'auto &&'의 형식을 'unknown'에서 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): error C2440: '초기화 중': 'unknown'에서 'int &&'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 원인: 'unknown'에서 'int'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 이 변환이 가능한 컨텍스트가 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): error C2672: 'begin': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1534,27): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1516,30): message : 또는       'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 함수 템플릿 'unknown-type std::begin(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1510,30): message : 또는       'unknown-type std::begin(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 함수 템플릿 'unknown-type std::begin(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(55,35): message : 또는       'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): error C2672: 'end': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1539,27): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1528,30): message : 또는       'unknown-type std::end(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 함수 템플릿 'unknown-type std::end(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1522,30): message : 또는       'unknown-type std::end(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 함수 템플릿 'unknown-type std::end(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(60,35): message : 또는       'const _Elem *std::end(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,22): message : 'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(65,3): error C3536: '<begin>$L1': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(65,3): error C3536: '<end>$L1': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(64,42): error C2100: 간접 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,33): error C2597: 비정적 멤버 'Parameter::ParamList'에 대한 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(17,19): message : 'Parameter::ParamList' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): error C3535: 'auto &&'의 형식을 'unknown'에서 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): error C2440: '초기화 중': 'unknown'에서 'int &&'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 원인: 'unknown'에서 'int'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 이 변환이 가능한 컨텍스트가 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): error C2672: 'begin': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1534,27): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1516,30): message : 또는       'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 함수 템플릿 'unknown-type std::begin(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1510,30): message : 또는       'unknown-type std::begin(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 함수 템플릿 'unknown-type std::begin(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(55,35): message : 또는       'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): error C2672: 'end': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1539,27): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1528,30): message : 또는       'unknown-type std::end(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 함수 템플릿 'unknown-type std::end(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1522,30): message : 또는       'unknown-type std::end(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 함수 템플릿 'unknown-type std::end(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(60,35): message : 또는       'const _Elem *std::end(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,22): message : 'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(91,3): error C3536: '<begin>$L3': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(91,3): error C3536: '<end>$L3': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(90,42): error C2100: 간접 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(95,27): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(98,100): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(105,107): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(105,14): error C2660: 'Character::AddCflag': 함수는 1개의 인수를 사용하지 않습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Character.h(128,7): message : 'Character::AddCflag' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(105,14): message : 인수 목록 '(const char [13])'을(를) 일치시키는 동안
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(107,107): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(107,14): error C2660: 'Character::AddCflag': 함수는 1개의 인수를 사용하지 않습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Character.h(128,7): message : 'Character::AddCflag' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(107,14): message : 인수 목록 '(const char [13])'을(를) 일치시키는 동안
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,33): error C2597: 비정적 멤버 'Parameter::ParamList'에 대한 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(17,19): message : 'Parameter::ParamList' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): error C3535: 'auto &&'의 형식을 'unknown'에서 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): error C2440: '초기화 중': 'unknown'에서 'int &&'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 원인: 'unknown'에서 'int'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 이 변환이 가능한 컨텍스트가 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): error C2672: 'begin': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1534,27): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1516,30): message : 또는       'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 함수 템플릿 'unknown-type std::begin(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1510,30): message : 또는       'unknown-type std::begin(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 함수 템플릿 'unknown-type std::begin(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(55,35): message : 또는       'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): error C2672: 'end': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1539,27): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1528,30): message : 또는       'unknown-type std::end(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 함수 템플릿 'unknown-type std::end(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1522,30): message : 또는       'unknown-type std::end(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 함수 템플릿 'unknown-type std::end(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(60,35): message : 또는       'const _Elem *std::end(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,22): message : 'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(121,3): error C3536: '<begin>$L4': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(121,3): error C3536: '<end>$L4': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(120,42): error C2100: 간접 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,33): error C2597: 비정적 멤버 'Parameter::ParamList'에 대한 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(17,19): message : 'Parameter::ParamList' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): error C3535: 'auto &&'의 형식을 'unknown'에서 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): error C2440: '초기화 중': 'unknown'에서 'int &&'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 원인: 'unknown'에서 'int'(으)로 변환할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 이 변환이 가능한 컨텍스트가 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): error C2672: 'begin': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1534,27): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : '_Ty *std::begin(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1516,30): message : 또는       'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 함수 템플릿 'unknown-type std::begin(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1510,30): message : 또는       'unknown-type std::begin(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 함수 템플릿 'unknown-type std::begin(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(55,35): message : 또는       'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): error C2672: 'end': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1539,27): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept'일 수 있습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : '_Ty *std::end(_Ty (&)[_Size]) noexcept': 'int'에서 '_Ty (&)[_Size]'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1528,30): message : 또는       'unknown-type std::end(const _Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 함수 템플릿 'unknown-type std::end(const _Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1522,30): message : 또는       'unknown-type std::end(_Container &) noexcept(<expr>)'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 함수 템플릿 'unknown-type std::end(_Container &) noexcept(<expr>)'을(를) 특수화하지 못했습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 다음 템플릿 인수 사용:
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : '_Container=int'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\initializer_list(60,35): message : 또는       'const _Elem *std::end(std::initializer_list<_Elem>) noexcept'
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,22): message : 'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': 'int'에서 'std::initializer_list<_Elem>'에 대한 템플릿 인수를 추론할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(156,3): error C3536: '<begin>$L0': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(156,3): error C3536: '<end>$L0': 초기화되기 전에 사용할 수 없습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(155,42): error C2100: 간접 참조가 잘못되었습니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(202,31): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(16,9): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(236,22): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Train.cpp(239,22): error C2352: 'Parameter::GetParam': 비정적 멤버 함수를 호출하려면 개체가 필요합니다.
+C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\Command.h(15,6): message : 'Parameter::GetParam' 선언을 참조하십시오.
   코드를 생성하고 있습니다...
-  Boshinsensou☆.vcxproj -> C:\Users\user\Documents\GitHub\Boshinsensou\Boshinsensou☆\x64\Debug\Boshinsensou☆.exe

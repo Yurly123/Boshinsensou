@@ -128,6 +128,7 @@ public:
 	void AddCflag(string, int);
 
 	static vector<Character> CharaList;	// 모든 캐릭터
+	static vector<Character> EnemyList;
 
 	// Charactor.csv에서 캐릭터들 로딩
 	static void LoadCharaList();

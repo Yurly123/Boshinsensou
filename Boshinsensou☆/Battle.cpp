@@ -36,6 +36,9 @@ void BattleMap(vector<Character>& ownCharaList)
 		if (input == 999) break;
 		else switch (input)
 		{
+		case 100:
+			Fight(ownCharaList, Enemy::EnemyList[Enemy::Progression]);
+			break;
 		case 101:
 			while (true)
 			{
@@ -83,9 +86,11 @@ void PrintMap(int index)
 	}
 }
 
-void Fight(vector<Character>& ownCharaList, int index)
+void Fight(vector<Character>& ownCharaList, Enemy& enemy)
 {
-
+	PrintLine();
+	Wait;
+	PrintLine();
 }
 
 #pragma endregion

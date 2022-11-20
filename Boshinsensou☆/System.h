@@ -39,6 +39,7 @@ class Enemy;
 #include "Command.h"
 #include "Battle.h"
 #include "Enemy.h"
+#include "Local.h"
 
 // 공용 함수 정의
 
