@@ -4,7 +4,7 @@
 
 void Shop()
 {
-	int CurrentCharaIndex = -1;	// 현재 선택된 캐릭터의 인덱스
+	Local::SetLocal("선택 캐릭터", 0);
 
 	// 반복
 	while (true)
@@ -16,9 +16,6 @@ void Shop()
 			if (ownChara.GetCtalent("보유중"))
 				OwnCharaList.push_back(ownChara);
 		}
-		// 선택한게 없으면 제일 처음캐릭 선택
-		if (CurrentCharaIndex == -1)
-			CurrentCharaIndex = 0;
 
 		cout << endl;
 		PrintLine();
@@ -29,8 +26,8 @@ void Shop()
 		else SetColor(14);
 		cout << "\t" << Local::GetLocal("현재 시간") / 2 + 1 << "일째 " << (Local::GetLocal("현재 시간") % 2 ? "밤" : "낮") << endl;	// 밤낮일수
 		SetColor(7);
-		cout << "\t- " << OwnCharaList[CurrentCharaIndex].Name << " - " << endl;	// 캐릭터 이름
-		PrintCharaHPEP(OwnCharaList[CurrentCharaIndex]);	// 체력 기력
+		cout << "\t- " << OwnCharaList[Local::GetLocal("선택 캐릭터")].Name << " - " << endl;	// 캐릭터 이름
+		PrintCharaHPEP(OwnCharaList[Local::GetLocal("선택 캐릭터")]);	// 체력 기력
 		cout << endl;
 
 		cout << endl;
@@ -57,8 +54,8 @@ void Shop()
 		switch (Input)
 		{
 		case 100:	// 훈련
-			Train(OwnCharaList[CurrentCharaIndex]);
-			ProgressTime(CurrentCharaIndex);
+			Train(OwnCharaList[Local::GetLocal("선택 캐릭터")]);
+			ProgressTime();
 			break;
 
 		case 101:	// 캐릭터 정보 확인
@@ -91,7 +88,7 @@ void Shop()
 						else
 							++index;	// 다르면 인덱스 다음으로
 					}
-					CurrentCharaIndex = index;
+					Local::SetLocal("선택 캐릭터", index);
 					break;
 				}
 			}
@@ -147,7 +144,7 @@ void Shop()
 					cout << "[1] 아니요" << endl;
 					if (!GetInput({ 0,1 }))
 					{
-						Save(select, CurrentCharaIndex);	// 저장
+						Save(select);	// 저장
 						break;
 					}
 				}
@@ -187,7 +184,7 @@ void Shop()
 					cout << "[1] 아니요" << endl;
 					if (!GetInput({ 0,1 }))
 					{
-						Load(select, CurrentCharaIndex);	// 불러오기
+						Load(select);	// 불러오기
 						break;
 					}
 				}
@@ -197,7 +194,7 @@ void Shop()
 
 		case 500:	// 전투
 			Battle(OwnCharaList);
-			ProgressTime(CurrentCharaIndex);
+			ProgressTime();
 			break;
 
 		case 114514:
@@ -209,7 +206,7 @@ void Shop()
 	}
 }
 
-void ProgressTime(int currentCharaIndex)
+void ProgressTime()
 {
 	Local::AddLocal("현재 시간", 1);	// 시간 가감
 
@@ -225,7 +222,7 @@ void ProgressTime(int currentCharaIndex)
 			chara.SetCflag("현재기력", chara.GetCflag("최대기력"));
 	}
 
-	AutoSave(currentCharaIndex);
+	AutoSave();
 
 	PrintLine();
 	cout << endl;

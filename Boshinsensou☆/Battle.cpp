@@ -49,6 +49,7 @@ void BattleMap(vector<Character>& ownCharaList)
 			}
 			break;
 		case 200:
+			ShowCharaInfo(Character::EnemyList[Local::GetLocal("진행도")]);
 			break;
 		}
 	}

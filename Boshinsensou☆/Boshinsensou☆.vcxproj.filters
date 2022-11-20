@@ -63,9 +63,6 @@
     <ClCompile Include="Battle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Local.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -105,9 +102,6 @@
       <Filter>헤더 파일\Commands</Filter>
     </ClInclude>
     <ClInclude Include="Battle.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Local.h">

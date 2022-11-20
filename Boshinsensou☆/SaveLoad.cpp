@@ -65,7 +65,7 @@ ifstream GetSlotStream(int index)
 	return ifstream(path);
 }
 
-void Save(int index, int currentCharaIndex)
+void Save(int index)
 {
 	stringstream out;
 
@@ -83,7 +83,7 @@ void Save(int index, int currentCharaIndex)
 	int count = 0;
 	for (auto& chara : Character::CharaList)
 		if (chara.GetCtalent("보유중"))
-			if (currentCharaIndex == count)
+			if (Local::GetLocal("선택 캐릭터") == count)
 			{
 				out << chara.Name << endl;
 				break;
@@ -104,9 +104,6 @@ void Save(int index, int currentCharaIndex)
 		out << "," << endl;
 	}
 
-	// 선택 캐릭터 저장
-	out << currentCharaIndex << endl;
-
 	for (auto& local : Local::LocalList)
 	{
 		out << local.first << "," << local.second << "," << endl;
@@ -125,7 +122,7 @@ void Save(int index, int currentCharaIndex)
 	saveStream.close();
 }
 
-void Load(int index, int& currentCharaIndex)
+void Load(int index)
 {
 	string path = "sav\\";
 	if (!(index / 10)) path.append("0");
@@ -210,24 +207,12 @@ void Load(int index, int& currentCharaIndex)
 			}
 	}
 
-	getline(in, buffer);
-	int charaIndex = stoi(buffer);
-	int count = 0;
-	for (auto& chara : Character::CharaList)
-		if (chara.GetCtalent("보유중"))
-			if (charaIndex == count)
-			{
-				currentCharaIndex = count;
-				break;
-			}
-			else count++;
-
 	for (auto& local : Local::LocalList)
 	{
-		getline(in, buffer);
+		getline(in, buffer, ',');
 		int id = stoi(buffer);
 
-		getline(in, buffer);
+		getline(in, buffer, ',');
 		int value = stoi(buffer);
 
 		Local::LocalList[id] = value;
@@ -273,14 +258,14 @@ stringstream Decode(stringstream& stream)
 	return code;
 }
 
-void AutoSave(int currentCharaIndex)
+void AutoSave()
 {
 	for (int i = 0; i < 10; ++i)
 	{
 		auto slot = GetSlotStream(90 + i);
 		if (slot.fail())
 		{
-			Save(90 + i, currentCharaIndex);
+			Save(90 + i);
 			string path = "sav\\";
 			path.append(to_string(i < 9 ? 90 + i + 1 : 90));
 			path.append(".sav");
