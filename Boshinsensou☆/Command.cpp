@@ -5,7 +5,7 @@
 #pragma region Command
 map<int, Command> Command::ComList = map<int, Command>();
 
-Command::Command()
+Command::Command() : Command(-1, "", NULL)
 {
 
 }

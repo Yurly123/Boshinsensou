@@ -2,7 +2,6 @@
 #pragma once
 
 #include "System.h"
-#include <fstream>	// 파일 입력 사용
 
 // 캐릭터 데이터 처리 클래스
 static class CData
@@ -128,7 +127,6 @@ public:
 	void AddFlag(string, int);
 
 	static vector<Character> CharaList;	// 모든 캐릭터
-	static vector<Character> EnemyList;
 
 	// Charactor.csv에서 캐릭터들 로딩
 	static void LoadCharaList();
@@ -138,6 +136,13 @@ public:
 	// IsAlt : 캐릭터 이름뒤에 은,이,을... 쓰는가
 	// ID : 캐릭터 ID
 	Character(string = "", bool = false, int = -1);
+};
+
+class Enemy : public Character
+{
+public:
+	static vector<Enemy> EnemyList;
+	Enemy(Character&);
 };
 
 // 캐릭터 설명 받기

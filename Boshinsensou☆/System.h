@@ -30,6 +30,7 @@ class Character;
 class Command;
 class Local;
 class Global;
+class Enemy;
 
 // 사용자 정의 헤더파일 사용
 #include "CData.h"
@@ -40,6 +41,7 @@ class Global;
 #include "Command.h"
 #include "Battle.h"
 #include "Glocal.h"
+#include "Enemy.h"
 
 // 공용 함수 정의
 

@@ -4,7 +4,6 @@
 
 #pragma region Character
 vector<Character> Character::CharaList = vector<Character>();
-vector<Character> Character::EnemyList = vector<Character>();
 
 void Character::LoadCData()
 {
@@ -29,6 +28,8 @@ string Character::GetStr(string name)
 }
 void Character::SetFlag(string name, int value)
 {
+	if (name == "현재체력") AddFlag("체력변화", value - GetFlag(name));
+	if (name == "현재기력") AddFlag("기력변화", value - GetFlag(name));
 	Cflag[CData::Flag(name)] = value;
 }
 void Character::SetTalent(string name, bool value)
@@ -41,7 +42,7 @@ void Character::SetStr(string name, string value)
 }
 void Character::AddFlag(string name, int value)
 {
-	Cflag[CData::Flag(name)] += value;
+	SetFlag(name, GetFlag(name) + value);
 }
 void Character::LoadCharaList()
 {
@@ -60,10 +61,10 @@ void Character::LoadCharaList()
 		bool IsAlt = buffer == "true";
 
 		Character chara = Character(name, IsAlt, id);
-		if (chara.GetTalent("적"))
-			EnemyList.push_back(chara);
-		else
+		if (!chara.GetTalent("적"))
 			CharaList.push_back(chara);
+		else
+			Enemy::EnemyList.push_back(chara);
 	}
 	FileStream.close();
 }

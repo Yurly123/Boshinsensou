@@ -16,6 +16,7 @@ void Battle(Character& currentChara)
 void BattleMap(Character& currentChara)
 {
 	int progression = Local::Get("진행도");
+	Enemy currentEnemy = Enemy::EnemyList[progression];
 
 	while (true)
 	{
@@ -40,13 +41,13 @@ void BattleMap(Character& currentChara)
 		switch (input)
 		{
 		case 100:	// 전투 개시
-			BattleLoop(currentChara, Character::EnemyList[progression]);
+			BattleLoop(currentChara, currentEnemy);
 			return;
 		case 101:	// 아군 정보
 			ShowCharaInfo(currentChara);
 			break;
 		case 102:	// 적의 정보
-			ShowCharaInfo(Character::EnemyList[progression]);
+			ShowCharaInfo(currentEnemy);
 			break;
 		case 999:	// 나가기
 			return;
@@ -54,7 +55,7 @@ void BattleMap(Character& currentChara)
 	}
 }
 
-void BattleLoop(Character& battleChara, Character& enemy)
+void BattleLoop(Character& battleChara, Enemy& enemy)
 {
 	PrintLine();
 	cout << endl << "전투를 시작합니다." << endl;
@@ -80,24 +81,30 @@ void BattleLoop(Character& battleChara, Character& enemy)
 		// 입력 커맨드들
 		string space = "    ";
 		vector<int> inputList;
+		// 턴 소모 하는 커맨드
 		AddInput(inputList, 0, "공격", space);
+		AddInput(inputList, 999, "도망가기", space);
 		cout << endl;
 
 		PrintLine();
+		// 턴 소모 하지 않는 커맨드
 		AddInput(inputList, 101, "아군 정보", space);
 		AddInput(inputList, 102, "적의 정보", space);
-		AddInput(inputList, 999, "도망가기", space);
 		cout << endl;
 
 		cout << endl;
 		int input = GetInput(inputList);
-		if (input == 999) break;
+
+		enemy.SetFlag("체력변화", 0); battleChara.SetFlag("체력변화", 0);
+		enemy.SetFlag("기력변화", 0); battleChara.SetFlag("기력변화", 0);
 		switch (input)
 		{
-		case 0:
-			enemy.AddFlag("현재체력", -10);
-			enemy.AddFlag("현재기력", -15);
+		case 0:	// 공격
+			Attack(battleChara, enemy);
+			ChangeTurn(battleChara, enemy);
 			break;
+		case 999:	// 도망가기
+			return;
 		case 101:	// 아군 정보
 			ShowCharaInfo(battleChara);
 			break;
@@ -108,6 +115,44 @@ void BattleLoop(Character& battleChara, Character& enemy)
 	}
 
 	// 도망가기 처리
+}
+
+void ChangeTurn(Character& battleChara, Enemy& enemy)
+{
+	PrintLine();
+	cout << endl;
+
+	if (enemy.GetFlag("현재기력") < enemy.GetFlag("최대기력"))
+		enemy.AddFlag("현재기력", 5);
+	if (battleChara.GetFlag("현재기력") < battleChara.GetFlag("최대기력"))
+		battleChara.AddFlag("현재기력", 5);
+
+	if (enemy.GetFlag("체력변화") || battleChara.GetFlag("기력변화"))
+	{
+		int hp = enemy.GetFlag("현재체력");
+		int ep = enemy.GetFlag("현재기력");
+
+		cout << "  " << enemy.Name << endl;
+		if (enemy.GetFlag("체력변화"))
+			cout << "체력 : " << hp - enemy.GetFlag("체력변화") << " → " << hp << endl;
+		if (enemy.GetFlag("기력변화"))
+			cout << "기력 : " << ep - enemy.GetFlag("기력변화") << " → " << ep << endl;
+	}
+	cout << endl;
+
+	if (battleChara.GetFlag("체력변화") || battleChara.GetFlag("기력변화"))
+	{
+		int hp = battleChara.GetFlag("현재체력");
+		int ep = battleChara.GetFlag("현재기력");
+
+		cout << "  " << battleChara.Name << endl;
+		if (battleChara.GetFlag("체력변화"))
+			cout << "체력 : " << hp - battleChara.GetFlag("체력변화") << " → " << hp << endl;
+		if (battleChara.GetFlag("기력변화"))
+			cout << "기력 : " << ep - battleChara.GetFlag("기력변화") << " → " << ep << endl;
+	}
+
+	Wait;
 }
 
 void PrintBattleMap(int index)
@@ -181,6 +226,31 @@ void PrintEpBar(Character& chara)
 	cout << " ";
 	cout << setw(4) << chara.GetFlag("현재기력") << " / ";
 	cout << setw(4) << chara.GetFlag("최대기력") << " EP";
+}
+
+void Attack(Character& attacker, Character& defender)
+{
+	int damage = 10;
+	int epRecover = attacker.GetFlag("최대기력") * 0.05;
+	cout << endl << attacker.Name.WithPP("의") << " 공격!" << endl;
+	Wait;
+
+	GetDamage(defender, damage);
+	cout << defender.Name.WithPP("에게") << " " << damage << " 만큼의 데미지!" << endl;
+	Wait;
+
+	ConsumeEp(attacker, -epRecover);
+	cout << attacker.Name.WithPP("의") << " 기력이 " << epRecover << " 만큼 회복" << endl;
+	Wait;
+}
+
+void ConsumeEp(Character& chara, int amount)
+{
+	chara.AddFlag("현재기력", -amount);
+}
+void GetDamage(Character& chara, int amount)
+{
+	chara.AddFlag("현재체력", -amount);
 }
 
 #pragma endregion
