@@ -62,34 +62,42 @@ void BattleLoop(Character& battleChara, Character& enemy)
 	while (true)
 	{
 		PrintLine();
-		cout << endl;
+		PrintHpBar(enemy); cout << endl;
+		PrintEpBar(enemy); cout << endl;
+		SetColor(7);
+		cout << endl << "                                        " << enemy.Name << endl;
 
-		// 상대 정보
-		cout << "\t\t\t" << enemy.Name;
-		PrintCharaHPEP(enemy);
 		cout << endl;
-
-		cout << endl << endl << endl;
+		// 상태 표시
+		cout << endl;
+		
+		cout << endl << "                                        " << battleChara.Name << endl;
+		PrintHpBar(battleChara); cout << endl;
+		PrintEpBar(battleChara); cout << endl;
+		SetColor(7);
 
 		PrintLine();
-		// 캐릭터 정보
-		string space = "    ";
-		cout << space << battleChara.Name;
-		PrintCharaHPEP(battleChara);
-		cout << endl << endl;
 		// 입력 커맨드들
+		string space = "    ";
 		vector<int> inputList;
+		AddInput(inputList, 0, "공격", space);
 		cout << endl;
+
 		PrintLine();
 		AddInput(inputList, 101, "아군 정보", space);
 		AddInput(inputList, 102, "적의 정보", space);
 		AddInput(inputList, 999, "도망가기", space);
 		cout << endl;
 
+		cout << endl;
 		int input = GetInput(inputList);
 		if (input == 999) break;
 		switch (input)
 		{
+		case 0:
+			enemy.AddFlag("현재체력", -10);
+			enemy.AddFlag("현재기력", -15);
+			break;
 		case 101:	// 아군 정보
 			ShowCharaInfo(battleChara);
 			break;
@@ -131,6 +139,48 @@ void PrintBattleMap(int index)
 		printf("index : %d\n", index);
 		break;
 	}
+}
+
+void PrintHpBar(Character& chara)
+{
+	double ratio = (double)chara.GetFlag("현재체력") / (double)chara.GetFlag("최대체력");
+	int color;
+	if (ratio > 2.0 / 3.0) color = 10;
+	else if (ratio > 1.0 / 3.0) color = 6;
+	else color = 4;
+
+	SetColor(color);
+	cout << "   ";
+	for (int i = 0; i < 75; ++i)
+	{
+		ratio -= 1.0 / 75.0;
+		if (ratio <= 0) SetColor(14);
+		cout << "■";
+	}
+
+	SetColor(color);
+	cout << " ";
+	cout << setw(4) << chara.GetFlag("현재체력") << " / ";
+	cout << setw(4) << chara.GetFlag("최대체력") << " HP";
+}
+void PrintEpBar(Character& chara)
+{
+	double ratio = (double)chara.GetFlag("현재기력") / (double)chara.GetFlag("최대기력");
+
+	SetColor(9);
+	cout << "   ";
+	for (int i = 0; i < 75; ++i)
+	{
+		ratio -= 1.0 / 75.0;
+		if (ratio <= 0) SetColor(8);
+		cout << "■";
+	}
+
+	if (chara.GetFlag("현재기력") > 0) SetColor(9);
+	else SetColor(8);
+	cout << " ";
+	cout << setw(4) << chara.GetFlag("현재기력") << " / ";
+	cout << setw(4) << chara.GetFlag("최대기력") << " EP";
 }
 
 #pragma endregion
