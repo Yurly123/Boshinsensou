@@ -32,7 +32,7 @@ void BattleMap(Character& currentChara)
 		string space = "    ";
 		AddInput(inputLIst, 100, "전투 개시", space);
 		AddInput(inputLIst, 101, "아군 정보", space);
-		AddInput(inputLIst, 200, "적의 정보", space);
+		AddInput(inputLIst, 102, "적의 정보", space);
 		AddInput(inputLIst, 999, "나가기", space);
 		cout << endl;
 
@@ -40,15 +40,12 @@ void BattleMap(Character& currentChara)
 		switch (input)
 		{
 		case 100:	// 전투 개시
-			PrintLine();
-			cout << endl << "전투를 시작합니다." << endl;
-			Wait;
 			BattleLoop(currentChara, Character::EnemyList[progression]);
 			return;
 		case 101:	// 아군 정보
 			ShowCharaInfo(currentChara);
 			break;
-		case 200:	// 적의 정보
+		case 102:	// 적의 정보
 			ShowCharaInfo(Character::EnemyList[progression]);
 			break;
 		case 999:	// 나가기
@@ -59,6 +56,9 @@ void BattleMap(Character& currentChara)
 
 void BattleLoop(Character& battleChara, Character& enemy)
 {
+	PrintLine();
+	cout << endl << "전투를 시작합니다." << endl;
+	Wait;
 	while (true)
 	{
 		PrintLine();
@@ -79,13 +79,27 @@ void BattleLoop(Character& battleChara, Character& enemy)
 		cout << endl << endl;
 		// 입력 커맨드들
 		vector<int> inputList;
-		AddInput(inputList, 999, "도망가기", space);
 		cout << endl;
 		PrintLine();
+		AddInput(inputList, 101, "아군 정보", space);
+		AddInput(inputList, 102, "적의 정보", space);
+		AddInput(inputList, 999, "도망가기", space);
+		cout << endl;
 
 		int input = GetInput(inputList);
-		if (input == 999) return;
+		if (input == 999) break;
+		switch (input)
+		{
+		case 101:	// 아군 정보
+			ShowCharaInfo(battleChara);
+			break;
+		case 102:	// 적의 정보
+			ShowCharaInfo(enemy);
+			break;
+		}
 	}
+
+	// 도망가기 처리
 }
 
 void PrintBattleMap(int index)
