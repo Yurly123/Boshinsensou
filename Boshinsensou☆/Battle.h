@@ -3,5 +3,5 @@
 
 void Battle(Character&);
 void BattleMap(Character&);
-void PrintMap(int);
-void Fight(Character&);
+void PrintBattleMap(int);
+void BattleLoop(Character&, Character&);

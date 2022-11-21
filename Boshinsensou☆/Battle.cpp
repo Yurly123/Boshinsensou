@@ -9,6 +9,8 @@ void Battle(Character& currentChara)
 	Wait;
 	
 	BattleMap(currentChara);
+
+	Wait;
 }
 
 void BattleMap(Character& currentChara)
@@ -21,7 +23,7 @@ void BattleMap(Character& currentChara)
 		cout << endl;
 
 		vector<int> inputLIst;
-		PrintMap(progression);
+		PrintBattleMap(progression);
 
 		cout << endl;
 		PrintLine();
@@ -35,30 +37,58 @@ void BattleMap(Character& currentChara)
 		cout << endl;
 
 		int input = GetInput(inputLIst);
-		if (input == 999) break;	// 나가기
-		else switch (input)
+		switch (input)
 		{
 		case 100:	// 전투 개시
-			Fight(currentChara);
-			break;
+			PrintLine();
+			cout << endl << "전투를 시작합니다." << endl;
+			Wait;
+			BattleLoop(currentChara, Character::EnemyList[progression]);
+			return;
 		case 101:	// 아군 정보
 			ShowCharaInfo(currentChara);
 			break;
 		case 200:	// 적의 정보
 			ShowCharaInfo(Character::EnemyList[progression]);
 			break;
+		case 999:	// 나가기
+			return;
 		}
 	}
 }
 
-void Fight(Character& currentChara)
+void BattleLoop(Character& battleChara, Character& enemy)
 {
-	PrintLine();
-	Wait;
-	PrintLine();
+	while (true)
+	{
+		PrintLine();
+		cout << endl;
+
+		// 상대 정보
+		cout << "\t\t\t" << enemy.Name;
+		PrintCharaHPEP(enemy);
+		cout << endl;
+
+		cout << endl << endl << endl;
+
+		PrintLine();
+		// 캐릭터 정보
+		string space = "    ";
+		cout << space << battleChara.Name;
+		PrintCharaHPEP(battleChara);
+		cout << endl << endl;
+		// 입력 커맨드들
+		vector<int> inputList;
+		AddInput(inputList, 999, "도망가기", space);
+		cout << endl;
+		PrintLine();
+
+		int input = GetInput(inputList);
+		if (input == 999) return;
+	}
 }
 
-void PrintMap(int index)
+void PrintBattleMap(int index)
 {
 	switch (index)
 	{
@@ -68,7 +98,7 @@ void PrintMap(int index)
 		printf("                                                                                                 \n");
 		printf("                                                                                                 \n");
 		printf("                                                                                                 \n");
-		printf("           %s 히데                                                                               \n", (index == 0 ? "▶" : "  "));
+		printf("			  %s 히데                                                                            \n", (index == 0 ? "▶" : "  "));
 		printf("                                                                                                 \n");
 		printf("                                                                                                 \n");
 		
