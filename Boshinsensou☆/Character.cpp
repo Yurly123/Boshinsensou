@@ -4,8 +4,11 @@
 
 #pragma region Character
 vector<Character> Character::CharaList = vector<Character>();
+map<string, void (*)(Character&, Character&)> Character::TurnSkillList = map<string, void (*)(Character&, Character&)>();
+map<string, void (*)(Character&, Character&)> Character::EpSkillList = map<string, void (*)(Character&, Character&)>();
+map<string, void (*)(passive, Character&, Character&)> Character::PassiveSkillList = map<string, void (*)(passive, Character&, Character&)>();
 
-void Character::LoadCData()
+void Character::InitChara()
 {
 	string filepath = "CSV\\Chara\\";
 	filepath.append(to_string(ID));
@@ -75,7 +78,11 @@ Character::Character(string name, bool IsAlt, int ID)
 	Cflag = map<int, int>();
 	Ctalent = map<int, bool>();
 	Cstr = map<int, string>();
-	LoadCData();
+	InitChara();
+}
+void Character::LoadSkillList()
+{
+	UDK_LoadSkill();
 }
 #pragma endregion
 

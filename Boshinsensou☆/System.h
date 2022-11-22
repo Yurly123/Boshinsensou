@@ -31,6 +31,7 @@ class Command;
 class Local;
 class Global;
 class Enemy;
+enum passive;
 
 // 사용자 정의 헤더파일 사용
 #include "CData.h"

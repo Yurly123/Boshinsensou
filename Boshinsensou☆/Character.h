@@ -3,6 +3,8 @@
 
 #include "System.h"
 
+#include "UDK.h"
+
 // 캐릭터 데이터 처리 클래스
 static class CData
 {
@@ -85,7 +87,7 @@ class Character
 {
 private:
 	// 각 캐릭터의 데이터 로딩
-	void LoadCData();
+	void InitChara();
 
 public:
 	Name Name;	// 캐릭터 이름
@@ -136,6 +138,12 @@ public:
 	// IsAlt : 캐릭터 이름뒤에 은,이,을... 쓰는가
 	// ID : 캐릭터 ID
 	Character(string = "", bool = false, int = -1);
+
+	static map<string, void (*)(Character&, Character&)> TurnSkillList;
+	static map<string, void (*)(Character&, Character&)> EpSkillList;
+	static map<string, void (*)(passive, Character&, Character&)> PassiveSkillList;
+
+	static void LoadSkillList();
 };
 
 class Enemy : public Character

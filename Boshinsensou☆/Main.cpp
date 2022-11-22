@@ -22,6 +22,8 @@ void Initialize()
 	Parameter::Load();	// 패러미터 정보 로딩
 	cout << "Loading Locals..." << endl;
 	Local::Load();	// 로컬 정보 로딩
+	cout << "Loading Skills..." << endl;
+	Character::LoadSkillList();	// 스킬 정보 로딩
 
 	GlobalLoad();
 
