@@ -4,6 +4,7 @@
 #include "System.h"
 
 #include "UDK.h"
+#include "히데.h"
 
 // 캐릭터 데이터 처리 클래스
 static class CData
@@ -150,6 +151,7 @@ class Enemy : public Character
 {
 public:
 	static vector<Enemy> EnemyList;
+	static map<string, void(*)(Enemy&, Character&)> EnemyAIList;
 	Enemy(Character&);
 };
 

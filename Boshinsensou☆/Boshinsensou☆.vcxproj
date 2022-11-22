@@ -146,6 +146,7 @@
     <ClCompile Include="System.cpp" />
     <ClCompile Include="Train.cpp" />
     <ClCompile Include="UDK.cpp" />
+    <ClCompile Include="히데.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Battle.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="System.h" />
     <ClInclude Include="Train.h" />
     <ClInclude Include="UDK.h" />
+    <ClInclude Include="히데.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CSV\CFlag.csv" />

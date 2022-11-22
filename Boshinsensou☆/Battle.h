@@ -4,11 +4,11 @@
 enum passive
 {
 	NONE,
-	BeforeCommand,
-	MyEpChange,
-	MyHpChange,
-	EnemyEpChange,
-	EnemyHpChange,
+	Interface,
+	MyEpConsume,
+	MyHpDamage,
+	EnemyEpConsume,
+	EnemyHpDamage,
 	DoneAttack,
 	GotAttack,
 };
@@ -23,3 +23,6 @@ void ChangeTurn(Character&, Enemy&);
 void Attack(Character&, Character&);
 void ConsumeEp(Character&, Character&, int);
 void GetDamage(Character&, Character&, int);
+void Run(Character&, Enemy&);
+void PrintHpEpChange(Character&);
+void PrintBattleInterface(Character&, Enemy&, void (*)(passive, Character&, Character&));

@@ -31,8 +31,8 @@ string Character::GetStr(string name)
 }
 void Character::SetFlag(string name, int value)
 {
-	if (name == "현재체력") AddFlag("체력변화", value - GetFlag(name));
-	if (name == "현재기력") AddFlag("기력변화", value - GetFlag(name));
+	if (name == "현재체력") AddFlag("체력변화", value - Cflag[CData::Flag(name)]);
+	if (name == "현재기력") AddFlag("기력변화", value - Cflag[CData::Flag(name)]);
 	Cflag[CData::Flag(name)] = value;
 }
 void Character::SetTalent(string name, bool value)
@@ -45,7 +45,7 @@ void Character::SetStr(string name, string value)
 }
 void Character::AddFlag(string name, int value)
 {
-	SetFlag(name, GetFlag(name) + value);
+	SetFlag(name, Cflag[CData::Flag(name)] + value);
 }
 void Character::LoadCharaList()
 {
@@ -82,7 +82,8 @@ Character::Character(string name, bool IsAlt, int ID)
 }
 void Character::LoadSkillList()
 {
-	UDK_LoadSkill();
+	UDK_Load();
+	히데_Load();
 }
 #pragma endregion
 

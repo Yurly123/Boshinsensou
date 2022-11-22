@@ -145,6 +145,16 @@ map<int, int> TrainLoop(Character& TrainChara)
 	return parameter;
 }
 
+void AbstractEP(Character& chara, int amount)
+{
+	if (chara.GetFlag("현재기력") - amount >= 0)
+		chara.AddFlag("현재기력", -amount);
+	else if (chara.GetFlag("현재기력") > 0)
+		chara.SetFlag("현재기력", 0);
+	else
+		chara.AddFlag("현재체력", -amount);
+}
+
 void ImproveCharaStat(Character& chara, map<int, int>& parameter)
 {
 	while (true)

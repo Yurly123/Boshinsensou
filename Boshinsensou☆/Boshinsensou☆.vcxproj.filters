@@ -78,6 +78,9 @@
     <ClCompile Include="UDK.cpp">
       <Filter>소스 파일\Characters</Filter>
     </ClCompile>
+    <ClCompile Include="히데.cpp">
+      <Filter>소스 파일\Characters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System.h">
@@ -123,6 +126,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="UDK.h">
+      <Filter>헤더 파일\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="히데.h">
       <Filter>헤더 파일\Characters</Filter>
     </ClInclude>
   </ItemGroup>

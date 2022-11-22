@@ -4,6 +4,7 @@
 
 #pragma region Enemy
 vector<Enemy> Enemy::EnemyList = vector<Enemy>();
+map<string, void(*)(Enemy&, Character&)> Enemy::EnemyAIList = map<string, void(*)(Enemy&, Character&)>();
 
 Enemy::Enemy(Character& chara)
 {

@@ -5,4 +5,3 @@
 #include <sstream>
 
 void LoadDefaultCData(string, Character&);
-void AbstractEP(Character&, int);
