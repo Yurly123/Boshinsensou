@@ -14,7 +14,6 @@ enum passive
 };
 
 void Battle(Character&);
-void BattleMap(Character&);
 void PrintBattleMap(int);
 void BattleLoop(Character&, Enemy&);
 void PrintHpBar(Character&);

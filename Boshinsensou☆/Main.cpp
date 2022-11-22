@@ -5,6 +5,7 @@ char* programPath;
 // 초기설정, 데이터 로딩등 처리 함수
 void Initialize()
 {
+	CreateDirectoryA("sav", NULL);	// 저장 경로 확보
 	SetConsoleTitle(TEXT("Boshinsensou☆"));	// 콘솔창 이름 바꾸기
 	system("mode con cols=100 lines=50");	// 콘솔창 크기 조절
 	SetConsoleScreenBufferSize(GetStdHandle(STD_OUTPUT_HANDLE), { 100,250 });	// 콘솔창 버퍼 조정 (스크롤 띄우기)

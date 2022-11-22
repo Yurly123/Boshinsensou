@@ -7,14 +7,7 @@ void Battle(Character& currentChara)
 	PrintLine();
 	cout << endl << "전장으로 진입합니다." << endl;
 	Wait;
-	
-	BattleMap(currentChara);
 
-	Wait;
-}
-
-void BattleMap(Character& currentChara)
-{
 	int progression = Local::Get("진행도");
 	Enemy currentEnemy = Enemy::EnemyList[progression];
 
@@ -38,11 +31,13 @@ void BattleMap(Character& currentChara)
 		cout << endl;
 
 		int input = GetInput(inputLIst);
+		if (input == 999) break;
 		switch (input)
 		{
 		case 100:	// 전투 개시
 			BattleLoop(currentChara, currentEnemy);
 			Local::Set("턴", 0);
+			ProgressTime();
 			return;
 		case 101:	// 아군 정보
 			ShowCharaInfo(currentChara);
@@ -54,6 +49,7 @@ void BattleMap(Character& currentChara)
 			return;
 		}
 	}
+	Wait;
 }
 
 void PrintBattleMap(int index)
@@ -189,12 +185,14 @@ void ChangeTurn(Character& chara, Enemy& enemy)
 	Wait;
 
 	PrintLine();
-	cout << endl << enemy.Name.WithPP("의") << " 턴" << endl;
+	cout << endl << enemy.Name.WithPP("의") << " 턴" << endl << endl;
+	PrintLine();
 	Wait;
 
 	PrintBattleInterface(chara, enemy, Enemy::PassiveSkillList[enemy.Name]);
 	Wait;
 
+	PrintLine();
 	Enemy::EnemyAIList[enemy.Name](enemy, chara);
 
 	PrintLine();
@@ -334,7 +332,7 @@ void GetDamage(Character& chara, Character& opponent, int amount)
 
 void Run(Character& chara, Enemy& enemy)
 {
-	cout << chara.Name.WithPP("는") << " 이 전투에서 벗어나기로 했다." << endl;
+	cout << endl << chara.Name.WithPP("는") << " 이 전투에서 벗어나기로 했다." << endl;
 	Wait;
 }
 

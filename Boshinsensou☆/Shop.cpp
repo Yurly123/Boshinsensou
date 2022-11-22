@@ -195,7 +195,6 @@ void Shop()
 
 		case 500:	// 전투
 			Battle(currentChara);
-			ProgressTime();
 			break;
 
 		case 114514:	// ???
@@ -233,7 +232,10 @@ void ProgressTime()
 	PrintLine();
 	cout << endl;
 	// 밤낮 표시
-	cout << (Local::Get("현재 시간") % 2 ? "밤" : "낮") << "이 되었습니다." << endl;
+	if (Local::Get("현재 시간") % 2)
+		cout << "밤이 되었습니다." << endl;
+	else
+		cout << "아침이 밝았습니다." << endl;
 	Wait;
 	PrintLine();
 }
