@@ -142,6 +142,9 @@ void ProgressTime()
 			chara.SetFlag("현재체력", maxHp);
 		if (chara.GetFlag("현재기력") > maxEp)
 			chara.SetFlag("현재기력", maxEp);
+
+		if (chara.ID == 0)
+			chara.SetTalent("이어지는의지", true);
 	}
 
 	AutoSave();

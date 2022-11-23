@@ -22,7 +22,7 @@ void YMN_Turn(Character& chara, Character& enemy)
 
 void YMN_EP(Character& chara, Character& enemy)
 {
-	double damageAddition = -chara.GetFlag("기력변화");
+	double damageAddition = -chara.GetFlag("기력변화") / 2.0;
 
 	GetDamage(enemy, chara, chara.GetFlag("공격력") + damageAddition);
 
@@ -35,13 +35,20 @@ void YMN_EP(Character& chara, Character& enemy)
 
 void YMN_Passive(passive timing, Character& chara, Character& enemy)
 {
-	if (timing == Interface && Local::Get("턴") % 2)
+	if (!chara.GetTalent("이어지는의지"))
 	{
-		int amount = 10;
-		if (chara.GetFlag("기력변화") == 0)
-			chara.AddFlag("현재기력", amount);
-
-		cout << "                         ";
-		cout << chara.GetStr("패시브스킬") << "의 효과로 " << chara.Name << "의 기력 " << amount << "회복";
+		switch (timing)
+		{
+		case Interface:
+			cout << "                         ";
+			cout << "이어지는의지의 부재로 방어력이 하락합니다.";
+			break;
+		case TurnStart:
+			chara.AddFlag("방어력", 20);
+			break;
+		case TurnEnd:
+			chara.AddFlag("방어력", -20);
+			break;
+		}
 	}
 }

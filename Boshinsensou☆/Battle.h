@@ -11,6 +11,9 @@ enum passive
 	EnemyHpDamage,
 	DoneAttack,
 	GotAttack,
+	TurnStart,
+	TurnEnd,
+	EndOfBattle,
 };
 
 void Battle(Character&);

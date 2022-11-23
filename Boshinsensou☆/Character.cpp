@@ -256,6 +256,23 @@ void CharaDeath(Character& chara)
 	cout << "...";
 	Wait;
 
+	if (chara.GetTalent("이어지는의지"))
+	{
+		chara.SetTalent("이어지는의지", false);
+		chara.SetFlag("현재체력", chara.GetFlag("최대체력"));
+		chara.SetFlag("현재기력", 0);
+		
+		cout << "!";
+		Wait;
+
+		cout << endl << chara.Name.WithPP("은") << " 죽음 속에서 살아 돌아왔다!" << endl;
+		Wait;
+
+		cout << "*이어지는의지가 일시 소멸했습니다*" << endl;
+		Wait;
+		return;
+	}
+
 	cout << chara.Name.WithPP("는") << " 명을 다했습니다.." << endl;
 	Wait;
 

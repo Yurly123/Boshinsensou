@@ -37,6 +37,7 @@ void Battle(Character& currentChara)
 		case 100:	// 전투 개시
 			BattleLoop(currentChara, currentEnemy);
 			Local::Set("턴", 0);
+			Character::PassiveSkillList[currentChara.Name](EndOfBattle, currentChara, currentEnemy);
 			ProgressTime();
 			return;
 		case 101:	// 아군 정보
@@ -67,19 +68,6 @@ void PrintBattleMap(int index)
 		printf("                                                                                                 \n");
 
 		break;
-
-	default:
-		//printf("-------------------------------------------------------------------------------------------------\n");
-		printf("     <Error Map>                                                                                 \n");
-		printf("                                                                                                 \n");
-		printf("awiteg87fh98ajiudbjh,vnoij8u9ap29iOPKWEFNFMLROPW;IAJLHKRKHTJIKOPRLKhlafjiwo;ekflmndfbl[peewokjifa\n");
-		printf("3h7r9iwojsdfn mkdsiowdjlhbe,jdkfopsefjuhnkerpodfjihbew,njkweopdfjwelpfsdkojidewm,klodfkjiwemkldif\n");
-		printf("nby2fg8hawejiofzkmowI09ALHUSYKBRNJOIX90FJDULJno8gnujseamkirodbgnjsmkoiawe09xfjilkmweoix;gkelrowfe\n");
-		printf("fewnhzju8ij;oamkllfwexdbjiunrem5t43koerxkdfjimn34kiexr9puej4na23kowezi9xeru8zwi9a23jonejifpuefwha\n");
-		printf("hweafjuizrena3kwfopxrjine43mkwefopixerj.4ewkfrceqxwefiswrmjekopferwmzfkdjiowekfisodefkdiseijoiedj\n");
-		printf("                                                                                                 \n");
-		printf("index : %d\n", index);
-		break;
 	}
 }
 
@@ -94,6 +82,7 @@ void BattleLoop(Character& chara, Enemy& enemy)
 
 	while (true)
 	{
+		Character::PassiveSkillList[chara.Name](TurnStart, chara, enemy);
 
 		PrintBattleInterface(chara, enemy, Character::PassiveSkillList[chara.Name]);
 
@@ -125,7 +114,6 @@ void BattleLoop(Character& chara, Enemy& enemy)
 
 		cout << endl;
 		int input = GetInput(inputList);
-
 
 		switch (input)
 		{
@@ -187,6 +175,7 @@ void ChangeTurn(Character& chara, Enemy& enemy)
 
 	if (chara.GetFlag("현재체력") <= 0)
 		CharaDeath(chara);
+	Character::PassiveSkillList[chara.Name](TurnEnd, chara, enemy);
 
 	PrintLine();
 	cout << endl << enemy.Name.WithPP("의") << " 턴" << endl << endl;
@@ -303,7 +292,7 @@ void PrintEpBar(Character& chara)
 void Attack(Character& attacker, Character& defender)
 {
 	int damage = attacker.GetFlag("공격력");
-	int epRecover = attacker.GetFlag("최대기력") * 0.05;
+	int epRecover = attacker.GetFlag("최대기력") * 0.1;
 	cout << endl << attacker.Name.WithPP("의") << " 공격" << endl;
 	Wait;
 
@@ -314,9 +303,9 @@ void Attack(Character& attacker, Character& defender)
 	else
 		Character::PassiveSkillList[defender.Name](GotAttack, defender, attacker);
 
-	cout << defender.Name.WithPP("에게") << " " << damage << "의 데미지" << endl;
+	cout << defender.Name.WithPP("에게") << " " << -defender.GetFlag("체력변화") << "의 데미지" << endl;
 	Wait;
-	cout << attacker.Name.WithPP("의") << " 기력이 " << epRecover << "만큼 회복" << endl;
+	cout << attacker.Name.WithPP("의") << " 기력이 " << attacker.GetFlag("기력변화") << "만큼 회복" << endl;
 	Wait;
 }
 
@@ -330,7 +319,10 @@ void ConsumeEp(Character& chara, Character& opponent, int amount)
 }
 void GetDamage(Character& chara, Character& opponent, int amount)
 {
+	amount -= amount * (chara.GetFlag("방어력") / 100.0);
+
 	chara.AddFlag("현재체력", -amount);
+
 	if (!chara.GetTalent("적"))
 		Character::PassiveSkillList[chara.Name](MyHpDamage, chara, opponent);
 	else
