@@ -171,11 +171,8 @@
   <ItemGroup>
     <None Include="CSV\CFlag.csv" />
     <None Include="CSV\Character.csv" />
-    <None Include="CSV\Chara\1 UDK.csv" />
+    <None Include="CSV\Chara\0 YMN.csv" />
     <None Include="CSV\Chara\100 히데.csv" />
-    <None Include="CSV\Chara\2 RU.csv" />
-    <None Include="CSV\Chara\3 HNS.csv" />
-    <None Include="CSV\Chara\4 YMN.csv" />
     <None Include="CSV\CStr.csv" />
     <None Include="CSV\CTalent.csv" />
     <None Include="CSV\Global.csv" />
