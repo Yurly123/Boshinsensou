@@ -3,6 +3,7 @@
 
 #include "System.h"
 
+#include "YMN.h"
 #include "UDK.h"
 #include "히데.h"
 

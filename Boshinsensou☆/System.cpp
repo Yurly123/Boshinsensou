@@ -55,3 +55,13 @@ void AddInput(vector<int>& InputList, int input, string name, string space)
 	cout << space << "[" << input << "] " << name;
 	InputList.push_back(input);
 }
+
+bool Random(double chance)
+{
+	double randomValue = rand();
+	randomValue = randomValue / RAND_MAX;
+	if (chance > randomValue)
+		return true;
+	else
+		return false;
+}

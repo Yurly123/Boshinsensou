@@ -87,6 +87,7 @@ Character::Character(string name, bool IsAlt, int ID)
 }
 void Character::LoadSkillList()
 {
+	YMN_Load();
 	UDK_Load();
 	히데_Load();
 }

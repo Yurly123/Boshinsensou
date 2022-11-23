@@ -59,3 +59,5 @@ void Restart();
 
 // 입력 목록 출력 + 입력 리스트에 추가
 void AddInput(vector<int>&, int, string, string = "");
+
+bool Random(double);

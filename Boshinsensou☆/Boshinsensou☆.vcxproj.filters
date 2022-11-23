@@ -84,6 +84,9 @@
     <ClCompile Include="Title.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="YMN.cpp">
+      <Filter>소스 파일\Characters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System.h">
@@ -136,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="Title.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="YMN.h">
+      <Filter>헤더 파일\Characters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

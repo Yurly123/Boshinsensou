@@ -147,6 +147,7 @@
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Train.cpp" />
     <ClCompile Include="UDK.cpp" />
+    <ClCompile Include="YMN.cpp" />
     <ClCompile Include="히데.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +167,7 @@
     <ClInclude Include="Title.h" />
     <ClInclude Include="Train.h" />
     <ClInclude Include="UDK.h" />
+    <ClInclude Include="YMN.h" />
     <ClInclude Include="히데.h" />
   </ItemGroup>
   <ItemGroup>

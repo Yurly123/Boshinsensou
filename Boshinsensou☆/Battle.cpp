@@ -302,7 +302,7 @@ void PrintEpBar(Character& chara)
 
 void Attack(Character& attacker, Character& defender)
 {
-	int damage = 10;
+	int damage = attacker.GetFlag("공격력");
 	int epRecover = attacker.GetFlag("최대기력") * 0.05;
 	cout << endl << attacker.Name.WithPP("의") << " 공격" << endl;
 	Wait;
