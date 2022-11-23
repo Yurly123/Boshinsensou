@@ -92,6 +92,13 @@ void LoadDefaultCData(string filepath, Character& chara)
 	ifstream FileStream(filepath);
 	if (!FileStream.is_open() || !FileStream.good()) return;
 
+	for (auto& cflag : CData::CFlagList)
+		chara.Cflag[cflag.first] = 0;
+	for (auto& ctalent : CData::CTalentList)
+		chara.Ctalent[ctalent.first] = false;
+	for (auto& cstr : CData::CStrList)
+		chara.Cstr[cstr.first] = "";
+
 	while (!FileStream.eof())
 	{
 		string Buffer;
@@ -100,29 +107,29 @@ void LoadDefaultCData(string filepath, Character& chara)
 		if (Buffer == "flag")
 		{
 			getline(FileStream, Buffer, ',');
-			int index = stoi(Buffer);
+			string name = Buffer;
 			
 			getline(FileStream, Buffer, ',');
 			int value = stoi(Buffer);
 
-			chara.Cflag[index] = value;
+			chara.Cflag[CData::Flag(name)] = value;
 		}
 		else if (Buffer == "talent")
 		{
 			getline(FileStream, Buffer, ',');
-			int index = stoi(Buffer);
+			string name = Buffer;
 
-			chara.Ctalent[index] = true;
+			chara.Ctalent[CData::Talent(name)] = true;
 		}
 		else if (Buffer == "str")
 		{
 			getline(FileStream, Buffer, ',');
-			int index = stoi(Buffer);
+			string name = Buffer;
 
 			getline(FileStream, Buffer, ',');
-			string str = Buffer;
+			string value = Buffer;
 
-			chara.Cstr[index] = str;
+			chara.Cstr[CData::Str(name)] = value;
 		}
 
 		getline(FileStream, Buffer);

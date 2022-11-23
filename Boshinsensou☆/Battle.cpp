@@ -94,6 +94,7 @@ void BattleLoop(Character& chara, Enemy& enemy)
 
 	while (true)
 	{
+
 		PrintBattleInterface(chara, enemy, Character::PassiveSkillList[chara.Name]);
 
 		// 입력 커맨드들
@@ -301,7 +302,7 @@ void PrintEpBar(Character& chara)
 
 void Attack(Character& attacker, Character& defender)
 {
-	int damage = 1000;
+	int damage = 10;
 	int epRecover = attacker.GetFlag("최대기력") * 0.05;
 	cout << endl << attacker.Name.WithPP("의") << " 공격" << endl;
 	Wait;

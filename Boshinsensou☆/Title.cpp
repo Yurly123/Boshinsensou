@@ -22,9 +22,9 @@ void Title()
 				cout << endl;
 			Shop();
 		}
-		catch (string type)
+		catch (string code)
 		{
-			if (type != "Title") throw type;
+			if (code != "Title") throw code;
 		}
 	}
 }

@@ -9,8 +9,8 @@ void Shop()
 	// 반복
 	while (true)
 	{
-		int currentTime = Local::Get("현재 시간");
 		Character currentChara = Character::CharaList[Local::Get("선택 캐릭터")];
+		int currentTime = Local::Get("현재 시간");
 
 		cout << endl;
 		PrintLine();
@@ -30,87 +30,92 @@ void Shop()
 		cout << endl;
 
 		//	Shop 커맨드 출력
-		vector<int> ShopList;
+		vector<int> inputList;
 		string space = "    ";
-		AddInput(ShopList, 100, "훈련하기", space);
-		AddInput(ShopList, 101, "캐릭터 정보", space);
-		AddInput(ShopList, 109, "캐릭터 변경", space);
-		AddInput(ShopList, 200, "저장하기", space);
-		AddInput(ShopList, 300, "불러오기", space);
-		AddInput(ShopList, 500, "전장으로", space);
-		ShopList.push_back(114514);
+		AddInput(inputList, 100, "훈련하기", space);
+		AddInput(inputList, 101, "캐릭터 정보", space);
+		AddInput(inputList, 109, "캐릭터 변경", space);
+		AddInput(inputList, 200, "저장하기", space);
+		AddInput(inputList, 300, "불러오기", space);
+		AddInput(inputList, 500, "전장으로", space);
+		AddInput(inputList, 999, "게임 종료", space);
+		inputList.push_back(114514);
 		cout << endl;
 
 		cout << endl;
 		PrintLine();
 
-		// Shop 커맨드 입력 받기
-		int Input = GetInput(ShopList);
-		switch (Input)
+		try
 		{
-		case 100:	// 훈련
-			Train(currentChara);
-			ProgressTime();
-			break;
-
-		case 101:	// 캐릭터 정보 확인
-			while (true)
+			// Shop 커맨드 입력 받기
+			int Input = GetInput(inputList);
+			cout << endl;
+			switch (Input)
 			{
-				cout << endl << "정보를 보고싶은 캐릭터를 고르십시오" << endl << endl;
-				Character selectChara = SelectCharactor(Character::CharaList);	// 캐릭터 받기
-				if (selectChara.ID == -1) break;	// 무효값이면 반복 종료
-				ShowCharaInfo(selectChara);	// 캐릭터 정보 표시
-			}
-			break;
+			case 100:	// 훈련
+				Train(currentChara);
+				ProgressTime();
+				break;
 
-		case 109:	// 캐릭터 변경
-			while (true)
-			{
-				cout << endl << "선택하려는 캐릭터를 고르십시오" << endl << endl;
-				Character selectChara = SelectCharactor(Character::CharaList);	// 캐릭터 받기
-				if (selectChara.ID == -1) break;	// 무효값이면 반복 종료
-
-				// 선택 재확인
-				cout << endl << selectChara.Name.WithPP("를") << " 선택하시겠습니까?" << endl;
-				cout << "[0] 예\t[1] 아니오" << endl;
-				if (!GetInput({ 0,1 }))
+			case 101:	// 캐릭터 정보 확인
+				while (true)
 				{
-					Character::CharaList[Local::Get("현재 캐릭터")] = currentChara;
-					
-					int index = 0;
-					for (auto& chara : Character::CharaList)
-					{
-						if (chara.ID == selectChara.ID)
-						{
-							Local::Set("현재 캐릭터", index);
-							break;
-						}
-						else index++;
-					}
+					cout << "정보를 보고싶은 캐릭터를 고르십시오" << endl << endl;
+					Character selectChara = SelectCharactor(Character::CharaList);	// 캐릭터 받기
+					if (selectChara.ID == -1) break;	// 무효값이면 반복 종료
+					ShowCharaInfo(selectChara);	// 캐릭터 정보 표시
+				}
+				break;
 
-					currentChara = selectChara;
-					break;
+			case 109:	// 캐릭터 변경
+				ShopCharaChange(&currentChara);
+				break;
+
+			case 200:	// 저장
+				ShopSave();
+				break;
+
+			case 300:	// 불러오기
+				ShopLoad(&currentChara);
+				break;
+
+			case 500:	// 전투
+				Battle(currentChara);
+				break;
+
+			case 999:	// 게임종료
+
+				break;
+
+			case 114514:	// ???
+				for (int i = 0; i < 114514; ++i)
+					cout << "GO IS GOD";
+				Restart();
+				break;
+			}
+		}
+		catch (string code)
+		{
+			if (code == "Death")
+			{
+				while (true)
+				{
+					ShopCharaChange(&currentChara);
+
+					if (!currentChara.GetTalent("사망"))
+						break;
+					else
+					{
+						cout << endl <<"돌아갈 수 있었으면 진작에 돌아갔겠지" << endl;
+						Wait;
+					}
 				}
 			}
-			break;
-
-		case 200:	// 저장
-			ShopSave();
-			break;
-
-		case 300:	// 불러오기
-			ShopLoad(currentChara);
-			break;
-
-		case 500:	// 전투
-			Battle(currentChara);
-			break;
-
-		case 114514:	// ???
-			for (int i = 0; i < 114514; ++i)
-				cout << "GO IS GOD";
-			Restart();
-			break;
+			else if (code == "Load")
+			{
+				currentChara = Character::CharaList[Local::Get("선택 캐릭터")];
+			}
+			else throw code;
 		}
 
 		Character::CharaList[Local::Get("선택 캐릭터")] = currentChara;
@@ -158,10 +163,10 @@ Character SelectCharactor(vector<Character>& charaList)
 
 	for (Character& chara : charaList)
 	{
-		if (chara.GetTalent("보유중"))
+		if (chara.GetTalent("보유중") && !chara.GetTalent("사망"))
 		{
 			// 캐릭터 정보 간략히 표시
-			cout << "  [" << setw(3) << chara.ID << "] " << chara.Name << "\t";
+			cout << "  [" << setw(2) << chara.ID << "] " << chara.Name << "\t";
 			PrintCharaHPEP(chara);
 			cout << endl;
 			IDList.push_back(chara.ID);
@@ -171,7 +176,7 @@ Character SelectCharactor(vector<Character>& charaList)
 	PrintLine();
 
 	cout << endl;
-	AddInput(IDList, 1000, "돌아가기", "\n");
+	AddInput(IDList, 1000, "돌아가기", "     ");
 	cout << endl;
 
 	int SelectID = GetInput(IDList);	// 입력 받기
@@ -184,6 +189,38 @@ Character SelectCharactor(vector<Character>& charaList)
 	}
 
 	return Character();	// 맞는거 없으면 무효값 반환
+}
+
+void ShopCharaChange(Character* currentChara)
+{
+	while (true)
+	{
+		cout << endl << "선택하려는 캐릭터를 고르십시오" << endl << endl;
+		Character selectChara = SelectCharactor(Character::CharaList);	// 캐릭터 받기
+		if (selectChara.ID == -1) break;	// 무효값이면 반복 종료
+
+		// 선택 재확인
+		cout << endl << selectChara.Name.WithPP("를") << " 선택하시겠습니까?" << endl;
+		cout << "[0] 예\t[1] 아니오" << endl;
+		if (!GetInput({ 0,1 }))
+		{
+			Character::CharaList[Local::Get("현재 캐릭터")] = *currentChara;
+
+			int index = 0;
+			for (auto& chara : Character::CharaList)
+			{
+				if (chara.ID == selectChara.ID)
+				{
+					Local::Set("현재 캐릭터", index);
+					break;
+				}
+				else index++;
+			}
+
+			*currentChara = selectChara;
+			break;
+		}
+	}
 }
 
 void ShopSave()
@@ -243,7 +280,7 @@ void ShopSave()
 	}
 }
 
-void ShopLoad(Character& currentChara)
+void ShopLoad(Character* chara)
 {
 	int index = 0;	// 저장 슬롯 인덱스 (10개 단위)
 	while (true)
@@ -276,7 +313,7 @@ void ShopLoad(Character& currentChara)
 			if (!GetInput({ 0,1 }))
 			{
 				Load(select);	// 불러오기
-				currentChara = Character::CharaList[Local::Get("현재 캐릭터")];
+				*chara = Character::CharaList[Local::Get("현재 캐릭터")];
 				break;
 			}
 		}
