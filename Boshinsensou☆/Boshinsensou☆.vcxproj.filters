@@ -87,6 +87,9 @@
     <ClCompile Include="YMN.cpp">
       <Filter>소스 파일\Characters</Filter>
     </ClCompile>
+    <ClCompile Include="KBS.cpp">
+      <Filter>소스 파일\Characters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System.h">
@@ -143,6 +146,9 @@
     <ClInclude Include="YMN.h">
       <Filter>헤더 파일\Characters</Filter>
     </ClInclude>
+    <ClInclude Include="KBS.h">
+      <Filter>헤더 파일\Characters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="CSV\CFlag.csv">
@@ -170,6 +176,9 @@
       <Filter>리소스 파일</Filter>
     </None>
     <None Include="CSV\Chara\0 YMN.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\101 KBS트리오.csv">
       <Filter>리소스 파일\Chara</Filter>
     </None>
   </ItemGroup>

@@ -6,6 +6,7 @@
 #include "YMN.h"
 #include "UDK.h"
 #include "히데.h"
+#include "KBS.h"
 
 // 캐릭터 데이터 처리 클래스
 static class CData

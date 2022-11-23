@@ -90,6 +90,7 @@ void Character::LoadSkillList()
 	YMN_Load();
 	UDK_Load();
 	히데_Load();
+	KBS_Load();
 }
 #pragma endregion
 

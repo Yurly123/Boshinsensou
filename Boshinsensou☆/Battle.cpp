@@ -129,6 +129,7 @@ void BattleLoop(Character& chara, Enemy& enemy)
 		AddInput(inputList, 102, "적의 정보", space);
 		cout << endl;
 
+		Character::PassiveSkillList[chara.Name](BeforeInput, chara, enemy);
 		cout << endl;
 		int input = GetInput(inputList);
 
