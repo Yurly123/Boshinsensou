@@ -144,6 +144,7 @@
     <ClCompile Include="SaveLoad.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="System.cpp" />
+    <ClCompile Include="Title.cpp" />
     <ClCompile Include="Train.cpp" />
     <ClCompile Include="UDK.cpp" />
     <ClCompile Include="히데.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="SaveLoad.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="System.h" />
+    <ClInclude Include="Title.h" />
     <ClInclude Include="Train.h" />
     <ClInclude Include="UDK.h" />
     <ClInclude Include="히데.h" />

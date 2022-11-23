@@ -262,4 +262,64 @@ void ShowCharaInfo(Character& chara)
 	}
 }
 
+void CharaDeath(Character& chara)
+{
+	Wait;
+
+	cout << ".";
+	Wait;
+
+	cout << "..";
+	Wait;
+
+	cout << "...";
+	Wait;
+
+	cout << chara.Name.WithPP("는") << " 명을 다했습니다.." << endl;
+	Wait;
+
+	while (true)
+	{
+		vector<int> inputList;
+		string space = "   ";
+		cout << "어떻게 하시겠습니까?" << endl << endl;
+		AddInput(inputList, 0, "로드하기", space);
+		AddInput(inputList, 1, "타이틀로", space);
+		AddInput(inputList, 2, "게임 종료", space);
+		if (chara.ID != 0) AddInput(inputList, 3, "무시하고 진행", space);
+		cout << endl << endl;
+		int input = GetInput(inputList);
+
+		string exitCode;
+		switch (input)
+		{
+		case 0:
+			exitCode = "Load";
+			throw exitCode;
+		case 1:
+			exitCode = "Title";
+			throw exitCode;
+		case 2:
+			exit(0);
+		case 3:
+			cout << endl;
+			cout << "정말로 무시하고 진행 하시겠습니까?" << endl;
+			cout << chara.Name.WithPP("는") << " 다시 돌아오지 못합니다" << endl;
+			cout << "[0] 예" << endl;
+			cout << "[1] 아니요" << endl << endl;
+
+			if (GetInput({ 0,1 }))
+				break;
+			else
+			{
+				cout << "***" << chara.Name.WithPP("는") << " 저세상으로 사라졌습니다***" << endl;
+				Wait;
+				exitCode = "Shop";
+				throw exitCode;
+			}
+		}
+
+	}
+}
+
 #pragma endregion

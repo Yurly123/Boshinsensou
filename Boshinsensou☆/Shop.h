@@ -12,3 +12,6 @@ void ProgressTime();
 // 캐릭터 리스트중 캐릭터 하나 선택
 // charaList : 선택할 캐릭터들의 리스트
 Character SelectCharactor(vector<Character>&);
+
+void ShopSave();
+void ShopLoad(Character&);

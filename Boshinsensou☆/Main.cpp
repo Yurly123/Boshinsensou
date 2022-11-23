@@ -27,10 +27,6 @@ void Initialize()
 	Character::LoadSkillList();	// 스킬 정보 로딩
 
 	GlobalLoad();
-
-	// 맨 밑으로 내리기
-	for (int i = 0; i < 100; ++i)
-		cout << endl;
 }
 
 // 프로그램 진입점
@@ -38,5 +34,5 @@ int main(int argc, char *argv[])
 {
 	programPath = argv[0];
 	Initialize();	// 기본 세팅
-	Shop();	// 메인 루프
+	Title();
 }

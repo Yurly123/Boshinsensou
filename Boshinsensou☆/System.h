@@ -43,6 +43,7 @@ enum passive;
 #include "Battle.h"
 #include "Glocal.h"
 #include "Enemy.h"
+#include "Title.h"	
 
 // 공용 함수 정의
 

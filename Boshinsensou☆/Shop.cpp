@@ -95,103 +95,12 @@ void Shop()
 			break;
 
 		case 200:	// 저장
-		{
-			int index = 0;	// 저장 슬롯 인덱스 (10개 단위)
-			while (true)
-			{
-				cout << endl << "몇번 슬롯에 저장하시겠습니까?" << endl << endl;
-				int select = SelectSaveSlot(index);	// 선택 받기
-				if (select == 100) break;	// 종료
-				else if (select == 101)	// 이전 슬롯
-				{
-					if (--index < 0) index += 10;
-				}
-				else if (select == 109)	// 다음 슬롯
-				{
-					if (++index > 9) index -= 10;
-				}
-				else if (select >= 90)
-				{
-					cout << endl << "자동 저장 슬롯입니다." << endl;
-					Wait;
-				}
-				else	// 저장
-				{
-					bool IsExisting = GetSlotStream(select).good();	// 저장 슬롯에 이미 파일이 존재하는가
-
-					cout << endl << "정말로 ";
-					if (IsExisting)
-						SetColor(11);
-					else
-						SetColor(8);
-					cout << "[" << select << "]번 슬롯";
-					SetColor(7);
-
-					cout << "에 저장하시겠습니까?" << endl;
-
-					// 파일 존재시 경고
-					if (IsExisting)
-					{
-						cout << "이미 저장되어 있는 슬롯의 경우, ";
-						SetColor(11);
-						cout << "기존 저장내용";
-						SetColor(7);
-						cout << "은 사라지게 됩니다." << endl;
-					}
-
-					// 선택 재확인
-					cout << "[0] 예" << endl;
-					cout << "[1] 아니요" << endl;
-					if (!GetInput({ 0,1 }))
-					{
-						Save(select);	// 저장
-						break;
-					}
-				}
-			}
-		}
-		break;
+			ShopSave();
+			break;
 
 		case 300:	// 불러오기
-		{
-			int index = 0;	// 저장 슬롯 인덱스 (10개 단위)
-			while (true)
-			{
-				cout << endl << "몇번 슬롯에서 불러오시겠습니까?" << endl << endl;
-				int select = SelectSaveSlot(index);	// 선택 받기
-				if (select == 100) break;	// 종료
-				else if (select == 101)	// 이전 슬롯
-				{
-					if (--index < 0) index += 10;
-				}
-				else if (select == 109)	// 다음 슬롯
-				{
-					if (++index > 9) index -= 10;
-				}
-				else	// 불러오기
-				{
-					if (!GetSlotStream(select).good()) continue;	// 파일이 없으면 다시 선택
-
-					cout << endl << "정말로 ";
-					SetColor(11);
-					cout << "[" << select << "]번 슬롯";
-					SetColor(7);
-
-					cout << "에서 불러오시겠습니까?" << endl;
-
-					// 선택 재확인
-					cout << "[0] 예" << endl;
-					cout << "[1] 아니요" << endl;
-					if (!GetInput({ 0,1 }))
-					{
-						Load(select);	// 불러오기
-						currentChara = Character::CharaList[Local::Get("현재 캐릭터")];
-						break;
-					}
-				}
-			}
-		}
-		break;
+			ShopLoad(currentChara);
+			break;
 
 		case 500:	// 전투
 			Battle(currentChara);
@@ -275,6 +184,103 @@ Character SelectCharactor(vector<Character>& charaList)
 	}
 
 	return Character();	// 맞는거 없으면 무효값 반환
+}
+
+void ShopSave()
+{
+	int index = 0;	// 저장 슬롯 인덱스 (10개 단위)
+	while (true)
+	{
+		cout << endl << "몇번 슬롯에 저장하시겠습니까?" << endl << endl;
+		int select = SelectSaveSlot(index);	// 선택 받기
+		if (select == 100) break;	// 종료
+		else if (select == 101)	// 이전 슬롯
+		{
+			if (--index < 0) index += 10;
+		}
+		else if (select == 109)	// 다음 슬롯
+		{
+			if (++index > 9) index -= 10;
+		}
+		else if (select >= 90)
+		{
+			cout << endl << "자동 저장 슬롯입니다." << endl;
+			Wait;
+		}
+		else	// 저장
+		{
+			bool IsExisting = GetSlotStream(select).good();	// 저장 슬롯에 이미 파일이 존재하는가
+
+			cout << endl << "정말로 ";
+			if (IsExisting)
+				SetColor(11);
+			else
+				SetColor(8);
+			cout << "[" << select << "]번 슬롯";
+			SetColor(7);
+
+			cout << "에 저장하시겠습니까?" << endl;
+
+			// 파일 존재시 경고
+			if (IsExisting)
+			{
+				cout << "이미 저장되어 있는 슬롯의 경우, ";
+				SetColor(11);
+				cout << "기존 저장내용";
+				SetColor(7);
+				cout << "은 사라지게 됩니다." << endl;
+			}
+
+			// 선택 재확인
+			cout << "[0] 예" << endl;
+			cout << "[1] 아니요" << endl;
+			if (!GetInput({ 0,1 }))
+			{
+				Save(select);	// 저장
+				break;
+			}
+		}
+	}
+}
+
+void ShopLoad(Character& currentChara)
+{
+	int index = 0;	// 저장 슬롯 인덱스 (10개 단위)
+	while (true)
+	{
+		cout << endl << "몇번 슬롯에서 불러오시겠습니까?" << endl << endl;
+		int select = SelectSaveSlot(index);	// 선택 받기
+		if (select == 100) break;	// 종료
+		else if (select == 101)	// 이전 슬롯
+		{
+			if (--index < 0) index += 10;
+		}
+		else if (select == 109)	// 다음 슬롯
+		{
+			if (++index > 9) index -= 10;
+		}
+		else	// 불러오기
+		{
+			if (!GetSlotStream(select).good()) continue;	// 파일이 없으면 다시 선택
+
+			cout << endl << "정말로 ";
+			SetColor(11);
+			cout << "[" << select << "]번 슬롯";
+			SetColor(7);
+
+			cout << "에서 불러오시겠습니까?" << endl;
+
+			// 선택 재확인
+			cout << "[0] 예" << endl;
+			cout << "[1] 아니요" << endl;
+			if (!GetInput({ 0,1 }))
+			{
+				Load(select);	// 불러오기
+				currentChara = Character::CharaList[Local::Get("현재 캐릭터")];
+				break;
+			}
+		}
+	}
 }
 
 #pragma endregion

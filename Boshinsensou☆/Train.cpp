@@ -125,6 +125,8 @@ map<int, int> TrainLoop(Character& TrainChara)
 			}
 		}
 
+		if (TrainChara.GetFlag("현재체력") <= 0)
+			CharaDeath(TrainChara);
 		if (TrainChara.GetFlag("현재체력") <= 20)
 		{
 			cout << endl << "**" << TrainChara.Name.WithPP("가") << " 너무 지쳤으므로 훈련을 종료합니다**" << endl;

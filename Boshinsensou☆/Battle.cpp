@@ -184,6 +184,9 @@ void ChangeTurn(Character& chara, Enemy& enemy)
 	PrintHpEpChange(chara);
 	Wait;
 
+	if (chara.GetFlag("현재체력") <= 0)
+		CharaDeath(chara);
+
 	PrintLine();
 	cout << endl << enemy.Name.WithPP("의") << " 턴" << endl << endl;
 	PrintLine();
@@ -201,6 +204,9 @@ void ChangeTurn(Character& chara, Enemy& enemy)
 	cout << endl;
 	PrintHpEpChange(chara);
 	Wait;
+
+	if (chara.GetFlag("현재체력") <= 0)
+		CharaDeath(chara);
 
 	PrintLine();
 	cout << endl << chara.Name.WithPP("의") << " 턴" << endl << endl;
@@ -295,7 +301,7 @@ void PrintEpBar(Character& chara)
 
 void Attack(Character& attacker, Character& defender)
 {
-	int damage = 10;
+	int damage = 1000;
 	int epRecover = attacker.GetFlag("최대기력") * 0.05;
 	cout << endl << attacker.Name.WithPP("의") << " 공격" << endl;
 	Wait;
