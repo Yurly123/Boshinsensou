@@ -1,4 +1,4 @@
-#include "Title.h"
+#include "System.h"
 
 void Title()
 {
@@ -12,7 +12,7 @@ void Title()
 			PrintLine();
 			cout << endl;
 
-			cout << setw(55) << "Boshinsou☆" << endl;
+			cout << setw(56) << "Boshinsensou☆" << endl;
 
 			cout << endl;
 			PrintLine();

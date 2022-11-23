@@ -1,4 +1,4 @@
-#include "YMN.h"
+#include "System.h"
 
 void YMN_Load()
 {
@@ -13,7 +13,7 @@ void YMN_Turn(Character& chara, Character& enemy)
 
 	GetDamage(enemy, chara, chara.GetFlag("공격력") * damageMultiple);
 
-	cout << chara.Name.WithPP("은") << " 검을 능숙하게 휘둘러 " << enemy.Name.WithPP("를") << " 잘게 베어낸다." << endl;
+	cout << chara.Name.WithPP("은") << " 검을 능숙하게 휘둘러 " << enemy.Name.WithPP("를") << " 잘게 베어낸다" << endl;
 	Wait;
 
 	cout << enemy.Name.WithPP("에게") << " " << -enemy.GetFlag("체력변화") << "의 데미지" << endl;
@@ -26,7 +26,7 @@ void YMN_EP(Character& chara, Character& enemy)
 
 	GetDamage(enemy, chara, chara.GetFlag("공격력") + damageAddition);
 
-	cout << chara.Name.WithPP("은") << " 체내의 기를 한 곳으로 모아 " << enemy.Name << " 방향으로 방출했다." << endl;
+	cout << chara.Name.WithPP("은") << " 체내의 기를 한 곳으로 모아 " << enemy.Name << " 방향으로 방출했다" << endl;
 	Wait;
 
 	cout << enemy.Name.WithPP("에게") << " " << -enemy.GetFlag("체력변화") << "의 데미지" << endl;
@@ -37,17 +37,19 @@ void YMN_Passive(passive timing, Character& chara, Character& enemy)
 {
 	if (!chara.GetTalent("이어지는의지"))
 	{
+		double defenseDecrease = chara.GetFlag("방어력") / 5.0;
+
 		switch (timing)
 		{
 		case Interface:
 			cout << "                         ";
 			cout << "이어지는의지의 부재로 방어력이 하락합니다.";
 			break;
-		case TurnStart:
-			chara.AddFlag("방어력", 20);
-			break;
 		case TurnEnd:
-			chara.AddFlag("방어력", -20);
+			chara.AddFlag("방어력", -defenseDecrease);
+			break;
+		case TurnStart:
+			chara.AddFlag("방어력", defenseDecrease);
 			break;
 		}
 	}

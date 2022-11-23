@@ -1,4 +1,4 @@
-#include "com010.h"
+#include "System.h"
 
 void Loadcom010()
 {

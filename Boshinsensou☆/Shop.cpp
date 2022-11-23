@@ -1,4 +1,4 @@
-#include "Shop.h"
+#include "System.h"
 
 #pragma region 전역 함수
 
@@ -114,6 +114,7 @@ void Shop()
 						Wait;
 					}
 				}
+				ProgressTime();
 			}
 			else if (code == "Load")
 			{
@@ -143,6 +144,8 @@ void ProgressTime()
 		if (chara.GetFlag("현재기력") > maxEp)
 			chara.SetFlag("현재기력", maxEp);
 
+		chara.SetFlag("체력변화", 0);
+		chara.SetFlag("기력변화", 0);
 		if (chara.ID == 0)
 			chara.SetTalent("이어지는의지", true);
 	}

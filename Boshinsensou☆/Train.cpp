@@ -1,4 +1,4 @@
-#include "Train.h"
+#include "System.h"
 
 #pragma region 전역 함수
 
