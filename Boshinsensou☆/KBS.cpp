@@ -73,7 +73,7 @@ void KBS_Passive(passive timing, Character& chara, Character& enemy)
 			cout << enemy.Name.WithPP("는") << " 공격을 준비한다";
 			break;
 		case 1:	// B!
-			cout << enemy.Name.WithPP("는") << " 방어을 준비한다";
+			cout << enemy.Name.WithPP("는") << " 방어를 준비한다";
 			break;
 		case 2:	// S!
 			cout << enemy.Name.WithPP("는") << " 지원을 준비한다";

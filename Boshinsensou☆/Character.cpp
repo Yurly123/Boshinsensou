@@ -91,6 +91,8 @@ void Character::LoadSkillList()
 	UDK_Load();
 	히데_Load();
 	KBS_Load();
+	유사쿠_Load();
+	HSI_Load();
 }
 #pragma endregion
 

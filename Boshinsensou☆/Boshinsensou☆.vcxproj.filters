@@ -90,6 +90,12 @@
     <ClCompile Include="KBS.cpp">
       <Filter>소스 파일\Characters</Filter>
     </ClCompile>
+    <ClCompile Include="유사쿠.cpp">
+      <Filter>소스 파일\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="HSI.cpp">
+      <Filter>소스 파일\Characters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System.h">
@@ -149,6 +155,12 @@
     <ClInclude Include="KBS.h">
       <Filter>헤더 파일\Characters</Filter>
     </ClInclude>
+    <ClInclude Include="유사쿠.h">
+      <Filter>헤더 파일\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="HSI.h">
+      <Filter>헤더 파일\Characters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="CSV\CFlag.csv">
@@ -179,6 +191,51 @@
       <Filter>리소스 파일\Chara</Filter>
     </None>
     <None Include="CSV\Chara\101 KBS트리오.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\102 유사쿠.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\103 HSI.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\105 AI사이클롭스.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\106 ICG.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\107 HNS.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\108 TIS.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\109 타쿠야.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\110 히라노.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\111 학대아저씨.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\112 GO.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\3 AKYS.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\4 KNN.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\1 야수선배.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\2 UDK.csv">
+      <Filter>리소스 파일\Chara</Filter>
+    </None>
+    <None Include="CSV\Chara\104 KMR.csv">
       <Filter>리소스 파일\Chara</Filter>
     </None>
   </ItemGroup>

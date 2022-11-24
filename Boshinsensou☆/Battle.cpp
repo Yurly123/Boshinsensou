@@ -37,7 +37,9 @@ void Battle(Character& currentChara)
 		case 100:	// 전투 개시
 			currentChara.SetFlag("체력변화", 0);
 			currentChara.SetFlag("기력변화", 0);
+
 			BattleLoop(currentChara, currentEnemy);
+
 			Local::Set("턴", 0);
 			Character::PassiveSkillList[currentChara.Name](EndOfBattle, currentChara, currentEnemy);
 			Character::CharaList[Local::Get("선택 캐릭터")] = currentChara;
@@ -214,6 +216,8 @@ void ChangeTurn(Character& chara, Enemy& enemy)
 
 	PrintLine();
 	Enemy::EnemyAIList[enemy.Name](enemy, chara);
+	Character::PassiveSkillList[chara.Name](EnemyTurnEnd, chara, enemy);
+	Enemy::PassiveSkillList[enemy.Name](EnemyTurnEnd, chara, enemy);
 
 	PrintLine();
 	cout << endl;

@@ -144,6 +144,7 @@
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Glocal.cpp" />
+    <ClCompile Include="HSI.cpp" />
     <ClCompile Include="KBS.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SaveLoad.cpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="Train.cpp" />
     <ClCompile Include="UDK.cpp" />
     <ClCompile Include="YMN.cpp" />
+    <ClCompile Include="유사쿠.cpp" />
     <ClCompile Include="히데.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +171,7 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Glocal.h" />
+    <ClInclude Include="HSI.h" />
     <ClInclude Include="KBS.h" />
     <ClInclude Include="SaveLoad.h" />
     <ClInclude Include="Shop.h" />
@@ -177,14 +180,30 @@
     <ClInclude Include="Train.h" />
     <ClInclude Include="UDK.h" />
     <ClInclude Include="YMN.h" />
+    <ClInclude Include="유사쿠.h" />
     <ClInclude Include="히데.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CSV\CFlag.csv" />
     <None Include="CSV\Character.csv" />
     <None Include="CSV\Chara\0 YMN.csv" />
+    <None Include="CSV\Chara\1 야수선배.csv" />
     <None Include="CSV\Chara\100 히데.csv" />
     <None Include="CSV\Chara\101 KBS트리오.csv" />
+    <None Include="CSV\Chara\102 유사쿠.csv" />
+    <None Include="CSV\Chara\103 HSI.csv" />
+    <None Include="CSV\Chara\104 KMR.csv" />
+    <None Include="CSV\Chara\105 AI사이클롭스.csv" />
+    <None Include="CSV\Chara\106 ICG.csv" />
+    <None Include="CSV\Chara\107 HNS.csv" />
+    <None Include="CSV\Chara\108 TIS.csv" />
+    <None Include="CSV\Chara\109 타쿠야.csv" />
+    <None Include="CSV\Chara\110 히라노.csv" />
+    <None Include="CSV\Chara\111 학대아저씨.csv" />
+    <None Include="CSV\Chara\112 GO.csv" />
+    <None Include="CSV\Chara\2 UDK.csv" />
+    <None Include="CSV\Chara\3 AKYS.csv" />
+    <None Include="CSV\Chara\4 KNN.csv" />
     <None Include="CSV\CStr.csv" />
     <None Include="CSV\CTalent.csv" />
     <None Include="CSV\Global.csv" />

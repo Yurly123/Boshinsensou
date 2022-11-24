@@ -7,6 +7,8 @@
 #include "UDK.h"
 #include "히데.h"
 #include "KBS.h"
+#include "유사쿠.h"
+#include "HSI.h"
 
 // 캐릭터 데이터 처리 클래스
 static class CData

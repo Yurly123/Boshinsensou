@@ -16,11 +16,23 @@ void Title()
 
 			cout << endl;
 			PrintLine();
-			Wait;
+			cout << endl;
 
-			for (int i = 0; i < 50; ++i)
-				cout << endl;
-			Shop();
+			cout << setw(58) << "[0] 시작하기" << endl;
+			cout << setw(58) << "[1] 로드하기" << endl;
+
+			if (GetInput({ 0,1 }))
+			{
+				Character temp;
+				ShopLoad(&temp);
+				if (temp.ID != -1) Shop();
+			}
+			else
+			{
+				for (int i = 0; i < 50; ++i)
+					cout << endl;
+				Shop();
+			}
 		}
 		catch (string code)
 		{

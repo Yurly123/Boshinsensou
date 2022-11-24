@@ -85,6 +85,7 @@ void Shop()
 
 			case 999:	// 게임종료
 				cout << "정말로 종료 하시겠습니까?" << endl;
+				cout << "저장되지 않은 내용은 삭제 됩니다" << endl;
 				cout << "[0] 예" << endl;
 				cout << "[1] 아니요" << endl << endl;
 				if (!GetInput({ 0,1 }))

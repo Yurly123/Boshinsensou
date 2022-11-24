@@ -15,6 +15,7 @@ enum passive
 	TurnEnd,
 	EndOfBattle,
 	BeforeInput,
+	EnemyTurnEnd,
 };
 
 void Battle(Character&);
