@@ -285,7 +285,7 @@ void CharaDeath(Character& chara)
 		AddInput(inputList, 0, "로드하기", space);
 		AddInput(inputList, 1, "타이틀로", space);
 		AddInput(inputList, 2, "게임 종료", space);
-		if (chara.ID != 0) AddInput(inputList, 3, "무시하고 진행", space);
+		//if (chara.ID != 0) AddInput(inputList, 3, "무시하고 진행", space);
 		cout << endl << endl;
 		int input = GetInput(inputList);
 
@@ -342,7 +342,6 @@ void CharaDeath(Character& chara)
 			}
 			break;
 		}
-
 	}
 }
 

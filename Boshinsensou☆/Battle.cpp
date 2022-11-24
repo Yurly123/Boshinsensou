@@ -35,10 +35,13 @@ void Battle(Character& currentChara)
 		switch (input)
 		{
 		case 100:	// 전투 개시
+			currentChara.SetFlag("체력변화", 0);
+			currentChara.SetFlag("기력변화", 0);
 			BattleLoop(currentChara, currentEnemy);
 			Local::Set("턴", 0);
 			Character::PassiveSkillList[currentChara.Name](EndOfBattle, currentChara, currentEnemy);
-			ProgressTime();
+			Character::CharaList[Local::Get("선택 캐릭터")] = currentChara;
+			ProgressTime(currentChara);
 			return;
 		case 101:	// 아군 정보
 			ShowCharaInfo(currentChara);

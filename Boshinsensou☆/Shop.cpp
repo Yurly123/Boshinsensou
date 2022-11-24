@@ -54,7 +54,7 @@ void Shop()
 			{
 			case 100:	// 훈련
 				Train(currentChara);
-				ProgressTime();
+				ProgressTime(currentChara);
 				break;
 
 			case 101:	// 캐릭터 정보 확인
@@ -114,7 +114,7 @@ void Shop()
 						Wait;
 					}
 				}
-				ProgressTime();
+				ProgressTime(currentChara);
 			}
 			else if (code == "Load")
 			{
@@ -127,17 +127,19 @@ void Shop()
 	}
 }
 
-void ProgressTime()
+void ProgressTime(Character& currentChara)
 {
 	Local::Add("현재 시간", 1);	// 시간 가감
+
+	Character::CharaList[Local::Get("선택 캐릭터")] = currentChara;
 
 	// 캐릭터들 체력/기력 회복
 	for (auto& chara : Character::CharaList)
 	{
 		int maxHp = chara.GetFlag("최대체력");
 		int maxEp = chara.GetFlag("최대기력");
-		chara.AddFlag("현재체력", maxHp * 0.25);
-		chara.AddFlag("현재기력", maxEp * 0.375);
+		chara.AddFlag("현재체력", maxHp * 0.3);
+		chara.AddFlag("현재기력", maxEp * 0.5);
 		// 최대치 넘은값 평탄화
 		if (chara.GetFlag("현재체력") > maxHp)
 			chara.SetFlag("현재체력", maxHp);
@@ -149,6 +151,8 @@ void ProgressTime()
 		if (chara.ID == 0)
 			chara.SetTalent("이어지는의지", true);
 	}
+
+	currentChara = Character::CharaList[Local::Get("선택 캐릭터")];
 
 	AutoSave();
 	GlobalLoad();
