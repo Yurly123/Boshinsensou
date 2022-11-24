@@ -4,6 +4,7 @@
 
 int SelectSaveSlot(int index)
 {
+	CreateDirectoryA("sav", NULL);	// 저장 경로 확보
 	vector<int> InputLIst;
 
 	PrintLine();
@@ -72,7 +73,7 @@ void Save(int index)
 	// 날짜 저장
 	time_t timer = time(NULL);
 	struct tm* t = localtime(&timer);
-	out << t->tm_year + 1900 << "-";
+	out << to_string(t->tm_year + 1900) << "-";
 	out << setfill('0') << setw(2) << t->tm_mon + 1 << "-";
 	out << setfill('0') << setw(2) << t->tm_wday << "_";
 	out << setfill('0') << setw(2) << t->tm_hour << ":";
@@ -104,6 +105,19 @@ void Save(int index)
 		out << "," << endl;
 	}
 
+	out << Enemy::EnemyList.size() << endl;
+	for (auto& enemy : Enemy::EnemyList)
+	{
+		out << enemy.ID << endl;
+		for (auto& flag : CData::CFlagList)
+			out << "flag," << flag.first << "," << enemy.Cflag[flag.first] << "," << endl;
+		for (auto& talent : CData::CTalentList)
+			out << "talent," << talent.first << "," << enemy.Ctalent[talent.first] << "," << endl;
+		for (auto& str : CData::CStrList)
+			out << "str," << str.first << "," << enemy.Cstr[str.first] << "," << endl;
+		out << "," << endl;
+	}
+
 	for (auto& local : Local::LocalList)
 	{
 		out << local.first << "," << local.second << "," << endl;
@@ -114,10 +128,10 @@ void Save(int index)
 	if (!(index / 10)) path.append("0");
 	path.append(to_string(index));
 	path.append(".sav");
-	ofstream saveStream(path);
+	ofstream save(path);
 	while (!out.eof())
-		saveStream << (char)out.get();
-	saveStream.close();
+		save << (char)out.get();
+	save.close();
 }
 
 void Load(int index)
@@ -140,7 +154,6 @@ void Load(int index)
 
 	getline(in, buffer);
 	int charaCount = stoi(buffer);
-
 	for (int i = 0; i < charaCount; ++i)
 	{
 		getline(in, buffer);
@@ -204,6 +217,72 @@ void Load(int index)
 			}
 	}
 
+	getline(in, buffer);
+	int enemyCount = stoi(buffer);
+	for (int i = 0; i < enemyCount; ++i)
+	{
+		getline(in, buffer);
+		int enemyID = stoi(buffer);
+
+		Enemy loadEnemy;
+		for (auto& enemy : Enemy::EnemyList)
+			if (enemy.ID == enemyID)
+			{
+				loadEnemy = enemy;
+				break;
+			}
+
+		while (true)
+		{
+			getline(in, buffer, ',');
+			if (buffer == "flag")
+			{
+				getline(in, buffer, ',');
+				int index = stoi(buffer);
+
+				getline(in, buffer, ',');
+				int value = stoi(buffer);
+
+				loadEnemy.Cflag[index] = value;
+			}
+			else if (buffer == "talent")
+			{
+				getline(in, buffer, ',');
+				int index = stoi(buffer);
+
+				getline(in, buffer, ',');
+				bool value = stoi(buffer);
+
+				loadEnemy.Ctalent[index] = value;
+			}
+			else if (buffer == "str")
+			{
+				getline(in, buffer, ',');
+				int index = stoi(buffer);
+
+				getline(in, buffer, ',');
+				string value = buffer;
+
+				loadEnemy.Cstr[index] = value;
+			}
+			else
+			{
+				getline(in, buffer);
+				break;
+			}
+
+			getline(in, buffer);
+		}
+
+		for (auto& enemy : Enemy::EnemyList)
+			if (enemy.ID == enemyID)
+			{
+				enemy = loadEnemy;
+				break;
+			}
+	}
+
+
 	for (auto& local : Local::LocalList)
 	{
 		getline(in, buffer, ',');
@@ -222,17 +301,11 @@ stringstream Encode(stringstream& stream)
 {
 	stringstream code;
 	int singleCode;
-	int temp;
 	while (!stream.eof())
 	{
 		singleCode = stream.get();
-
-		singleCode += 127;
-		temp = singleCode & 0b1111;
-		singleCode >>= 4;
-		singleCode += temp << 4;
-
-		code << (char)singleCode;
+		singleCode += 128;
+		code << (unsigned char)singleCode;
 	}
 	return code;
 }
@@ -240,16 +313,10 @@ stringstream Decode(stringstream& stream)
 {
 	stringstream code;
 	int singleCode;
-	int temp;
 	while (!stream.eof())
 	{
 		singleCode = stream.get();
-		
-		temp = singleCode & 0b1111;
-		singleCode >>= 4;
-		singleCode += temp << 4;
-		singleCode -= 127;
-
+		singleCode -= 128;
 		code << (char)singleCode;
 	}
 	return code;

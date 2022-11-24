@@ -13,8 +13,12 @@ void KBS_AI(Enemy& enemy, Character& chara)
 	switch (Local::Get("턴") % 3)
 	{
 	case 0:	// K!
+	{
+		double ATKMultiple = 1.5;
+		enemy.SetFlag("공격력", enemy.GetFlag("공격력") * ATKMultiple);
 		Attack(enemy, chara);
-		break;
+		enemy.SetFlag("공격력", enemy.GetFlag("공격력") / ATKMultiple);
+	}	break;
 	case 1:	// B!
 		if (enemy.GetFlag("현재기력") >= enemy.GetFlag("기력스킬소모량"))
 			UseEpSkill(enemy, chara);
@@ -56,8 +60,24 @@ void KBS_EP(Character& enemy, Character& chara)
 	Wait;
 }
 
-void KBS_Passive(passive timing, Character& enemy, Character& chara)
+void KBS_Passive(passive timing, Character& chara, Character& enemy)
 {
-	if (timing == BeforeInput)
-		enemy.SetFlag("방어력", enemy.GetFlag("방어력") / 3.0);
+	if (timing == TurnEnd)
+		enemy.SetFlag("방어력", 15);
+	else if (timing == Interface)
+	{
+		cout << "                              ";
+		switch (Local::Get("턴") % 3)
+		{
+		case 0:	// K!
+			cout << enemy.Name.WithPP("는") << " 공격을 준비한다";
+			break;
+		case 1:	// B!
+			cout << enemy.Name.WithPP("는") << " 방어을 준비한다";
+			break;
+		case 2:	// S!
+			cout << enemy.Name.WithPP("는") << " 지원을 준비한다";
+			break;
+		}
+	}
 }

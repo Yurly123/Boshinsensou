@@ -155,6 +155,7 @@ public:
 	static vector<Enemy> EnemyList;
 	static map<string, void(*)(Enemy&, Character&)> EnemyAIList;
 	Enemy(Character&);
+	Enemy();
 };
 
 // 캐릭터 설명 받기

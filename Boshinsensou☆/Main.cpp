@@ -10,6 +10,7 @@ void Initialize()
 	system("mode con cols=100 lines=50");	// 콘솔창 크기 조절
 	SetConsoleScreenBufferSize(GetStdHandle(STD_OUTPUT_HANDLE), { 100,250 });	// 콘솔창 버퍼 조정 (스크롤 띄우기)
 	srand((unsigned int)time(NULL));	// 랜덤 시드 생성
+	locale::global(locale(".UTF-8"));
 	SetColor(7);	// 콘솔 색 초기화
 
 	// 데이터 로딩

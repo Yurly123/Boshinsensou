@@ -87,6 +87,7 @@ void BattleLoop(Character& chara, Enemy& enemy)
 	while (true)
 	{
 		Character::PassiveSkillList[chara.Name](TurnStart, chara, enemy);
+		Enemy::PassiveSkillList[enemy.Name](TurnStart, chara, enemy);
 
 		if (enemy.GetFlag("현재체력") <= 0)
 		{
@@ -130,6 +131,7 @@ void BattleLoop(Character& chara, Enemy& enemy)
 		cout << endl;
 
 		Character::PassiveSkillList[chara.Name](BeforeInput, chara, enemy);
+		Enemy::PassiveSkillList[enemy.Name](BeforeInput, chara, enemy);
 		cout << endl;
 		int input = GetInput(inputList);
 
@@ -197,6 +199,7 @@ void ChangeTurn(Character& chara, Enemy& enemy)
 	if (enemy.GetFlag("현재체력") <= 0)
 		return;
 	Character::PassiveSkillList[chara.Name](TurnEnd, chara, enemy);
+	Enemy::PassiveSkillList[enemy.Name](TurnEnd, chara, enemy);
 
 	PrintLine();
 	cout << endl << enemy.Name.WithPP("의") << " 턴" << endl << endl;
@@ -257,10 +260,16 @@ void Attack(Character& attacker, Character& defender)
 
 	GetDamage(defender, attacker, damage);
 	attacker.AddFlag("현재기력", epRecover);
-	if (!attacker.GetTalent("적"))
-		Character::PassiveSkillList[attacker.Name](DoneAttack, attacker, defender);
-	else
+	if (attacker.GetTalent("적"))
+	{
 		Character::PassiveSkillList[defender.Name](GotAttack, defender, attacker);
+		Enemy::PassiveSkillList[attacker.Name](GotAttack, defender, attacker);
+	}
+	else
+	{
+		Character::PassiveSkillList[attacker.Name](DoneAttack, attacker, defender);
+		Enemy::PassiveSkillList[defender.Name](DoneAttack, attacker, defender);
+	}
 
 	cout << defender.Name.WithPP("에게") << " " << -defender.GetFlag("체력변화") << "의 데미지" << endl;
 	Wait;
@@ -277,10 +286,16 @@ void Guard(Character& defender, Character& opponent)
 void ConsumeEp(Character& chara, Character& opponent, int amount)
 {
 	chara.AddFlag("현재기력", -amount);
-	if (!chara.GetTalent("적"))
-		Character::PassiveSkillList[chara.Name](MyEpConsume, chara, opponent);
-	else
+	if (chara.GetTalent("적"))
+	{
 		Character::PassiveSkillList[opponent.Name](EnemyEpConsume, opponent, chara);
+		Enemy::PassiveSkillList[chara.Name](EnemyEpConsume, opponent, chara);
+	}
+	else
+	{
+		Character::PassiveSkillList[chara.Name](MyEpConsume, chara, opponent);
+		Enemy::PassiveSkillList[opponent.Name](MyEpConsume, chara, opponent);
+	}
 }
 void GetDamage(Character& chara, Character& opponent, int amount)
 {
@@ -299,10 +314,16 @@ void GetDamage(Character& chara, Character& opponent, int amount)
 
 	chara.AddFlag("현재체력", -amount);
 
-	if (!chara.GetTalent("적"))
-		Character::PassiveSkillList[chara.Name](MyHpDamage, chara, opponent);
-	else
+	if (chara.GetTalent("적"))
+	{
 		Character::PassiveSkillList[opponent.Name](EnemyHpDamage, opponent, chara);
+		Enemy::PassiveSkillList[chara.Name](EnemyHpDamage, opponent, chara);
+	}
+	else
+	{
+		Character::PassiveSkillList[opponent.Name](MyHpDamage, chara, opponent);
+		Enemy::PassiveSkillList[chara.Name](MyHpDamage, chara, opponent);
+	}
 }
 
 bool Run(Character& chara, Enemy& enemy)

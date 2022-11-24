@@ -6,6 +6,11 @@
 vector<Enemy> Enemy::EnemyList = vector<Enemy>();
 map<string, void(*)(Enemy&, Character&)> Enemy::EnemyAIList = map<string, void(*)(Enemy&, Character&)>();
 
+Enemy::Enemy() : Character()
+{
+
+}
+
 Enemy::Enemy(Character& chara)
 {
 	this->ID = chara.ID;
