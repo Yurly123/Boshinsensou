@@ -101,12 +101,6 @@ map<int, int> TrainLoop(Character& TrainChara)
 			if (parameter[param.first] < 0)
 				parameter[param.first] = 0;
 		}
-		if (TrainChara.GetFlag("현재체력") != hp)
-			TrainChara.AddFlag("현재체력", -(hp - TrainChara.GetFlag("현재체력")) * parameter[Parameter::Get("피로")] / 200);
-		if (TrainChara.GetFlag("현재기력") != ep)
-			TrainChara.AddFlag("현재기력", -(ep - TrainChara.GetFlag("현재기력")) * parameter[Parameter::Get("피로")] / 200);
-		if (TrainChara.GetFlag("현재기력") < 0)
-			TrainChara.SetFlag("현재기력", 0);
 
 		cout << endl;
 		Wait;
@@ -208,6 +202,21 @@ void UpCStat(Character& chara, map<int, int>& parameter, int index)
 		PrintLine();
 		cout << endl;
 
+		cout << CData::Flag(index + 20) << " - ";
+		switch (index)
+		{
+		case 0:	// 지구력
+			cout << "체력이 증가합니다" << endl;
+			break;
+		case 1:	// 근력
+			cout << "공격력이 증가합니다" << endl;
+			break;
+		case 2:	// 정신력
+			cout << "기력이 증가합니다" << endl;
+			break;
+		}
+		cout << endl;
+
 		cout << "   [0] " << CData::Flag(index + 20) << chara.Cflag[index + 20] + 1;
 		for (auto& req : require)
 		{
@@ -226,6 +235,18 @@ void UpCStat(Character& chara, map<int, int>& parameter, int index)
 				for (auto& req : require)
 					parameter[req.first] -= req.second;
 				++chara.Cflag[index + 20];
+				switch (index)
+				{
+				case 0:	// 지구력
+					chara.AddFlag("HP", 50 * chara.Cflag[index + 20]);
+					break;
+				case 1:	// 근력
+					chara.AddFlag("공격력", 5 * chara.Cflag[index + 20]);
+					break;
+				case 2:	// 정신력
+					chara.AddFlag("HP", 30 * chara.Cflag[index + 20]);
+					break;
+				}
 				return;
 			}
 			else
@@ -245,10 +266,13 @@ map<int, int> StatRequirement(int index, Character& chara, map<int, int>& parame
 	switch (index)
 	{
 	case 0: // 지구력
-		require[Parameter::Get("유산소")] = 500 * (chara.GetFlag("지구력") + 1);
+		require[Parameter::Get("유산소")] = 200 + 200 * chara.GetFlag("지구력") * 1.25;
 		break;
 	case 1: // 근력
-		require[Parameter::Get("무산소")] = 500 * (chara.GetFlag("근력") + 1);
+		require[Parameter::Get("무산소")] = 200 + 200 * chara.GetFlag("근력") * 1.25;
+		break;
+	case 2:	// 정신력
+		require[Parameter::Get("의욕")] = 200 + 200 * chara.GetFlag("정신력") * 1.25;
 		break;
 	}
 

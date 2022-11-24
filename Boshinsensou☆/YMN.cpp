@@ -35,21 +35,17 @@ void YMN_EP(Character& chara, Character& enemy)
 
 void YMN_Passive(passive timing, Character& chara, Character& enemy)
 {
-	if (!chara.GetTalent("이어지는의지"))
+	if (chara.GetTalent("이어지는의지"))
 	{
-		double defenseDecrease = chara.GetFlag("방어력") / 5.0;
+		double defenseIncrease = chara.GetFlag("방어력") * 5.0;
 
 		switch (timing)
 		{
-		case Interface:
-			cout << "                         ";
-			cout << "이어지는의지의 부재로 방어력이 하락합니다.";
-			break;
 		case TurnEnd:
-			chara.AddFlag("방어력", -defenseDecrease);
+			chara.AddFlag("방어력", defenseIncrease);
 			break;
 		case TurnStart:
-			chara.AddFlag("방어력", defenseDecrease);
+			chara.AddFlag("방어력", -defenseIncrease);
 			break;
 		}
 	}

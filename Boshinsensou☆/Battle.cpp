@@ -37,6 +37,7 @@ void Battle(Character& currentChara)
 		case 100:	// 전투 개시
 			currentChara.SetFlag("체력변화", 0);
 			currentChara.SetFlag("기력변화", 0);
+			Character::PassiveSkillList[currentChara.Name](StartOfBattle, currentChara, currentEnemy);
 
 			BattleLoop(currentChara, currentEnemy);
 
@@ -63,15 +64,28 @@ void PrintBattleMap(int index)
 	switch (index)
 	{
 	case 0:
+	case 1:
 		//printf("-------------------------------------------------------------------------------------------------\n");
-		printf("     <마을>                                                                                      \n");
+		printf("     <stage 1>                                                                               \n");
 		printf("                                                                                                 \n");
 		printf("                                                                                                 \n");
-		printf("                                                                                                 \n");
+		printf("                                                       %s KBS 트리오\n", (index == 1 ? "▶" : "  "));
 		printf("			  %s 히데                                                                            \n", (index == 0 ? "▶" : "  "));
 		printf("                                                                                                 \n");
 		printf("                                                                                                 \n");
+		break;
 
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+		printf("     <stage 2>                                                                           \n");
+		printf("                                                                                        \n");
+		printf("                          %s HSI                                                         \n", (index == 3 ? "▶" : "  "));
+		printf("       %s 유사쿠   ", (index == 2 ? "▶" : "  "));
+		printf("                                                                      %s AI 사이클롭스   \n", (index == 5 ? "▶" : "  "));
+		printf("                                      %s KMR                                            \n", (index == 4 ? "▶" : "  "));
+		printf("                                                                                         \n");
 		break;
 	}
 }
