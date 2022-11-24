@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AI사이클롭스.cpp" />
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="com000.cpp" />
     <ClCompile Include="com009.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="Glocal.cpp" />
     <ClCompile Include="HSI.cpp" />
     <ClCompile Include="KBS.cpp" />
+    <ClCompile Include="KMR.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SaveLoad.cpp" />
     <ClCompile Include="Shop.cpp" />
@@ -161,6 +163,7 @@
     <ClCompile Include="히데.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AI사이클롭스.h" />
     <ClInclude Include="Battle.h" />
     <ClInclude Include="com000.h" />
     <ClInclude Include="com009.h" />
@@ -173,6 +176,7 @@
     <ClInclude Include="Glocal.h" />
     <ClInclude Include="HSI.h" />
     <ClInclude Include="KBS.h" />
+    <ClInclude Include="KMR.h" />
     <ClInclude Include="SaveLoad.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="System.h" />

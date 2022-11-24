@@ -9,6 +9,8 @@
 #include "KBS.h"
 #include "유사쿠.h"
 #include "HSI.h"
+#include "KMR.h"
+#include "AI사이클롭스.h"
 
 // 캐릭터 데이터 처리 클래스
 static class CData
