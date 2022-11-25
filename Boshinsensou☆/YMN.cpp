@@ -37,15 +37,15 @@ void YMN_Passive(passive timing, Character& chara, Character& enemy)
 {
 	if (chara.GetTalent("이어지는의지"))
 	{
-		double defenseIncrease = chara.GetFlag("방어력") * 5.0;
+		double defenseIncrease = 5.0;
 
 		switch (timing)
 		{
 		case TurnEnd:
-			chara.AddFlag("방어력", defenseIncrease);
+			chara.SetFlag("방어력", chara.GetFlag("방어력") * defenseIncrease);
 			break;
 		case TurnStart:
-			chara.AddFlag("방어력", -defenseIncrease);
+			chara.SetFlag("방어력", chara.GetFlag("방어력") / defenseIncrease);
 			break;
 		}
 	}

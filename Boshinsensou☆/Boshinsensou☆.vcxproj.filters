@@ -78,7 +78,7 @@
     <ClCompile Include="UDK.cpp">
       <Filter>소스 파일\Characters</Filter>
     </ClCompile>
-    <ClCompile Include="히데.cpp">
+    <ClCompile Include="Hide.cpp">
       <Filter>소스 파일\Characters</Filter>
     </ClCompile>
     <ClCompile Include="Title.cpp">
@@ -90,7 +90,7 @@
     <ClCompile Include="KBS.cpp">
       <Filter>소스 파일\Characters</Filter>
     </ClCompile>
-    <ClCompile Include="유사쿠.cpp">
+    <ClCompile Include="Yuusaku.cpp">
       <Filter>소스 파일\Characters</Filter>
     </ClCompile>
     <ClCompile Include="HSI.cpp">
@@ -149,7 +149,7 @@
     <ClInclude Include="UDK.h">
       <Filter>헤더 파일\Characters</Filter>
     </ClInclude>
-    <ClInclude Include="히데.h">
+    <ClInclude Include="Hide.h">
       <Filter>헤더 파일\Characters</Filter>
     </ClInclude>
     <ClInclude Include="Title.h">
@@ -161,7 +161,7 @@
     <ClInclude Include="KBS.h">
       <Filter>헤더 파일\Characters</Filter>
     </ClInclude>
-    <ClInclude Include="유사쿠.h">
+    <ClInclude Include="Yuusaku.h">
       <Filter>헤더 파일\Characters</Filter>
     </ClInclude>
     <ClInclude Include="HSI.h">
