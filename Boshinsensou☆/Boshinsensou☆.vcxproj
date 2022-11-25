@@ -134,7 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AI사이클롭스.cpp" />
+    <ClCompile Include="Cyclops.cpp" />
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="com000.cpp" />
     <ClCompile Include="com009.cpp" />
@@ -163,7 +163,7 @@
     <ClCompile Include="히데.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AI사이클롭스.h" />
+    <ClInclude Include="Cyclops.h" />
     <ClInclude Include="Battle.h" />
     <ClInclude Include="com000.h" />
     <ClInclude Include="com009.h" />

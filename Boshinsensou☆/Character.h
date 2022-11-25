@@ -5,12 +5,12 @@
 
 #include "YMN.h"
 #include "UDK.h"
-#include "히데.h"
+#include "Hide.h"
 #include "KBS.h"
-#include "유사쿠.h"
+#include "Yuusaku.h"
 #include "HSI.h"
 #include "KMR.h"
-#include "AI사이클롭스.h"
+#include "Cyclops.h"
 
 // 캐릭터 데이터 처리 클래스
 static class CData
