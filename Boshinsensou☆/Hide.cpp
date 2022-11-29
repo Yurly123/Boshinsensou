@@ -1,14 +1,14 @@
 #include "System.h"
 
-void 히데_Load()
+void Hide_Load()
 {
-	Enemy::TurnSkillList["히데"] = 히데_Turn;
-	Enemy::EpSkillList["히데"] = 히데_EP;
-	Enemy::PassiveSkillList["히데"] = 히데_Passive;
-	Enemy::EnemyAIList["히데"] = 히데_AI;
+	Enemy::TurnSkillList["히데"] = Hide_Turn;
+	Enemy::EpSkillList["히데"] = Hide_EP;
+	Enemy::PassiveSkillList["히데"] = Hide_Passive;
+	Enemy::EnemyAIList["히데"] = Hide_AI;
 }
 
-void 히데_AI(Enemy& enemy, Character& chara)
+void Hide_AI(Enemy& enemy, Character& chara)
 {
 	if (enemy.GetFlag("현재기력") >= enemy.GetFlag("기력스킬소모량")
 		&& chara.GetFlag("현재기력") >= chara.GetFlag("최대기력") * 0.5)
@@ -17,12 +17,12 @@ void 히데_AI(Enemy& enemy, Character& chara)
 		Attack(enemy, chara);
 }
 
-void 히데_Turn(Character&, Character&)
+void Hide_Turn(Character&, Character&)
 {
 
 }
 
-void 히데_EP(Character& enemy, Character& chara)
+void Hide_EP(Character& enemy, Character& chara)
 {
 	int epDecrease = chara.GetFlag("최대기력") * 0.25;
 	ConsumeEp(chara, enemy, epDecrease);
@@ -34,7 +34,7 @@ void 히데_EP(Character& enemy, Character& chara)
 	Wait;
 }
 
-void 히데_Passive(passive, Character&, Character&)
+void Hide_Passive(passive, Character&, Character&)
 {
 
 }

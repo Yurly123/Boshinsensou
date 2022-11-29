@@ -2,8 +2,8 @@
 
 #include "System.h"
 
-void 히데_Load();
-void 히데_AI(Enemy&, Character&);
-void 히데_Turn(Character&, Character&);
-void 히데_EP(Character&, Character&);
-void 히데_Passive(passive, Character&, Character&);
+void Hide_Load();
+void Hide_AI(Enemy&, Character&);
+void Hide_Turn(Character&, Character&);
+void Hide_EP(Character&, Character&);
+void Hide_Passive(passive, Character&, Character&);

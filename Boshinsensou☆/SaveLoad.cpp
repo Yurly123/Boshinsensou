@@ -315,7 +315,7 @@ stringstream Decode(stringstream& stream)
 	int singleCode;
 	while (!stream.eof())
 	{
-		singleCode = stream.get();
+		singleCode = (unsigned char)stream.get();
 		singleCode -= 128;
 		code << (char)singleCode;
 	}

@@ -1,14 +1,14 @@
 #include "System.h"
 
-void 유사쿠_Load()
+void Yuusaku_Load()
 {
-	Enemy::TurnSkillList["유사쿠"] = 유사쿠_Turn;
-	Enemy::EpSkillList["유사쿠"] = 유사쿠_EP;
-	Enemy::PassiveSkillList["유사쿠"] = 유사쿠_Passive;
-	Enemy::EnemyAIList["유사쿠"] = 유사쿠_AI;
+	Enemy::TurnSkillList["유사쿠"] = Yuusaku_Turn;
+	Enemy::EpSkillList["유사쿠"] = Yuusaku_EP;
+	Enemy::PassiveSkillList["유사쿠"] = Yuusaku_Passive;
+	Enemy::EnemyAIList["유사쿠"] = Yuusaku_AI;
 }
 
-void 유사쿠_AI(Enemy& enemy, Character& chara)
+void Yuusaku_AI(Enemy& enemy, Character& chara)
 {
 	if (enemy.GetFlag("턴대기") >= enemy.GetFlag("턴스킬대기시간") && chara.GetFlag("말벌") >= 5)
 		UseTurnSkill(enemy, chara);
@@ -18,7 +18,7 @@ void 유사쿠_AI(Enemy& enemy, Character& chara)
 		Attack(enemy, chara);
 }
 
-void 유사쿠_Turn(Character& enemy, Character& chara)
+void Yuusaku_Turn(Character& enemy, Character& chara)
 {
 	int hornetDamage = 10;
 	GetDamage(chara, enemy, hornetDamage * chara.GetFlag("말벌"));
@@ -31,7 +31,7 @@ void 유사쿠_Turn(Character& enemy, Character& chara)
 	Wait;
 }
 
-void 유사쿠_EP(Character& enemy, Character& chara)
+void Yuusaku_EP(Character& enemy, Character& chara)
 {
 	chara.AddFlag("말벌", 2);
 
@@ -42,7 +42,7 @@ void 유사쿠_EP(Character& enemy, Character& chara)
 	Wait;
 }
 
-void 유사쿠_Passive(passive timing, Character& chara, Character& enemy)
+void Yuusaku_Passive(passive timing, Character& chara, Character& enemy)
 {
 	int hornetDamage = 5;
 	if (timing == BeforeInput)

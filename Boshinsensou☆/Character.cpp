@@ -89,9 +89,9 @@ void Character::LoadSkillList()
 {
 	YMN_Load();
 	UDK_Load();
-	히데_Load();
+	Hide_Load();
 	KBS_Load();
-	유사쿠_Load();
+	Yuusaku_Load();
 	HSI_Load();
 	KMR_Load();
 }
