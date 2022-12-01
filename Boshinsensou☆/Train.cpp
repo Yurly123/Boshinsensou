@@ -23,7 +23,7 @@ void Train(Character& TrainChara)
 	}
 	Wait;
 
-	if (parameter[Parameter::Get("피로")] > 0)
+	/*if (parameter[Parameter::Get("피로")] > 0)
 	{
 		cout << "피로도 " << parameter[Parameter::Get("피로")] << "에서 감소한 포인트 : " << endl;
 		cout << endl;
@@ -40,7 +40,7 @@ void Train(Character& TrainChara)
 			}
 		}
 		Wait;
-	}
+	}*/
 
 	ImproveCharaStat(TrainChara, parameter);
 }
@@ -266,13 +266,13 @@ map<int, int> StatRequirement(int index, Character& chara, map<int, int>& parame
 	switch (index)
 	{
 	case 0: // 지구력
-		require[Parameter::Get("유산소")] = 200 + 200 * chara.GetFlag("지구력") * 1.25;
+		require[Parameter::Get("유산소")] = 50 + 200 * chara.GetFlag("지구력") * 1.25;
 		break;
 	case 1: // 근력
-		require[Parameter::Get("무산소")] = 200 + 200 * chara.GetFlag("근력") * 1.25;
+		require[Parameter::Get("무산소")] = 50 + 200 * chara.GetFlag("근력") * 1.25;
 		break;
 	case 2:	// 정신력
-		require[Parameter::Get("의욕")] = 200 + 200 * chara.GetFlag("정신력") * 1.25;
+		require[Parameter::Get("의욕")] = 50 + 200 * chara.GetFlag("정신력") * 1.25;
 		break;
 	}
 
